@@ -41,7 +41,7 @@
         .hero {
             height: 65vh;
             background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), 
-                        url('https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=2070') center/cover;
+                        url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070') center/cover;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             color: white; text-align: center; padding: 0 10%;
         }
@@ -55,12 +55,12 @@
         .section-title .bar { width: 70px; height: 4px; background: var(--accent); margin: 15px auto; }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); transition: 0.4s; border: 1px solid #edf2f7; }
+        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); transition: 0.4s; border: 1px solid #edf2f7; display: flex; flex-direction: column; }
         .card:hover { transform: translateY(-10px); border-color: var(--accent); }
-        .card-img { width: 100%; height: 250px; object-fit: contain; padding: 20px; background: #fff; }
-        .card-body { padding: 25px; border-top: 1px solid #f1f5f9; }
+        .card-img { width: 100%; height: 280px; object-fit: contain; padding: 20px; background: #fff; }
+        .card-body { padding: 25px; border-top: 1px solid #f1f5f9; flex-grow: 1; display: flex; flex-direction: column; }
         .card-body h3 { font-size: 1.2rem; margin-bottom: 10px; color: var(--primary); }
-        .card-body p { font-size: 0.9rem; color: #64748b; margin-bottom: 15px; height: 40px; overflow: hidden; }
+        .card-body p { font-size: 0.9rem; color: #64748b; margin-bottom: 15px; min-height: 40px; }
         .price { color: var(--accent); font-weight: 800; font-size: 1.4rem; margin-bottom: 20px; display: block; }
 
         /* QUOTE FORM SECTION */
@@ -118,7 +118,7 @@
     <main id="home-page" class="page active">
         <section class="hero">
             <h1>CÔNG TY KỸ THUẬT AT-MAINT</h1>
-            <p>Đơn vị chuyên sâu về giải pháp Tự động hóa WECON. Cung cấp thiết bị chính hãng và dịch vụ sửa chữa Biến tần - PLC - HMI chuyên nghiệp.</p>
+            <p>Đơn vị chuyên sâu về giải pháp Tự động hóa WECON. Cung cấp thiết bị chính hãng và dịch vụ sửa chữa Biến tần - PLC - HMI chuyên nghiệp tại Việt Nam.</p>
             <button onclick="navigateTo('products')" class="btn-accent" style="width: auto; padding: 15px 45px; margin-top: 20px;">XEM SẢN PHẨM WECON</button>
         </section>
 
@@ -129,7 +129,7 @@
             </div>
             <div class="grid">
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1618331835717-801e976710b2?q=80&w=800" class="card-img" alt="PLC WECON LX3V">
+                    <img src="https://wecon.com.vn/wp-content/uploads/2019/04/LX3V-1412MT-A-1.jpg" class="card-img" alt="PLC WECON LX3V">
                     <div class="card-body">
                         <h3>PLC WECON LX3V Series</h3>
                         <p>Dòng PLC mạnh mẽ, hỗ trợ nhiều I/O, tốc độ xử lý nhanh, ổn định cho nhà máy.</p>
@@ -138,19 +138,19 @@
                     </div>
                 </div>
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800" class="card-img" alt="HMI WECON LEVI">
+                    <img src="https://wecon.com.vn/wp-content/uploads/2019/04/PI3070ie.jpg" class="card-img" alt="HMI WECON PI">
                     <div class="card-body">
-                        <h3>HMI WECON Levi Series</h3>
-                        <p>Màn hình cảm ứng công nghiệp độ bền cao, giao diện trực quan, dễ lập trình.</p>
+                        <h3>HMI WECON PI Series</h3>
+                        <p>Màn hình cảm ứng công nghiệp độ phân giải cao, hỗ trợ Cloud IIoT hiện đại.</p>
                         <span class="price">2.450.000đ</span>
                         <a href="https://zalo.me/0355915000" target="_blank" class="btn-accent" style="display:block; text-align:center; text-decoration:none">Tư Vấn Kỹ Thuật</a>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="https://images.unsplash.com/photo-1590959651373-a3db0f38a961?q=80&w=800" class="card-img" alt="VFD WECON">
+                    <img src="https://wecon.com.vn/wp-content/uploads/2021/05/Bien-tan-Wecon-VB.jpg" class="card-img" alt="VFD WECON VB">
                     <div class="card-body">
                         <h3>Biến Tần WECON VB Series</h3>
-                        <p>Giải pháp điều khiển tốc độ động cơ tối ưu, tiết kiệm điện năng và bảo vệ máy.</p>
+                        <p>Giải pháp điều khiển tốc độ động cơ tối ưu, tiết kiệm điện năng và bền bỉ.</p>
                         <span class="price">3.200.000đ</span>
                         <a href="https://zalo.me/0355915000" target="_blank" class="btn-accent" style="display:block; text-align:center; text-decoration:none">Tư Vấn Kỹ Thuật</a>
                     </div>
@@ -193,10 +193,28 @@
     </main>
 
     <main id="products-page" class="page">
-        <section class="section"><div class="section-title"><h2>Danh Mục Sản Phẩm</h2><div class="bar"></div></div><div class="grid" id="full-list"></div></section>
+        <section class="section">
+            <div class="section-title"><h2>Danh Mục Sản Phẩm WECON</h2><div class="bar"></div></div>
+            <div class="grid" id="full-list"></div>
+        </section>
     </main>
+
     <main id="services-page" class="page">
-        <section class="section"><div class="section-title"><h2>Dịch Vụ Kỹ Thuật Chuyên Sâu</h2><div class="bar"></div></div><p style="text-align:center; max-width:800px; margin: 0 auto; line-height:1.8;">AT-MAINT cung cấp dịch vụ sửa chữa chuyên sâu các thiết bị Tự động hóa: Thay thế linh kiện chính hãng cho Biến tần, mở khóa PLC, thiết kế giao diện HMI và bảo trì tủ điện định kỳ cho nhà máy.</p></section>
+        <section class="section">
+            <div class="section-title"><h2>Dịch Vụ Kỹ Thuật Chuyên Sâu</h2><div class="bar"></div></div>
+            <div style="text-align:center; max-width:850px; margin: 0 auto; line-height:1.8;">
+                <p style="margin-bottom: 20px; font-size: 1.1rem;">AT-MAINT cung cấp hệ sinh thái dịch vụ kỹ thuật toàn diện cho các hệ thống tự động hóa:</p>
+                <ul style="list-style: none; text-align: left; display: inline-block;">
+                    <li>🛠️ <strong>Sửa chữa Biến tần:</strong> Thay IGBT, tụ nguồn, sửa board điều khiển các hãng.</li>
+                    <li>💻 <strong>Lập trình & Mở khóa:</strong> Xử lý chương trình PLC, HMI WECON và các hãng phổ biến.</li>
+                    <li>⚡ <strong>Thi công tủ điện:</strong> Thiết kế, lắp đặt tủ điện phân phối và tủ điều khiển máy.</li>
+                    <li>🔄 <strong>Cải tiến hệ thống:</strong> Nâng cấp dây chuyền sản xuất cũ sang công nghệ WECON IIoT.</li>
+                </ul>
+                <div style="margin-top: 40px;">
+                    <a href="https://zalo.me/0355915000" class="btn-accent" style="text-decoration: none; padding: 15px 30px;">Liên hệ kỹ thuật ngay</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -209,6 +227,7 @@
         function navigateTo(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(pageId + '-page').classList.add('active');
+            
             document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
             const nav = document.getElementById('nav-' + pageId);
             if(nav) nav.classList.add('active');
@@ -221,7 +240,7 @@
 
         function handleForm(event) {
             event.preventDefault();
-            alert("Cảm ơn bạn! Yêu cầu của bạn đã được gửi thành công. Chúng tôi sẽ liên hệ lại ngay.");
+            alert("Cảm ơn bạn! Yêu cầu của bạn đã được gửi thành công đến AT-MAINT. Chúng tôi sẽ liên hệ lại ngay.");
             event.target.reset();
         }
     </script>
