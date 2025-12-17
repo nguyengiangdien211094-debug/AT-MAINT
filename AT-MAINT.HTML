@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AT-Maint | Phân Phối sản phẩm WECON & Dịch Vụ Kỹ Thuật Chuyên Nghiệp</title>
+    <title>AT-Maint | Phân Phối WECON & Kỹ Thuật Bảo Trì</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -26,7 +26,6 @@
 
         h1, h2, h3, .logo { font-family: 'Montserrat', sans-serif; }
 
-        /* HEADER */
         header {
             background: var(--white);
             height: 80px;
@@ -50,74 +49,69 @@
         }
         nav ul li a:hover { color: var(--accent); }
 
-        /* HERO SECTION */
         .hero {
-            background: linear-gradient(rgba(0,51,102,0.9), rgba(0,51,102,0.9)), 
-                        url('https://www.wecon.com.cn/template/default/images/banner1.jpg');
+            background: linear-gradient(rgba(0,51,102,0.85), rgba(0,51,102,0.85)), 
+                        url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1500');
             background-size: cover; background-position: center;
-            color: var(--white); padding: 100px 20px; text-align: center;
+            color: var(--white); padding: 120px 20px; text-align: center;
         }
         .hero h1 { font-size: 45px; margin: 0 0 20px; text-transform: uppercase; }
-        .hero p { font-size: 20px; max-width: 800px; margin: 0 auto 30px; font-weight: 300; }
-        .hero-btns { display: flex; justify-content: center; gap: 15px; }
-        .btn-main { background: var(--accent); color: white; padding: 15px 35px; text-decoration: none; border-radius: 5px; font-weight: 700; transition: 0.3s; }
-        .btn-sub { background: white; color: var(--primary); padding: 15px 35px; text-decoration: none; border-radius: 5px; font-weight: 700; transition: 0.3s; }
-        .btn-main:hover { opacity: 0.9; transform: translateY(-3px); }
+        .hero p { font-size: 20px; max-width: 800px; margin: 0 auto 35px; font-weight: 300; }
+        .btn-main { background: var(--accent); color: white; padding: 16px 40px; text-decoration: none; border-radius: 5px; font-weight: 700; transition: 0.3s; display: inline-block; }
+        .btn-sub { background: white; color: var(--primary); padding: 16px 40px; text-decoration: none; border-radius: 5px; font-weight: 700; transition: 0.3s; display: inline-block; }
+        .btn-main:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255,102,0,0.4); }
 
-        /* SECTION STYLES */
-        .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
-        .section-header { text-align: center; margin-bottom: 50px; }
-        .section-header h2 { font-size: 32px; color: var(--primary); margin-bottom: 10px; }
-        .section-header .line { width: 70px; height: 4px; background: var(--accent); margin: 0 auto; }
+        .container { max-width: 1200px; margin: 80px auto; padding: 0 20px; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 32px; color: var(--primary); margin-bottom: 10px; text-transform: uppercase; }
+        .line { width: 80px; height: 4px; background: var(--accent); margin: 0 auto; }
 
-        /* PRODUCT GRID */
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            gap: 35px;
         }
         .p-card {
             background: var(--white); border-radius: 15px; overflow: hidden;
             box-shadow: var(--shadow); transition: 0.4s;
-            display: flex; flex-direction: column;
+            display: flex; flex-direction: column; border: 1px solid #eee;
         }
         .p-card:hover { transform: translateY(-10px); }
         .p-img-box {
-            height: 280px; padding: 30px; background: #fff;
+            height: 300px; padding: 20px; background: #fff;
             display: flex; align-items: center; justify-content: center;
-            border-bottom: 1px solid #eee;
+            overflow: hidden; position: relative;
         }
-        .p-img-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .p-img-box img { 
+            max-width: 90%; max-height: 90%; object-fit: contain; 
+            transition: 0.5s ease;
+        }
+        .p-card:hover .p-img-box img { transform: scale(1.1); }
         
         .p-content { padding: 30px; flex-grow: 1; }
-        .p-content h3 { color: var(--primary); font-size: 20px; margin-bottom: 15px; }
-        .p-content p { font-size: 15px; color: #666; margin-bottom: 20px; height: 45px; overflow: hidden; }
+        .p-content h3 { color: var(--primary); font-size: 22px; margin-bottom: 15px; border-bottom: 1px solid #f0f0f0; padding-bottom: 10px; }
+        .p-content p { font-size: 15px; color: #666; margin-bottom: 20px; line-height: 1.5; }
         
         .p-specs { list-style: none; padding: 0; margin: 0 0 25px; }
-        .p-specs li { padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; display: flex; justify-content: space-between; }
+        .p-specs li { padding: 10px 0; border-bottom: 1px dotted #ddd; font-size: 14px; display: flex; justify-content: space-between; }
         .p-specs li b { color: var(--primary); }
 
-        /* SERVICE SECTION */
-        .service-banner {
-            background: #fff; padding: 60px 0; border-top: 1px solid #eee;
-        }
-        .service-flex {
-            display: flex; flex-wrap: wrap; gap: 40px; align-items: center;
-        }
-        .service-text { flex: 1; min-width: 300px; }
-        .service-text h3 { font-size: 28px; color: var(--accent); }
-        .service-list { list-style: none; padding: 0; margin-top: 20px; }
-        .service-list li { margin-bottom: 15px; font-size: 16px; display: flex; align-items: center; }
-        .service-list li::before { content: '✓'; color: var(--accent); font-weight: bold; margin-right: 15px; }
+        .service-banner { background: #fff; padding: 100px 0; }
+        .service-flex { display: flex; flex-wrap: wrap; gap: 50px; align-items: center; }
+        .service-text { flex: 1; min-width: 350px; }
+        .service-text h3 { font-size: 32px; color: var(--primary); margin-bottom: 20px; }
+        .service-text span { color: var(--accent); }
+        .service-list { list-style: none; padding: 0; }
+        .service-list li { margin-bottom: 18px; font-size: 16px; display: flex; align-items: flex-start; }
+        .service-list li::before { content: '✔'; color: var(--accent); margin-right: 15px; font-weight: bold; }
 
-        /* FOOTER */
-        footer { background: #0a1929; color: #fff; padding: 60px 20px 20px; }
-        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
-        .footer-col h4 { border-bottom: 2px solid var(--accent); display: inline-block; padding-bottom: 5px; margin-bottom: 20px; }
-        .footer-bottom { text-align: center; border-top: 1px solid #1e2d3d; margin-top: 40px; padding-top: 20px; font-size: 13px; color: #888; }
+        footer { background: #0a1929; color: #fff; padding: 80px 20px 30px; }
+        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; }
+        .footer-col h4 { font-size: 18px; margin-bottom: 25px; color: var(--accent); text-transform: uppercase; }
+        .footer-bottom { text-align: center; border-top: 1px solid #1e2d3d; margin-top: 50px; padding-top: 30px; color: #667; font-size: 14px; }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 30px; }
+            .hero h1 { font-size: 32px; }
             .product-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -126,53 +120,50 @@
 
 <header>
     <div class="nav-container">
-        <a href="#" class="logo">AT-<span>MAINT</span></a>
+        <a href="#" class="logo" onclick="location.reload()">AT-<span>MAINT</span></a>
         <nav>
             <ul>
-                <li><a href="#san-pham">Vật Tư WECON</a></li>
-                <li><a href="#dich-vu">Bảo Trì - Sửa Chữa</a></li>
-                <li><a href="tel:0355915000" style="background:var(--accent); color:white; padding:8px 15px; border-radius:4px;">0355.915.000</a></li>
+                <li><a href="#san-pham">Sản Phẩm</a></li>
+                <li><a href="#dich-vu">Dịch Vụ</a></li>
+                <li><a href="tel:0355915000" style="background:var(--accent); color:white; padding:10px 20px; border-radius:5px;">HOTLINE: 0355.915.000</a></li>
             </ul>
         </nav>
     </div>
 </header>
 
 <section class="hero">
-    <h1>Vật Tư Chính Hãng - Kỹ Thuật Tận Tâm</h1>
-    <p>Đại lý ủy quyền WECON & Trung tâm sửa chữa máy công nghiệp 24/7. Giải pháp tự động hóa toàn diện cho nhà máy của bạn.</p>
+    <h1>Cung Cấp Vật Tư & Bảo Trì Hệ Thống</h1>
+    <p>Đại lý ủy quyền WECON chính hãng tại Việt Nam. Đội ngũ kỹ thuật hỗ trợ lập trình, sửa chữa thiết bị tự động hóa 24/7.</p>
     <div class="hero-btns">
-        <a href="#san-pham" class="btn-main">Xem Sản Phẩm</a>
-        <a href="tel:0355915000" class="btn-sub">Yêu Cầu Sửa Chữa</a>
+        <a href="#san-pham" class="btn-main">Kho Hàng WECON</a>
+        <a href="tel:0355915000" class="btn-sub">Gửi Yêu Cầu Kỹ Thuật</a>
     </div>
 </section>
 
 <div class="container" id="san-pham">
     <div class="section-header">
-        <h2>VẬT TƯ TỰ ĐỘNG HÓA WECON</h2>
-        <p>Cam kết hàng mới 100% - Bảo hành chính hãng 18 tháng</p>
+        <h2>Danh Mục Thiết Bị Chính Hãng</h2>
         <div class="line"></div>
     </div>
-
-    <div class="product-grid" id="product-list">
-        </div>
+    <div class="product-grid" id="product-list"></div>
 </div>
 
 <section class="service-banner" id="dich-vu">
     <div class="container">
         <div class="service-flex">
             <div class="service-text">
-                <h3>UY TÍN TỪ DỊCH VỤ KỸ THUẬT</h3>
-                <p>Không chỉ bán thiết bị, chúng tôi đồng hành cùng sự ổn định của dây chuyền sản xuất của bạn.</p>
+                <h3><span>DỊCH VỤ</span> KỸ THUẬT UY TÍN</h3>
+                <p>Với hơn 10 năm kinh nghiệm, AT-MAINT cam kết xử lý triệt để các vấn đề kỹ thuật của khách hàng.</p>
                 <ul class="service-list">
-                    <li>Sửa chữa Biến tần, PLC, HMI tất cả các thương hiệu (Mitsubishi, Delta, Siemens...)</li>
-                    <li>Lập trình mới hệ thống theo yêu cầu, nâng cấp máy công nghiệp cũ.</li>
-                    <li>Khảo sát và xử lý lỗi tại nhà máy khu vực miền Nam trong vòng 2-4h.</li>
-                    <li>Dịch vụ bảo trì định kỳ, ngăn ngừa rủi ro dừng máy đột ngột.</li>
+                    <li>Sửa chữa Biến tần, PLC, HMI, Servo (Tất cả các hãng).</li>
+                    <li>Lập trình hệ thống điều khiển, giám sát dữ liệu sản xuất.</li>
+                    <li>Thi công tủ điện động lực và điều khiển theo tiêu chuẩn.</li>
+                    <li>Bảo trì máy công nghiệp định kỳ tận nơi nhanh chóng.</li>
                 </ul>
-                <a href="tel:0355915000" class="btn-main">GỌI KỸ THUẬT NGAY</a>
+                <a href="tel:0355915000" class="btn-main" style="margin-top:20px;">KẾT NỐI VỚI KỸ SƯ</a>
             </div>
-            <div style="flex:1; min-width:300px">
-                <img src="https://img.freepik.com/free-photo/electrician-builder-at-work-establishment-of-switchboard-with-intercom_169016-15061.jpg" style="width:100%; border-radius:15px; box-shadow: var(--shadow);">
+            <div style="flex:1; min-width:350px;">
+                <img src="https://images.unsplash.com/photo-1537462715879-360eeb61a0ad?auto=format&fit=crop&q=80&w=800" style="width:100%; border-radius:15px; box-shadow: var(--shadow);">
             </div>
         </div>
     </div>
@@ -182,53 +173,54 @@
     <div class="footer-grid">
         <div class="footer-col">
             <h4>VỀ AT-MAINT</h4>
-            <p>Đơn vị hàng đầu chuyên cung cấp thiết bị điện công nghiệp và giải pháp bảo trì hệ thống tự động hóa chuyên sâu.</p>
+            <p>Đơn vị chuyên sâu trong lĩnh vực tự động hóa, cung cấp giải pháp vật tư chính hãng WECON và dịch vụ bảo trì kỹ thuật cao.</p>
         </div>
         <div class="footer-col">
-            <h4>SẢN PHẨM</h4>
-            <p>Biến tần WECON<br>PLC WECON<br>HMI WECON<br>Servo Motor<br>Bộ điều khiển nhiệt độ</p>
+            <h4>SẢN PHẨM CHÍNH</h4>
+            <p>Biến tần VB Series<br>PLC LX/V Series<br>HMI PI Series (IIoT)<br>Servo Motor VD2<br>Phụ kiện kết nối</p>
         </div>
         <div class="footer-col">
-            <h4>LIÊN HỆ</h4>
-            <p>📍 Hotline: 0355.915.000<br>📍 Hỗ trợ kỹ thuật 24/7<br>📍 Giao hàng toàn quốc</p>
+            <h4>THÔNG TIN LIÊN HỆ</h4>
+            <p>📞 Hotline: 0355.915.000<br>🛠 Kỹ thuật: Hỗ trợ 24/7<br>🚚 Giao hàng: Toàn quốc nhanh chóng</p>
         </div>
     </div>
     <div class="footer-bottom">
-        &copy; 2024 AT-MAINT SERVICES - Đại Lý WECON Việt Nam.
+        &copy; 2024 AT-MAINT SERVICES - Đại Lý WECON | Uy Tín - Chất Lượng - Tận Tâm
     </div>
 </footer>
 
 <script>
+    // Link ảnh đã được cập nhật sang server ổn định hơn
     const productData = [
         {
-            title: "BIẾN TẦN WECON VB SERIES",
-            desc: "Điều khiển Vector vòng hở, khả năng chịu tải cực cao cho máy nén khí, băng tải.",
-            img: "https://www.wecon.com.cn/upload/2021/11/17/16371190695034mizsk.png",
-            specs: [["Công suất", "0.75kW - 630kW"], ["Tần số", "0 - 600Hz"], ["Bảo hành", "18 Tháng"]]
+            title: "BIẾN TẦN WECON VB",
+            desc: "Dòng biến tần Vector tải nặng, bền bỉ, khởi động mạnh mẽ ở tốc độ thấp.",
+            img: "http://www.wecon.com.cn/upload/2021/11/17/16371190695034mizsk.png",
+            specs: [["Công suất", "0.75kW - 630kW"], ["Ứng dụng", "Máy nén, Bơm, Quạt"], ["Bảo hành", "18 Tháng"]]
         },
         {
-            title: "PLC WECON LX SERIES",
-            desc: "Dòng PLC ổn định nhất, tương thích lập trình GX Developer, GX Works2.",
-            img: "https://www.wecon.com.cn/upload/2021/11/17/16371318464344v6luz.png",
-            specs: [["Tốc độ", "0.01μs"], ["Kết nối", "RS485/Ethernet"], ["Lưu trữ", "64k steps"]]
+            title: "PLC WECON LX/VC",
+            desc: "Bộ điều khiển logic tốc độ cao, dễ dàng lập trình và mở rộng nhiều module.",
+            img: "http://www.wecon.com.cn/upload/2021/11/17/16371318464344v6luz.png",
+            specs: [["Tốc độ lệnh", "0.01μs"], ["Cổng", "Ethernet/Modbus"], ["Phần mềm", "Miễn phí 100%"]]
         },
         {
             title: "HMI WECON PI SERIES",
-            desc: "Giao diện sắc nét, hỗ trợ Cloud IIoT, giám sát hệ thống từ xa qua Smartphone.",
-            img: "https://www.wecon.com.cn/upload/2021/11/17/163711319757656pksn.png",
-            specs: [["Cỡ màn hình", "4.3 - 15.6 inch"], ["Màu sắc", "16 triệu màu"], ["Phần mềm", "PI Studio (Free)"]]
+            desc: "Màn hình cảm ứng đa điểm, tích hợp Cloud IIoT xem dữ liệu trên điện thoại.",
+            img: "http://www.wecon.com.cn/upload/2021/11/17/163711319757656pksn.png",
+            specs: [["Kích thước", "4.3\" - 15.6\""], ["Kết nối", "WiFi/4G/VNC"], ["Độ phân giải", "Full HD"]]
         },
         {
-            title: "SERVO MOTOR VD2 SERIES",
-            desc: "Độ chính xác nano, encoder 23 bit, chuyên dụng cho máy cắt bao bì, máy CNC.",
-            img: "https://www.wecon.com.cn/upload/2021/11/17/16371319084883n9sqy.png",
-            specs: [["Tần số đáp ứng", "3.0 kHz"], ["Encoder", "23 bit Absolute"], ["Khả năng", "Tự động Auto-tuning"]]
+            title: "SERVO MOTOR VD2",
+            desc: "Hệ thống Servo chính xác cao, Encoder 23-bit, đáp ứng nhanh 3.0kHz.",
+            img: "http://www.wecon.com.cn/upload/2021/11/17/16371319084883n9sqy.png",
+            specs: [["Độ phân giải", "23-bit Absolute"], ["Tốc độ", "Lên đến 6000rpm"], ["Tính năng", "Auto-tuning"]]
         },
         {
-            title: "PHỤ KIỆN TỰ ĐỘNG HÓA",
-            desc: "Cung cấp cáp kết nối, Module mở rộng, Bộ nguồn 24VDC, Card truyền thông chính hãng.",
-            img: "https://www.wecon.com.cn/upload/2021/11/17/16371215167664c1uof.png",
-            specs: [["Cáp lập trình", "WECON Original"], ["Nguồn điện", "Input 220V/380V"], ["Sẵn hàng", "Kho HCM - Bình Dương"]]
+            title: "PHỤ KIỆN & CÁP",
+            desc: "Đầy đủ các dòng cáp lập trình, module mở rộng I/O, card truyền thông.",
+            img: "http://www.wecon.com.cn/upload/2021/11/17/16371215167664c1uof.png",
+            specs: [["Loại", "Cáp DB9, USB, Ethernet"], ["Module", "Analog, PT100"], ["Trạng thái", "Sẵn hàng số lượng"]]
         }
     ];
 
@@ -239,13 +231,13 @@
         container.innerHTML += `
             <div class="p-card">
                 <div class="p-img-box">
-                    <img src="${p.img}" alt="${p.title}" onerror="this.src='https://via.placeholder.com/300x200?text=WECON+PRODUCT'">
+                    <img src="${p.img}" alt="${p.title}" onerror="this.src='https://via.placeholder.com/350x250?text=S%E1%BA%A3n+Ph%E1%BA%A9m+WECON'">
                 </div>
                 <div class="p-content">
                     <h3>${p.title}</h3>
                     <p>${p.desc}</p>
                     <ul class="p-specs">${specItems}</ul>
-                    <a href="tel:0355915000" class="btn-main" style="display:block; text-align:center;">LIÊN HỆ BÁO GIÁ</a>
+                    <a href="tel:0355915000" class="btn-main" style="display:block; text-align:center; padding:12px;">NHẬN BÁO GIÁ NGAY</a>
                 </div>
             </div>
         `;
