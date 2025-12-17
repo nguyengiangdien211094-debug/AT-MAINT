@@ -18,15 +18,18 @@
         nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
         nav ul li { position: relative; }
         nav ul li a { display: block; color: white; padding: 18px 25px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 14px; transition: 0.3s; cursor: pointer; }
-        nav ul li a:hover { background: var(--orange); }
+        
+        /* Highlight Sản Phẩm khi hover */
+        .nav-products:hover { background: var(--orange) !important; }
+        nav ul li a:hover { background: #444; }
 
-        /* Dropdown Menu */
-        .dropdown-content { display: none; position: absolute; background: white; min-width: 250px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); border-top: 3px solid var(--orange); }
-        .dropdown-content a { color: #333 !important; padding: 12px 15px; border-bottom: 1px solid #eee; text-transform: none; font-weight: normal; display: block; text-decoration: none; cursor: pointer;}
-        .dropdown-content a:hover { background: var(--gray); color: var(--blue) !important; }
+        /* Dropdown Menu - Giống hình ảnh bạn cung cấp */
+        .dropdown-content { display: none; position: absolute; background: white; min-width: 280px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); border-top: 3px solid var(--orange); }
+        .dropdown-content a { color: #333 !important; padding: 15px 20px; border-bottom: 1px solid #eee; text-transform: none; font-weight: 600; display: block; text-decoration: none; cursor: pointer; font-size: 15px;}
+        .dropdown-content a:hover { background: var(--gray); color: var(--blue) !important; padding-left: 25px; transition: 0.3s; }
         nav ul li:hover .dropdown-content { display: block; }
 
-        /* Animation */
+        /* Animation nội dung */
         #page-content { animation: fadeIn 0.4s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -36,7 +39,7 @@
         .section-title { text-align: center; color: var(--blue); font-size: 28px; margin-bottom: 40px; text-transform: uppercase; position: relative; }
         .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--orange); margin: 10px auto; }
 
-        /* Product & Service Cards */
+        /* Product Row Styling */
         .product-row { 
             display: flex; gap: 30px; background: white; border: 1px solid #ddd; 
             border-radius: 12px; margin-bottom: 50px; overflow: hidden;
@@ -50,6 +53,7 @@
         .specs { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
         .specs td { padding: 10px; border-bottom: 1px solid #eee; font-size: 14px; }
         
+        /* Price & Buttons */
         .price-row { display: flex; align-items: center; justify-content: space-between; border-top: 2px dashed #eee; padding-top: 20px; }
         .price { color: var(--orange); font-weight: bold; font-size: 22px; }
         .btn-view { display: inline-block; padding: 10px 25px; background: var(--blue); color: white; text-decoration: none; border-radius: 4px; font-weight: bold; cursor: pointer; }
@@ -64,19 +68,22 @@
     <ul>
         <li><a onclick="loadHome()">🏠 Trang Chủ</a></li>
         <li>
-            <a>📦 SẢN PHẨM & DỊCH VỤ ▼</a>
+            <a class="nav-products">📦 SẢN PHẨM ▼</a>
             <div class="dropdown-content">
                 <a onclick="loadInverters()">Biến Tần WECON (Chính hãng)</a>
                 <a onclick="loadPLC()">Bộ Điều Khiển PLC</a>
                 <a onclick="loadHMI()">Màn Hình HMI</a>
-                <a onclick="loadServices()">Dịch vụ Bảo trì & Sửa chữa</a>
+                <a onclick="loadServo()">Động Cơ Servo</a>
+                <a onclick="loadSwitchgear()">Thiết Bị Đóng Cắt</a>
+                <a onclick="loadServices()" style="color: var(--orange) !important;">🛠️ Dịch Vụ Bảo Trì & Sửa Chữa</a>
             </div>
         </li>
         <li><a href="tel:0355915000">📞 HOTLINE: 0355.915.000</a></li>
     </ul>
 </nav>
 
-<div id="page-content"></div>
+<div id="page-content">
+    </div>
 
 <footer>
     <p><b>AT-MAINT SERVICES - GIẢI PHÁP KỸ THUẬT TOÀN DIỆN</b></p>
@@ -87,35 +94,23 @@
 <script>
     const content = document.getElementById('page-content');
 
-    // 1. TRANG CHỦ
     function loadHome() {
         content.innerHTML = `
             <div class="page-header">
                 <h1>AT-MAINT KỸ THUẬT & VẬT TƯ</h1>
                 <p>Đại lý WECON và Đơn vị cung cấp dịch vụ kỹ thuật máy công nghiệp</p>
             </div>
-            <div class="container">
-                <h2 class="section-title">Danh Mục Nổi Bật</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-                    <div style="text-align:center; padding:20px; border:1px solid #eee; border-radius:10px;">
-                        <img src="https://wecon-plc.com/image/catalog/Inverter/VB-Inverter.png" height="120">
-                        <h3>BIẾN TẦN</h3>
-                        <a onclick="loadInverters()" class="btn-view">XEM</a>
+            <div class="container" style="text-align:center">
+                <h2 class="section-title">Chào mừng đến với AT-MAINT</h2>
+                <p>Chúng tôi cung cấp thiết bị tự động hóa chính hãng và dịch vụ bảo trì chuyên nghiệp.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 40px;">
+                    <div style="padding:20px; border:1px solid #ddd; border-radius:10px; cursor:pointer" onclick="loadServices()">
+                        <div style="font-size:40px">🛠️</div>
+                        <h4>DỊCH VỤ SỬA CHỮA</h4>
                     </div>
-                    <div style="text-align:center; padding:20px; border:1px solid #eee; border-radius:10px;">
-                        <img src="https://wecon-plc.com/image/catalog/PLC/LX3V.png" height="120">
-                        <h3>PLC</h3>
-                        <a onclick="loadPLC()" class="btn-view">XEM</a>
-                    </div>
-                    <div style="text-align:center; padding:20px; border:1px solid #eee; border-radius:10px;">
-                        <img src="https://wecon-plc.com/image/catalog/HMI/PI3000.png" height="120">
-                        <h3>HMI</h3>
-                        <a onclick="loadHMI()" class="btn-view">XEM</a>
-                    </div>
-                    <div style="text-align:center; padding:20px; border:1px solid #eee; border-radius:10px; background: #fffcf5;">
-                        <div style="font-size: 60px; margin-bottom: 10px;">🛠️</div>
-                        <h3>DỊCH VỤ SỬA CHỮA</h3>
-                        <a onclick="loadServices()" class="btn-view" style="background:var(--orange)">CHI TIẾT</a>
+                    <div style="padding:20px; border:1px solid #ddd; border-radius:10px; cursor:pointer" onclick="loadInverters()">
+                        <div style="font-size:40px">🔌</div>
+                        <h4>BIẾN TẦN WECON</h4>
                     </div>
                 </div>
             </div>
@@ -123,92 +118,74 @@
         window.scrollTo(0, 0);
     }
 
-    // 2. TRANG BIẾN TẦN
     function loadInverters() {
-        content.innerHTML = `
-            <div class="page-header" style="background: #003366;">
-                <h1>BIẾN TẦN WECON CHÍNH HÃNG</h1>
-                <p>Điều khiển tốc độ - Tiết kiệm điện năng</p>
-            </div>
-            <div class="container">
-                <div class="product-row">
-                    <div class="img-box"><img src="https://wecon-plc.com/image/catalog/Inverter/VB-Inverter.png"></div>
-                    <div class="info-box">
-                        <h2>WECON VB Series</h2>
-                        <table class="specs">
-                            <tr><td><b>Công suất:</b></td><td>0.75kW - 630kW</td></tr>
-                            <tr><td><b>Ứng dụng:</b></td><td>Bơm, quạt, máy nén, cẩu trục</td></tr>
-                        </table>
-                        <div class="price-row">
-                            <span class="price">Liên hệ báo giá</span>
-                            <a href="tel:0355915000" class="btn-view">GỌI NGAY</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
+        content.innerHTML = '<div class="page-header"><h1>BIẾN TẦN WECON</h1></div><div class="container"><h2>Nội dung đang cập nhật...</h2></div>';
         window.scrollTo(0, 0);
     }
 
-    // 3. TRANG PLC
     function loadPLC() {
-        content.innerHTML = `
-            <div class="page-header" style="background: #2c3e50;">
-                <h1>BỘ ĐIỀU KHIỂN PLC WECON</h1>
-                <p>Giải pháp tự động hóa tin cậy</p>
-            </div>
-            <div class="container">
-                <div class="product-row">
-                    <div class="img-box"><img src="https://wecon-plc.com/image/catalog/PLC/LX3V.png"></div>
-                    <div class="info-box">
-                        <h2>PLC WECON LX3V</h2>
-                        <table class="specs">
-                            <tr><td><b>Đặc điểm:</b></td><td>Tốc độ cao, dễ lập trình</td></tr>
-                            <tr><td><b>Tương thích:</b></td><td>Phần mềm Mitsubishi</td></tr>
-                        </table>
-                        <div class="price-row">
-                            <span class="price">Hàng sẵn kho</span>
-                            <a href="tel:0355915000" class="btn-view">NHẬN BÁO GIÁ</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
+        content.innerHTML = '<div class="page-header"><h1>BỘ ĐIỀU KHIỂN PLC</h1></div><div class="container"><h2>Nội dung đang cập nhật...</h2></div>';
         window.scrollTo(0, 0);
     }
 
-    // 4. TRANG HMI
     function loadHMI() {
-        content.innerHTML = `
-            <div class="page-header" style="background: #16a085;">
-                <h1>MÀN HÌNH HMI WECON</h1>
-                <p>Giao diện trực quan - Kết nối đa dạng</p>
-            </div>
-            <div class="container">
-                <div class="product-row">
-                    <div class="img-box"><img src="https://wecon-plc.com/image/catalog/HMI/PI3000.png"></div>
-                    <div class="info-box">
-                        <h2>HMI WECON PI Series</h2>
-                        <table class="specs">
-                            <tr><td><b>Kích thước:</b></td><td>7", 10.2", 15"</td></tr>
-                            <tr><td><b>Kết nối:</b></td><td>Ethernet, Cloud, RS485</td></tr>
-                        </table>
-                        <div class="price-row">
-                            <span class="price">Giá cạnh tranh</span>
-                            <a href="tel:0355915000" class="btn-view">LIÊN HỆ</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
+        content.innerHTML = '<div class="page-header"><h1>MÀN HÌNH HMI</h1></div><div class="container"><h2>Nội dung đang cập nhật...</h2></div>';
         window.scrollTo(0, 0);
     }
 
-    // 5. TRANG DỊCH VỤ (MỚI THÊM)
+    function loadServo() {
+        content.innerHTML = '<div class="page-header"><h1>ĐỘNG CƠ SERVO</h1></div><div class="container"><h2>Nội dung đang cập nhật...</h2></div>';
+        window.scrollTo(0, 0);
+    }
+
+    function loadSwitchgear() {
+        content.innerHTML = '<div class="page-header"><h1>THIẾT BỊ ĐÓNG CẮT</h1></div><div class="container"><h2>Nội dung đang cập nhật...</h2></div>';
+        window.scrollTo(0, 0);
+    }
+
+    // NỘI DUNG MỚI CHO DỊCH VỤ SỬA CHỮA
     function loadServices() {
         content.innerHTML = `
             <div class="page-header" style="background: #d35400;">
                 <h1>DỊCH VỤ BẢO TRÌ & SỬA CHỮA</h1>
                 <p>Khắc phục sự cố nhanh chóng - Duy trì máy móc ổn định</p>
             </div>
-            <div
+            <div class="container">
+                <h2 class="section-title">Dịch vụ kỹ thuật chuyên nghiệp</h2>
+                
+                <div class="product-row">
+                    <div class="img-box" style="font-size: 80px; background: #fff5eb;">🛠️</div>
+                    <div class="info-box">
+                        <h2>Sửa chữa & Cải tiến hệ thống máy</h2>
+                        <table class="specs">
+                            <tr><td><b>Dịch vụ:</b></td><td>Sửa chữa lỗi Biến tần, PLC, HMI, Servo các hãng.</td></tr>
+                            <tr><td><b>Bảo trì:</b></td><td>Vệ sinh, kiểm tra tủ điện, thay thế linh kiện định kỳ.</td></tr>
+                            <tr><td><b>Cải tiến:</b></td><td>Lập trình mới hệ thống theo yêu cầu công nghệ.</td></tr>
+                        </table>
+                        <div class="price-row">
+                            <span class="price">Hỗ trợ tận nơi</span>
+                            <a href="tel:0355915000" class="btn-view" style="background:var(--orange)">GỌI KỸ THUẬT</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="background: #f9f9f9; padding: 30px; border-radius: 12px; border-left: 5px solid var(--orange);">
+                    <h3>Tại sao nên chọn dịch vụ của AT-MAINT?</h3>
+                    <ul style="line-height: 1.8;">
+                        <li><b>Kinh nghiệm:</b> Đội ngũ kỹ thuật hơn 10 năm trong ngành tự động hóa.</li>
+                        <li><b>Tốc độ:</b> Có mặt sớm nhất để xử lý sự cố, giảm thiểu thời gian dừng máy.</li>
+                        <li><b>Chính hãng:</b> Thay thế linh kiện WECON và các hãng lớn chất lượng cao.</li>
+                        <li><b>Bảo hành:</b> Cam kết bảo hành dịch vụ sau sửa chữa chu đáo.</li>
+                    </ul>
+                </div>
+            </div>
+        `;
+        window.scrollTo(0, 0);
+    }
+
+    // Khởi tạo trang chủ
+    loadHome();
+</script>
+
+</body>
+</html>
