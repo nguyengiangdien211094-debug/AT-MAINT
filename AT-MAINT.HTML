@@ -41,7 +41,7 @@
             display: flex; flex-direction: column; justify-content: space-between;
         }
         .quick-card:hover { transform: translateY(-8px); border-color: var(--orange); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .quick-card img { width: 100%; height: 220px; object-fit: contain; margin-bottom: 15px; }
+        .quick-card img { width: 100%; height: 200px; object-fit: contain; margin-bottom: 15px; background: #fff; }
         .quick-card h3 { color: var(--blue); margin: 10px 0; font-size: 18px; }
 
         /* Product Detail Row */
@@ -50,7 +50,7 @@
             border-radius: 15px; margin-bottom: 40px; padding: 30px; align-items: center;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
         }
-        .img-box { flex: 1; text-align: center; }
+        .img-box { flex: 1; text-align: center; background: #fff; padding: 10px; border-radius: 10px; }
         .img-box img { max-width: 100%; height: 350px; object-fit: contain; }
         .info-box { flex: 1.5; }
         .info-box h2 { color: var(--blue); margin-top: 0; border-bottom: 2px solid var(--orange); display: inline-block; padding-bottom: 5px; }
@@ -72,150 +72,5 @@
         <li>
             <a class="nav-products">📦 Sản Phẩm ▼</a>
             <div class="dropdown-content">
-                <a onclick="loadInverters()">Biến Tần WECON</a>
-                <a onclick="loadPLC()">Bộ Điều Khiển PLC</a>
-                <a onclick="loadHMI()">Màn Hình HMI</a>
-                <a onclick="loadServo()">Hệ Thống Servo</a>
-                <a onclick="loadSwitchgear()">Thiết Bị Đóng Cắt</a>
-                <a onclick="loadServices()" style="background: #fff5f0; color: var(--orange) !important;">🛠️ Dịch Vụ Kỹ Thuật</a>
-            </div>
-        </li>
-        <li><a href="tel:0355915000" style="color: #00ff00;">📞 HOTLINE: 0355.915.000</a></li>
-    </ul>
-</nav>
-
-<div id="page-content"></div>
-
-<footer>
-    <p><b>AT-MAINT SERVICES - CHUYÊN GIA TỰ ĐỘNG HÓA</b></p>
-    <p>Địa chỉ: Hỗ trợ kỹ thuật tận nơi 24/7</p>
-    <p>Hotline/Zalo: 0355.915.000</p>
-</footer>
-
-<script>
-    const content = document.getElementById('page-content');
-    
-    // Hình ảnh sản phẩm thực tế được cập nhật
-    const IMAGES = {
-        inverter: "http://googleusercontent.com/image_collection/image_retrieval/14266643800719001832_0",
-        plc: "http://googleusercontent.com/image_collection/image_retrieval/15981467474510590321_0",
-        hmi: "http://googleusercontent.com/image_collection/image_retrieval/8292713787163505252_0",
-        servo: "http://googleusercontent.com/image_collection/image_retrieval/15099879920640469852_0",
-        switch: "https://mccb.com.vn/wp-content/uploads/2021/01/mccb-ls.jpg",
-        repair: "https://cdn-icons-png.flaticon.com/512/4233/4233830.png"
-    };
-
-    function loadHome() {
-        content.innerHTML = `
-            <div class="page-header">
-                <h1>AT-MAINT KỸ THUẬT & VẬT TƯ</h1>
-                <p>Đại lý ủy quyền WECON - Giải pháp sửa chữa máy công nghiệp uy tín</p>
-            </div>
-            <div class="container">
-                <h2 class="section-title">Danh Mục Chính</h2>
-                <div class="quick-grid">
-                    <div class="quick-card" onclick="loadInverters()">
-                        <img src="${IMAGES.inverter}" alt="Biến tần WECON">
-                        <h3>BIẾN TẦN WECON</h3>
-                        <p>Điều khiển tốc độ động cơ linh hoạt, bền bỉ</p>
-                    </div>
-                    <div class="quick-card" onclick="loadPLC()">
-                        <img src="${IMAGES.plc}" alt="PLC WECON">
-                        <h3>BỘ ĐIỀU KHIỂN PLC</h3>
-                        <p>Lập trình hệ thống tự động hóa thông minh</p>
-                    </div>
-                    <div class="quick-card" onclick="loadHMI()">
-                        <img src="${IMAGES.hmi}" alt="HMI WECON">
-                        <h3>MÀN HÌNH HMI</h3>
-                        <p>Giao diện cảm ứng PI Series sắc nét</p>
-                    </div>
-                    <div class="quick-card" onclick="loadServices()">
-                        <img src="${IMAGES.repair}" alt="Dịch vụ sửa chữa">
-                        <h3>SỬA CHỮA & BẢO TRÌ</h3>
-                        <p>Khắc phục sự cố 24/7 tận xưởng</p>
-                    </div>
-                </div>
-            </div>
-        `;
-        window.scrollTo(0,0);
-    }
-
-    function loadInverters() {
-        content.innerHTML = `
-            <div class="page-header"><h1>BIẾN TẦN WECON</h1></div>
-            <div class="container">
-                <div class="product-row">
-                    <div class="img-box"><img src="${IMAGES.inverter}"></div>
-                    <div class="info-box">
-                        <h2>WECON VB Series (Tải nặng)</h2>
-                        <table class="specs">
-                            <tr><td><b>Dải công suất:</b></td><td>0.75kW - 630kW</td></tr>
-                            <tr><td><b>Chế độ:</b></td><td>Vector Control, V/F Control</td></tr>
-                            <tr><td><b>Đặc điểm:</b></td><td>Moment khởi động lớn, tích hợp Braking Unit</td></tr>
-                            <tr><td><b>Ứng dụng:</b></td><td>Máy nén khí, cẩu trục, bơm, quạt...</td></tr>
-                        </table>
-                        <a href="tel:0355915000" class="btn-call">GỌI BÁO GIÁ NGAY</a>
-                    </div>
-                </div>
-            </div>
-        `;
-        window.scrollTo(0,0);
-    }
-
-    function loadPLC() {
-        content.innerHTML = `
-            <div class="page-header"><h1>BỘ ĐIỀU KHIỂN PLC</h1></div>
-            <div class="container">
-                <div class="product-row">
-                    <div class="img-box"><img src="${IMAGES.plc}"></div>
-                    <div class="info-box">
-                        <h2>LX3V / LX5V Series</h2>
-                        <table class="specs">
-                            <tr><td><b>Số lượng I/O:</b></td><td>Hỗ trợ mở rộng lên đến 256 điểm</td></tr>
-                            <tr><td><b>Tốc độ xử lý:</b></td><td>0.065μs trên mỗi câu lệnh</td></tr>
-                            <tr><td><b>Truyền thông:</b></td><td>RS485, Ethernet, CANopen, EtherCAT</td></tr>
-                            <tr><td><b>Bảo hành:</b></td><td>18 tháng - Lỗi đổi mới</td></tr>
-                        </table>
-                        <a href="tel:0355915000" class="btn-call">TƯ VẤN KỸ THUẬT</a>
-                    </div>
-                </div>
-            </div>
-        `;
-        window.scrollTo(0,0);
-    }
-
-    function loadHMI() {
-        content.innerHTML = `
-            <div class="page-header"><h1>MÀN HÌNH HMI</h1></div>
-            <div class="container">
-                <div class="product-row">
-                    <div class="img-box"><img src="${IMAGES.hmi}"></div>
-                    <div class="info-box">
-                        <h2>PI Series Smart HMI</h2>
-                        <table class="specs">
-                            <tr><td><b>Kích thước:</b></td><td>4.3", 7", 10.1", 12", 15"</td></tr>
-                            <tr><td><b>Độ phân giải:</b></td><td>HD, 16 triệu màu rực rỡ</td></tr>
-                            <tr><td><b>Tính năng:</b></td><td>IIoT Ready, giám sát qua Cloud/App điện thoại</td></tr>
-                            <tr><td><b>CPU:</b></td><td>Cortex A7 1GHz mạnh mẽ</td></tr>
-                        </table>
-                        <a href="tel:0355915000" class="btn-call">XEM BẢNG GIÁ</a>
-                    </div>
-                </div>
-            </div>
-        `;
-        window.scrollTo(0,0);
-    }
-
-    function loadServo() {
-        content.innerHTML = `
-            <div class="page-header"><h1>HỆ THỐNG SERVO</h1></div>
-            <div class="container">
-                <div class="product-row">
-                    <div class="img-box"><img src="${IMAGES.servo}"></div>
-                    <div class="info-box">
-                        <h2>WECON VD2 Series</h2>
-                        <table class="specs">
-                            <tr><td><b>Encoder:</b></td><td>23-bit tuyệt đối (Absolute)</td></tr>
-                            <tr><td><b>Công suất:</b></td><td>200W - 7.5kW</td></tr>
-                            <tr><td><b>Tốc độ phản hồi:</b></td><td>3.0kHz cao nhất phân khúc</td></tr>
-                            <tr><td><b>Ứng dụng:</b></td><td>CNC
+                <a onclick="loadInverters()">Biến Tần WECON (Chính hãng)</a>
+                <a onclick
