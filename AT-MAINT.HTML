@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AT-Maint | Dịch vụ Kỹ thuật & Bảo trì Công nghiệp</title>
+    <title>AT-Maint | Vật Tư & Giải Pháp Tự Động Hóa</title>
     <style>
         :root { 
             --blue: #004a99; 
@@ -14,103 +14,131 @@
         }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; color: var(--text); line-height: 1.6; }
         
-        /* Header */
+        /* Header & Nav (Giữ nguyên phong cách cũ) */
         header { background: var(--blue); color: white; padding: 2rem 1rem; text-align: center; }
-
-        /* Navigation & Dropdown */
         nav { background: #333; color: white; padding: 0; text-align: center; position: sticky; top: 0; z-index: 1000; }
         nav ul { list-style: none; margin: 0; padding: 0; display: inline-flex; }
         nav ul li { position: relative; }
         nav ul li a { display: block; color: white; padding: 15px 25px; text-decoration: none; font-weight: bold; font-size: 14px; text-transform: uppercase; }
         nav ul li a:hover { background: #444; color: var(--orange); }
 
-        /* Dropdown Menu */
         .dropdown-content { 
-            display: none; 
-            position: absolute; 
-            background-color: #ffffff; 
-            min-width: 250px; 
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.2); 
-            z-index: 1; 
-            text-align: left;
-            border-top: 3px solid var(--orange);
+            display: none; position: absolute; background-color: #ffffff; min-width: 250px; 
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2); z-index: 1; text-align: left; border-top: 3px solid var(--orange);
         }
         .dropdown-content a { color: #333 !important; padding: 12px 20px; text-transform: none; border-bottom: 1px solid #eee; }
-        .dropdown-content a:hover { background-color: var(--gray); color: var(--blue) !important; }
         nav ul li:hover .dropdown-content { display: block; }
 
         /* Hero Section */
         .hero { 
-            background: linear-gradient(rgba(0,74,153,0.7), rgba(0,74,153,0.7)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000'); 
-            background-size: cover; background-position: center; height: 400px; 
-            display: flex; align-items: center; justify-content: center; color: white; flex-direction: column; text-align: center; padding: 0 20px;
+            background: linear-gradient(rgba(0,74,153,0.7), rgba(0,74,153,0.7)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1000'); 
+            background-size: cover; background-position: center; height: 350px; 
+            display: flex; align-items: center; justify-content: center; color: white; flex-direction: column; text-align: center;
         }
         
-        /* Service Section */
+        /* Product Section (MỚI) */
         .section-title { text-align: center; margin-top: 50px; color: var(--blue); text-transform: uppercase; }
-        .services-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; padding: 40px 10%; background: var(--gray); }
-        .service-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center; transition: 0.3s; border-top: 5px solid var(--blue); }
-        .service-card:hover { transform: translateY(-10px); border-top: 5px solid var(--orange); }
+        .product-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            gap: 20px; padding: 40px 10%; 
+        }
+        .product-item { 
+            background: white; border: 1px solid #ddd; padding: 15px; text-align: center; 
+            transition: 0.3s; border-radius: 5px;
+        }
+        .product-item:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-color: var(--blue); }
+        .product-item img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 15px; }
+        .product-item h4 { margin: 10px 0; font-size: 16px; color: var(--dark-blue); }
+        .product-price { color: var(--orange); font-weight: bold; font-size: 18px; margin-bottom: 10px; }
         
-        /* Buttons */
-        .btn { background: var(--orange); color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; text-decoration: none; display: inline-block; transition: 0.3s; }
-        .btn:hover { background: #e65c00; transform: scale(1.05); }
+        .btn-call { 
+            background: var(--blue); color: white; padding: 8px 15px; 
+            text-decoration: none; border-radius: 3px; font-size: 13px; display: block;
+        }
+        .btn-call:hover { background: var(--orange); }
 
-        /* Footer */
         footer { background: #222; color: white; text-align: center; padding: 30px; margin-top: 50px; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>CÔNG TY TNHH DV KỸ THUẬT & BẢO TRÌ AT-MAINT</h1>
-    <p>Giải Pháp Kỹ Thuật Toàn Diện Cho Doanh Nghiệp</p>
+    <h1>AT-MAINT KỸ THUẬT & VẬT TƯ</h1>
+    <p>Đối Tác Tin Cậy Về Giải Pháp Tự Động Hóa</p>
 </header>
 
 <nav>
     <ul>
         <li><a href="#">Trang Chủ</a></li>
         <li>
-            <a href="#services">Dịch Vụ ▼</a>
+            <a href="#">Dịch Vụ ▼</a>
             <div class="dropdown-content">
-                <a href="#">Cung Cấp Sản Phẩm & Vật Tư</a>
-                <a href="#">Dịch Vụ Tự Động Hóa (PLC/Biến Tần)</a>
+                <a href="#">Dịch Vụ Tự Động Hóa</a>
                 <a href="#">Vệ Sinh Công Nghiệp</a>
                 <a href="#">Gia Công Cơ Khí</a>
-                <a href="#">An Toàn Điện & Chống Sét</a>
-                <a href="#">Hệ Thống Camera & IT</a>
+                <a href="#">An Toàn Điện</a>
             </div>
         </li>
-        <li><a href="#projects">Dự Án</a></li>
-        <li><a href="#contact">Liên Hệ</a></li>
+        <li><a href="#">Sản Phẩm ▼</a>
+            <div class="dropdown-content">
+                <a href="#">Biến Tần (Inverter)</a>
+                <a href="#">Bộ Điều Khiển PLC</a>
+                <a href="#">Màn Hình HMI</a>
+                <a href="#">Động Cơ Servo</a>
+                <a href="#">Thiết Bị Đóng Cắt</a>
+            </div>
+        </li>
+        <li><a href="tel:0355915000">Hotline: 0355.915.000</a></li>
     </ul>
 </nav>
 
 <div class="hero">
-    <h2>DỊCH VỤ KỸ THUẬT ĐA NGÀNH</h2>
-    <p>Từ Tự động hóa đến Cơ khí và Vệ sinh công nghiệp</p>
-    <a href="tel:0355915000" class="btn">GỌI TƯ VẤN NGAY</a>
+    <h2>LINH KIỆN TỰ ĐỘNG HÓA CHÍNH HÃNG</h2>
+    <p>Phân phối thiết bị từ các thương hiệu hàng đầu: Mitsubishi, LS, Schneider, Delta...</p>
+    <a href="tel:0355915000" style="background: var(--orange); color: white; padding: 12px 25px; text-decoration: none; font-weight: bold; border-radius: 5px;">NHẬN BÁO GIÁ VẬT TƯ</a>
 </div>
 
-<h2 class="section-title" id="services">Danh Mục Dịch Vụ Chính</h2>
-<div class="services-container">
-    <div class="service-card">
-        <h3>Tự Động Hóa</h3>
-        <p>Sửa chữa PLC, Biến tần, thiết kế tủ điện điều khiển, lập trình hệ thống máy móc tự động hóa.</p>
-        <a href="tel:0355915000" style="color: var(--blue); font-weight: bold; text-decoration: none;">Gọi tư vấn kỹ thuật →</a>
+<h2 class="section-title">Sản Phẩm Vật Tư Chủ Đạo</h2>
+
+<div class="product-grid">
+    <div class="product-item">
+        <img src="https://hantech.vn/wp-content/uploads/2021/05/bien-tan-ls-ig5a.jpg" alt="Biến tần LS">
+        <h4>Biến Tần LS iG5A</h4>
+        <p>Điều khiển động cơ 3 pha hiệu quả, bền bỉ.</p>
+        <div class="product-price">Liên hệ giá tốt</div>
+        <a href="tel:0355915000" class="btn-call">GỌI 0355.915.000</a>
     </div>
 
-    <div class="service-card">
-        <h3>Gia Công Cơ Khí</h3>
-        <p>Thiết kế, gia công chi tiết máy, đồ gá, hàn cắt kỹ thuật và lắp đặt kết cấu nhà xưởng.</p>
-        <a href="tel:0355915000" style="color: var(--blue); font-weight: bold; text-decoration: none;">Yêu cầu báo giá →</a>
+    <div class="product-item">
+        <img src="https://hantech.vn/wp-content/uploads/2021/05/plc-mitsubishi-fx3ga.jpg" alt="PLC Mitsubishi">
+        <h4>PLC Mitsubishi FX3GA</h4>
+        <p>Bộ điều khiển lập trình nhỏ gọn, tốc độ cao.</p>
+        <div class="product-price">Liên hệ giá tốt</div>
+        <a href="tel:0355915000" class="btn-call">GỌI 0355.915.000</a>
     </div>
 
-    <div class="service-card">
-        <h3>Vệ Sinh Công Nghiệp</h3>
-        <p>Vệ sinh hệ thống máy móc, nhà xưởng, đường ống công nghiệp bằng thiết bị chuyên dụng.</p>
-        <a href="tel:0355915000" style="color: var(--blue); font-weight: bold; text-decoration: none;">Khảo sát tận nơi →</a>
+    <div class="product-item">
+        <img src="https://hantech.vn/wp-content/uploads/2021/05/man-hinh-hmi-kinco.jpg" alt="Màn hình HMI">
+        <h4>Màn hình HMI Kinco</h4>
+        <p>Giao diện điều khiển cảm ứng đa sắc nét.</p>
+        <div class="product-price">Liên hệ giá tốt</div>
+        <a href="tel:0355915000" class="btn-call">GỌI 0355.915.000</a>
     </div>
 
-    <div class="service-card">
-        <h3>Sản Phẩm &
+    <div class="product-item">
+        <img src="https://hantech.vn/wp-content/uploads/2021/05/servo-delta-asda-b2.jpg" alt="Servo Delta">
+        <h4>Bộ Servo Delta B2</h4>
+        <p>Điều khiển vị trí chính xác cho máy móc tự động.</p>
+        <div class="product-price">Liên hệ giá tốt</div>
+        <a href="tel:0355915000" class="btn-call">GỌI 0355.915.000</a>
+    </div>
+</div>
+
+<footer>
+    <h3>AT-MAINT KỸ THUẬT & BẢO TRÌ</h3>
+    <p>Hotline: 0355.915.000 | Email: contact@at-maint.com</p>
+    <p>Đối tác phân phối linh kiện vật tư tự động hóa uy tín.</p>
+</footer>
+
+</body>
+</html>
