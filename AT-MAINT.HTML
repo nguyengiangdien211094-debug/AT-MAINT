@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AT-Maint |  WECON & Dịch Vụ Kỹ Thuật</title>
+    <title>AT-Maint | WECON & Dịch Vụ Kỹ Thuật</title>
     <style>
         :root { 
             --blue: #004a99; 
@@ -220,20 +220,37 @@
         window.scrollTo(0, 0);
     }
 
-    // Placeholder cho các trang khác
-    function loadPLC() { renderPlaceholder("BỘ ĐIỀU KHIỂN PLC WECON"); }
-    function loadHMI() { renderPlaceholder("MÀN HÌNH HMI WECON"); }
-    function loadServo() { renderPlaceholder("ĐỘNG CƠ SERVO WECON"); }
-    function loadSwitchgear() { renderPlaceholder("THIẾT BỊ ĐÓNG CẮT"); }
+    // 4. TRANG HMI: THÊM CÁC SẢN PHẨM HMI VỚI HÌNH ẢNH & THÔNG SỐ RÕ NÉT
+    function loadHMI() {
+        content.innerHTML = `
+            <div class="page-header" style="background: #003366;">
+                <h1>MÀN HÌNH HMI WECON (HUMAN MACHINE INTERFACE)</h1>
+                <p>Giao diện điều khiển công nghiệp thông minh</p>
+            </div>
+            <div class="container">
+                <h2 class="section-title">Danh Mục Màn Hình HMI</h2>
+                
+                <div class="product-row">
+                    <div class="img-box">
+                        <img src="https://wecon-plc.com/image/catalog/HMI/PI3000-Series.png" alt="WECON PI3000 Series">
+                    </div>
+                    <div class="info-box">
+                        <h2>WECON PI3000 Series (Phổ Thông)</h2>
+                        <table class="specs">
+                            <tr><td><b>Kích thước:</b></td><td>4.3" - 15"</td></tr>
+                            <tr><td><b>Giao tiếp:</b></td><td>Ethernet, Serial</td></tr>
+                            <tr><td><b>Tính năng:</b></td><td>Cảm ứng điện trở, thư viện đồ họa đa dạng.</td></tr>
+                        </table>
+                        <div class="price-row">
+                            <span class="price">Giá Ưu Đãi</span>
+                            <a href="tel:0355915000" class="btn-view">XEM CHI TIẾT</a>
+                        </div>
+                    </div>
+                </div>
 
-    function renderPlaceholder(title) {
-        content.innerHTML = `<div class="page-header"><h1>${title}</h1></div><div class="container" style="text-align:center;"><h2>Nội dung ${title} đang được cập nhật...</h2><p>Vui lòng quay lại sau hoặc liên hệ Hotline để được tư vấn.</p></div>`;
-        window.scrollTo(0, 0);
-    }
-
-    // Khởi tạo trang chủ khi mở file
-    loadHome();
-</script>
-
-</body>
-</html>
+                <div class="product-row">
+                    <div class="img-box">
+                        <img src="https://wecon-plc.com/image/catalog/HMI/LE-Series.png" alt="WECON LE Series">
+                    </div>
+                    <div class="info-box">
+                        <h2>WECON LE Series (Cao Cấp)</h2>
