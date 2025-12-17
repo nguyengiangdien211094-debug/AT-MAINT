@@ -20,7 +20,6 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
         body { background-color: var(--bg); color: var(--text-main); scroll-behavior: smooth; }
 
-        /* HEADER */
         header {
             display: flex; justify-content: space-between; align-items: center;
             padding: 15px 8%; background: var(--white);
@@ -32,12 +31,10 @@
         .nav-links a { text-decoration: none; color: var(--primary); font-weight: 600; cursor: pointer; transition: 0.3s; }
         .nav-links a:hover, .nav-links a.active { color: var(--accent); }
 
-        /* PAGE SYSTEM */
         .page { display: none; animation: fadeIn 0.5s ease-in-out; }
         .page.active { display: block; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* HERO */
         .hero {
             height: 65vh;
             background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), 
@@ -46,9 +43,7 @@
             color: white; text-align: center; padding: 0 10%;
         }
         .hero h1 { font-size: 3.2rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
-        .hero p { font-size: 1.2rem; color: #cbd5e1; max-width: 700px; line-height: 1.6; }
 
-        /* SECTION & CARDS */
         .section { padding: 80px 8%; }
         .section-title { text-align: center; margin-bottom: 50px; }
         .section-title h2 { font-size: 2.2rem; color: var(--primary); text-transform: uppercase; }
@@ -57,26 +52,16 @@
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); transition: 0.4s; border: 1px solid #edf2f7; display: flex; flex-direction: column; }
         .card:hover { transform: translateY(-10px); border-color: var(--accent); }
-        .card-img { width: 100%; height: 280px; object-fit: contain; padding: 20px; background: #fff; }
+        
+        /* Chỉnh sửa hiển thị ảnh sản phẩm */
+        .card-img-container { width: 100%; height: 280px; padding: 20px; background: #fff; display: flex; align-items: center; justify-content: center; }
+        .card-img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        
         .card-body { padding: 25px; border-top: 1px solid #f1f5f9; flex-grow: 1; display: flex; flex-direction: column; }
         .card-body h3 { font-size: 1.2rem; margin-bottom: 10px; color: var(--primary); }
         .card-body p { font-size: 0.9rem; color: #64748b; margin-bottom: 15px; min-height: 40px; }
         .price { color: var(--accent); font-weight: 800; font-size: 1.4rem; margin-bottom: 20px; display: block; }
 
-        /* QUOTE FORM SECTION */
-        .quote-section { background: var(--primary); color: white; border-radius: 20px; padding: 60px; }
-        .quote-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .quote-info h2 { font-size: 2.5rem; margin-bottom: 25px; color: var(--accent); }
-        .quote-info p { line-height: 1.8; color: #cbd5e1; }
-        
-        .quote-form { background: white; padding: 35px; border-radius: 15px; color: var(--primary); }
-        .form-group { margin-bottom: 18px; }
-        .form-group label { display: block; font-weight: 600; margin-bottom: 8px; font-size: 0.9rem; }
-        .form-group input, .form-group select, .form-group textarea { 
-            width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px; outline: none;
-        }
-
-        /* FLOATING CONTACT */
         .floating-contact { position: fixed; bottom: 30px; left: 30px; z-index: 9999; display: flex; flex-direction: column; gap: 15px; }
         .float-btn {
             width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
@@ -85,18 +70,16 @@
         .float-btn.zalo { background: var(--zalo-color); font-size: 13px; font-weight: 800; }
         .float-btn.phone { background: var(--phone-color); animation: pulse-phone 2s infinite; }
         
+        .btn-accent { background: var(--accent); color: white; padding: 14px; width: 100%; border: none; font-weight: 700; cursor: pointer; border-radius: 8px; text-transform: uppercase; transition: 0.3s; text-align: center; text-decoration: none; }
+        .btn-accent:hover { background: #e66000; box-shadow: 0 5px 15px rgba(255,107,0,0.3); }
+
+        footer { background: #050c1a; color: #94a3b8; padding: 60px 8% 30px; text-align: center; border-top: 1px solid #1e293b; }
+
         @keyframes pulse-phone {
             0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(76, 175, 80, 0); }
             100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
         }
-
-        .btn-accent { background: var(--accent); color: white; padding: 14px; width: 100%; border: none; font-weight: 700; cursor: pointer; border-radius: 8px; text-transform: uppercase; transition: 0.3s; }
-        .btn-accent:hover { background: #e66000; box-shadow: 0 5px 15px rgba(255,107,0,0.3); }
-
-        footer { background: #050c1a; color: #94a3b8; padding: 60px 8% 30px; text-align: center; border-top: 1px solid #1e293b; }
-
-        @media (max-width: 900px) { .quote-container { grid-template-columns: 1fr; } .hero h1 { font-size: 2.4rem; } }
     </style>
 </head>
 <body>
@@ -111,15 +94,14 @@
         <nav class="nav-links">
             <a onclick="navigateTo('home')" id="nav-home" class="active">Trang Chủ</a>
             <a onclick="navigateTo('products')" id="nav-products">Sản Phẩm</a>
-            <a onclick="navigateTo('services')" id="nav-services">Dịch Vụ Kỹ Thuật</a>
+            <a onclick="navigateTo('services')" id="nav-services">Dịch Vụ</a>
         </nav>
     </header>
 
     <main id="home-page" class="page active">
         <section class="hero">
             <h1>CÔNG TY KỸ THUẬT AT-MAINT</h1>
-            <p>Đơn vị chuyên sâu về giải pháp Tự động hóa WECON. Cung cấp thiết bị chính hãng và dịch vụ sửa chữa Biến tần - PLC - HMI chuyên nghiệp tại Việt Nam.</p>
-            <button onclick="navigateTo('products')" class="btn-accent" style="width: auto; padding: 15px 45px; margin-top: 20px;">XEM SẢN PHẨM WECON</button>
+            <p>Giải pháp Tự động hóa WECON Chính Hãng - Chuyên Nghiệp</p>
         </section>
 
         <section class="section">
@@ -129,63 +111,36 @@
             </div>
             <div class="grid">
                 <div class="card">
-                    <img src="https://wecon.com.vn/wp-content/uploads/2019/04/LX3V-1412MT-A-1.jpg" class="card-img" alt="PLC WECON LX3V">
+                    <div class="card-img-container">
+                        <img src="https://wecon.com.vn/wp-content/uploads/2019/04/LX3V-1412MT-A-1.jpg" class="card-img" alt="PLC WECON LX3V">
+                    </div>
                     <div class="card-body">
                         <h3>PLC WECON LX3V Series</h3>
-                        <p>Dòng PLC mạnh mẽ, hỗ trợ nhiều I/O, tốc độ xử lý nhanh, ổn định cho nhà máy.</p>
+                        <p>Dòng PLC mạnh mẽ, hỗ trợ nhiều I/O, tốc độ xử lý nhanh, ổn định.</p>
                         <span class="price">3.500.000đ</span>
-                        <a href="https://zalo.me/0355915000" target="_blank" class="btn-accent" style="display:block; text-align:center; text-decoration:none">Tư Vấn Kỹ Thuật</a>
+                        <a href="https://zalo.me/0355915000" target="_blank" class="btn-accent">Tư Vấn Kỹ Thuật</a>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="https://wecon.com.vn/wp-content/uploads/2019/04/PI3070ie.jpg" class="card-img" alt="HMI WECON PI">
+                    <div class="card-img-container">
+                        <img src="https://wecon.com.vn/wp-content/uploads/2019/04/PI3070ie.jpg" class="card-img" alt="HMI WECON PI">
+                    </div>
                     <div class="card-body">
                         <h3>HMI WECON PI Series</h3>
-                        <p>Màn hình cảm ứng công nghiệp độ phân giải cao, hỗ trợ Cloud IIoT hiện đại.</p>
+                        <p>Màn hình cảm ứng công nghiệp độ phân giải cao, hỗ trợ Cloud IIoT.</p>
                         <span class="price">2.450.000đ</span>
-                        <a href="https://zalo.me/0355915000" target="_blank" class="btn-accent" style="display:block; text-align:center; text-decoration:none">Tư Vấn Kỹ Thuật</a>
+                        <a href="https://zalo.me/0355915000" target="_blank" class="btn-accent">Tư Vấn Kỹ Thuật</a>
                     </div>
                 </div>
                 <div class="card">
-                    <img src="https://wecon.com.vn/wp-content/uploads/2021/05/Bien-tan-Wecon-VB.jpg" class="card-img" alt="VFD WECON VB">
+                    <div class="card-img-container">
+                        <img src="https://wecon.com.vn/wp-content/uploads/2021/05/Bien-tan-Wecon-VB.jpg" class="card-img" alt="VFD WECON VB">
+                    </div>
                     <div class="card-body">
                         <h3>Biến Tần WECON VB Series</h3>
-                        <p>Giải pháp điều khiển tốc độ động cơ tối ưu, tiết kiệm điện năng và bền bỉ.</p>
+                        <p>Giải pháp điều khiển tốc độ động cơ tối ưu, tiết kiệm điện năng.</p>
                         <span class="price">3.200.000đ</span>
-                        <a href="https://zalo.me/0355915000" target="_blank" class="btn-accent" style="display:block; text-align:center; text-decoration:none">Tư Vấn Kỹ Thuật</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="quote-section">
-                <div class="quote-container">
-                    <div class="quote-info">
-                        <h2>Yêu Cầu Báo Giá</h2>
-                        <p>Quý khách vui lòng điền thông tin bên cạnh. Kỹ thuật viên của <strong>AT-MAINT</strong> sẽ gửi báo giá chi tiết và tư vấn giải pháp phù hợp nhất trong vòng 15-30 phút.</p>
-                        <div style="margin-top: 30px; font-weight: 600;">
-                            <p>📞 Hotline: 0355.915.000</p>
-                            <p>📍 Địa chỉ: TP. Hồ Chí Minh</p>
-                            <p>✅ Cam kết: Linh kiện chính hãng 100%</p>
-                        </div>
-                    </div>
-                    <div class="quote-form">
-                        <form onsubmit="handleForm(event)">
-                            <div class="form-group">
-                                <label>Họ tên khách hàng *</label>
-                                <input type="text" placeholder="Nhập tên của bạn" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Số điện thoại liên hệ *</label>
-                                <input type="tel" placeholder="Nhập số điện thoại" required>
-                            </div>
-                            <div class="form-group">
-                                <label>Nội dung yêu cầu</label>
-                                <textarea rows="3" placeholder="Ví dụ: Cần báo giá PLC LX3V-1412MT..."></textarea>
-                            </div>
-                            <button type="submit" class="btn-accent">GỬI YÊU CẦU NGAY</button>
-                        </form>
+                        <a href="https://zalo.me/0355915000" target="_blank" class="btn-accent">Tư Vấn Kỹ Thuật</a>
                     </div>
                 </div>
             </div>
@@ -194,54 +149,34 @@
 
     <main id="products-page" class="page">
         <section class="section">
-            <div class="section-title"><h2>Danh Mục Sản Phẩm WECON</h2><div class="bar"></div></div>
+            <div class="section-title"><h2>Danh Mục Sản Phẩm</h2><div class="bar"></div></div>
             <div class="grid" id="full-list"></div>
         </section>
     </main>
 
     <main id="services-page" class="page">
         <section class="section">
-            <div class="section-title"><h2>Dịch Vụ Kỹ Thuật Chuyên Sâu</h2><div class="bar"></div></div>
-            <div style="text-align:center; max-width:850px; margin: 0 auto; line-height:1.8;">
-                <p style="margin-bottom: 20px; font-size: 1.1rem;">AT-MAINT cung cấp hệ sinh thái dịch vụ kỹ thuật toàn diện cho các hệ thống tự động hóa:</p>
-                <ul style="list-style: none; text-align: left; display: inline-block;">
-                    <li>🛠️ <strong>Sửa chữa Biến tần:</strong> Thay IGBT, tụ nguồn, sửa board điều khiển các hãng.</li>
-                    <li>💻 <strong>Lập trình & Mở khóa:</strong> Xử lý chương trình PLC, HMI WECON và các hãng phổ biến.</li>
-                    <li>⚡ <strong>Thi công tủ điện:</strong> Thiết kế, lắp đặt tủ điện phân phối và tủ điều khiển máy.</li>
-                    <li>🔄 <strong>Cải tiến hệ thống:</strong> Nâng cấp dây chuyền sản xuất cũ sang công nghệ WECON IIoT.</li>
-                </ul>
-                <div style="margin-top: 40px;">
-                    <a href="https://zalo.me/0355915000" class="btn-accent" style="text-decoration: none; padding: 15px 30px;">Liên hệ kỹ thuật ngay</a>
-                </div>
-            </div>
+            <div class="section-title"><h2>Dịch Vụ Kỹ Thuật</h2><div class="bar"></div></div>
+            <p style="text-align: center;">Sửa chữa Biến tần, PLC, HMI và lắp đặt tủ điện công nghiệp.</p>
         </section>
     </main>
 
     <footer>
         <p style="color: white; font-weight: 700; margin-bottom: 10px;">CÔNG TY TNHH KỸ THUẬT AT-MAINT</p>
-        <p>Uy Tín - Chất Lượng - Tận Tâm Trong Từng Giải Pháp</p>
-        <p style="margin-top: 20px; font-size: 0.8rem;">&copy; 2024 AT-MAINT Automation. All rights reserved.</p>
+        <p>&copy; 2024 AT-MAINT Automation. All rights reserved.</p>
     </footer>
 
     <script>
         function navigateTo(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
             document.getElementById(pageId + '-page').classList.add('active');
-            
             document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
             const nav = document.getElementById('nav-' + pageId);
             if(nav) nav.classList.add('active');
-            
             if(pageId === 'products') {
                 document.getElementById('full-list').innerHTML = document.querySelector('#home-page .grid').innerHTML;
             }
             window.scrollTo(0, 0);
-        }
-
-        function handleForm(event) {
-            event.preventDefault();
-            alert("Cảm ơn bạn! Yêu cầu của bạn đã được gửi thành công đến AT-MAINT. Chúng tôi sẽ liên hệ lại ngay.");
-            event.target.reset();
         }
     </script>
 </body>
