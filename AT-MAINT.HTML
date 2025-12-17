@@ -41,7 +41,7 @@
             display: flex; flex-direction: column; justify-content: space-between;
         }
         .quick-card:hover { transform: translateY(-8px); border-color: var(--orange); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .quick-card img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 15px; }
+        .quick-card img { width: 100%; height: 220px; object-fit: contain; margin-bottom: 15px; }
         .quick-card h3 { color: var(--blue); margin: 10px 0; font-size: 18px; }
 
         /* Product Detail Row */
@@ -51,7 +51,7 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
         }
         .img-box { flex: 1; text-align: center; }
-        .img-box img { max-width: 100%; height: 300px; object-fit: contain; }
+        .img-box img { max-width: 100%; height: 350px; object-fit: contain; }
         .info-box { flex: 1.5; }
         .info-box h2 { color: var(--blue); margin-top: 0; border-bottom: 2px solid var(--orange); display: inline-block; padding-bottom: 5px; }
         .specs { width: 100%; border-collapse: collapse; margin: 20px 0; }
@@ -61,7 +61,7 @@
 
         footer { background: var(--dark); color: white; text-align: center; padding: 40px; margin-top: 60px; }
         
-        @media (max-width: 768px) { .product-row { flex-direction: column; text-align: center; } }
+        @media (max-width: 768px) { .product-row { flex-direction: column; text-align: center; } .img-box img { height: 250px; } }
     </style>
 </head>
 <body>
@@ -94,11 +94,13 @@
 
 <script>
     const content = document.getElementById('page-content');
+    
+    // Hình ảnh sản phẩm thực tế được cập nhật
     const IMAGES = {
-        inverter: "https://www.wecon.com.cn/uploadfiles/2022/03/20220315152010260.png",
-        plc: "https://www.wecon.com.cn/uploadfiles/2022/03/20220315152345532.png",
-        hmi: "https://www.wecon.com.cn/uploadfiles/2022/03/20220315152140885.png",
-        servo: "https://www.wecon.com.cn/uploadfiles/2022/03/20220315152230325.png",
+        inverter: "http://googleusercontent.com/image_collection/image_retrieval/14266643800719001832_0",
+        plc: "http://googleusercontent.com/image_collection/image_retrieval/15981467474510590321_0",
+        hmi: "http://googleusercontent.com/image_collection/image_retrieval/8292713787163505252_0",
+        servo: "http://googleusercontent.com/image_collection/image_retrieval/15099879920640469852_0",
         switch: "https://mccb.com.vn/wp-content/uploads/2021/01/mccb-ls.jpg",
         repair: "https://cdn-icons-png.flaticon.com/512/4233/4233830.png"
     };
@@ -113,24 +115,24 @@
                 <h2 class="section-title">Danh Mục Chính</h2>
                 <div class="quick-grid">
                     <div class="quick-card" onclick="loadInverters()">
-                        <img src="${IMAGES.inverter}">
+                        <img src="${IMAGES.inverter}" alt="Biến tần WECON">
                         <h3>BIẾN TẦN WECON</h3>
-                        <p>Điều khiển tốc độ động cơ linh hoạt</p>
+                        <p>Điều khiển tốc độ động cơ linh hoạt, bền bỉ</p>
                     </div>
                     <div class="quick-card" onclick="loadPLC()">
-                        <img src="${IMAGES.plc}">
+                        <img src="${IMAGES.plc}" alt="PLC WECON">
                         <h3>BỘ ĐIỀU KHIỂN PLC</h3>
-                        <p>Trí tuệ cho hệ thống tự động</p>
+                        <p>Lập trình hệ thống tự động hóa thông minh</p>
                     </div>
                     <div class="quick-card" onclick="loadHMI()">
-                        <img src="${IMAGES.hmi}">
+                        <img src="${IMAGES.hmi}" alt="HMI WECON">
                         <h3>MÀN HÌNH HMI</h3>
-                        <p>Giao diện điều khiển cảm ứng</p>
+                        <p>Giao diện cảm ứng PI Series sắc nét</p>
                     </div>
                     <div class="quick-card" onclick="loadServices()">
-                        <img src="${IMAGES.repair}">
+                        <img src="${IMAGES.repair}" alt="Dịch vụ sửa chữa">
                         <h3>SỬA CHỮA & BẢO TRÌ</h3>
-                        <p>Khắc phục sự cố 24/7 tận nơi</p>
+                        <p>Khắc phục sự cố 24/7 tận xưởng</p>
                     </div>
                 </div>
             </div>
@@ -149,7 +151,8 @@
                         <table class="specs">
                             <tr><td><b>Dải công suất:</b></td><td>0.75kW - 630kW</td></tr>
                             <tr><td><b>Chế độ:</b></td><td>Vector Control, V/F Control</td></tr>
-                            <tr><td><b>Ứng dụng:</b></td><td>Máy nén khí, bơm, quạt, máy nghiền...</td></tr>
+                            <tr><td><b>Đặc điểm:</b></td><td>Moment khởi động lớn, tích hợp Braking Unit</td></tr>
+                            <tr><td><b>Ứng dụng:</b></td><td>Máy nén khí, cẩu trục, bơm, quạt...</td></tr>
                         </table>
                         <a href="tel:0355915000" class="btn-call">GỌI BÁO GIÁ NGAY</a>
                     </div>
@@ -168,9 +171,10 @@
                     <div class="info-box">
                         <h2>LX3V / LX5V Series</h2>
                         <table class="specs">
-                            <tr><td><b>Đặc điểm:</b></td><td>Tốc độ xử lý cực nhanh, hỗ trợ đa kênh</td></tr>
-                            <tr><td><b>Kết nối:</b></td><td>RS485, Ethernet, CANopen</td></tr>
-                            <tr><td><b>Bảo hành:</b></td><td>18 tháng chính hãng</td></tr>
+                            <tr><td><b>Số lượng I/O:</b></td><td>Hỗ trợ mở rộng lên đến 256 điểm</td></tr>
+                            <tr><td><b>Tốc độ xử lý:</b></td><td>0.065μs trên mỗi câu lệnh</td></tr>
+                            <tr><td><b>Truyền thông:</b></td><td>RS485, Ethernet, CANopen, EtherCAT</td></tr>
+                            <tr><td><b>Bảo hành:</b></td><td>18 tháng - Lỗi đổi mới</td></tr>
                         </table>
                         <a href="tel:0355915000" class="btn-call">TƯ VẤN KỸ THUẬT</a>
                     </div>
@@ -189,9 +193,10 @@
                     <div class="info-box">
                         <h2>PI Series Smart HMI</h2>
                         <table class="specs">
-                            <tr><td><b>Kích thước:</b></td><td>4.3", 7", 10.1", 15"</td></tr>
-                            <tr><td><b>Cảm ứng:</b></td><td>Điện trở độ bền cao, màu sắc rực rỡ</td></tr>
-                            <tr><td><b>Tính năng:</b></td><td>Giám sát từ xa qua Cloud/App điện thoại</td></tr>
+                            <tr><td><b>Kích thước:</b></td><td>4.3", 7", 10.1", 12", 15"</td></tr>
+                            <tr><td><b>Độ phân giải:</b></td><td>HD, 16 triệu màu rực rỡ</td></tr>
+                            <tr><td><b>Tính năng:</b></td><td>IIoT Ready, giám sát qua Cloud/App điện thoại</td></tr>
+                            <tr><td><b>CPU:</b></td><td>Cortex A7 1GHz mạnh mẽ</td></tr>
                         </table>
                         <a href="tel:0355915000" class="btn-call">XEM BẢNG GIÁ</a>
                     </div>
@@ -210,64 +215,7 @@
                     <div class="info-box">
                         <h2>WECON VD2 Series</h2>
                         <table class="specs">
-                            <tr><td><b>Chính xác:</b></td><td>Encoder 23-bit cực kỳ chính xác</td></tr>
-                            <tr><td><b>Tốc độ:</b></td><td>Đáp ứng tần số cao, khởi động nhanh</td></tr>
-                            <tr><td><b>Ứng dụng:</b></td><td>Cánh tay robot, máy CNC, máy dán nhãn...</td></tr>
-                        </table>
-                        <a href="tel:0355915000" class="btn-call">LIÊN HỆ ĐẶT HÀNG</a>
-                    </div>
-                </div>
-            </div>
-        `;
-        window.scrollTo(0,0);
-    }
-
-    function loadSwitchgear() {
-        content.innerHTML = `
-            <div class="page-header"><h1>THIẾT BỊ ĐÓNG CẮT</h1></div>
-            <div class="container">
-                <div class="product-row">
-                    <div class="img-box"><img src="${IMAGES.switch}"></div>
-                    <div class="info-box">
-                        <h2>MCCB - MCB - Contactor</h2>
-                        <table class="specs">
-                            <tr><td><b>Thương hiệu:</b></td><td>LS, Schneider, Mitsubishi, Chint</td></tr>
-                            <tr><td><b>Sản phẩm:</b></td><td>Át khối, Át tép, Khởi động từ...</td></tr>
-                            <tr><td><b>Chất lượng:</b></td><td>Đầy đủ CO/CQ, hàng sẵn kho số lượng lớn</td></tr>
-                        </table>
-                        <a href="tel:0355915000" class="btn-call">NHẬN CHIẾT KHẤU TỐT</a>
-                    </div>
-                </div>
-            </div>
-        `;
-        window.scrollTo(0,0);
-    }
-
-    function loadServices() {
-        content.innerHTML = `
-            <div class="page-header" style="background:var(--orange)"><h1>DỊCH VỤ KỸ THUẬT</h1></div>
-            <div class="container">
-                <div class="product-row">
-                    <div class="img-box"><img src="${IMAGES.repair}"></div>
-                    <div class="info-box">
-                        <h2>Sửa chữa & Cải tiến hệ thống</h2>
-                        <p>Chúng tôi chuyên cung cấp giải pháp:</p>
-                        <table class="specs">
-                            <tr><td>✅ Sửa chữa Biến tần, PLC, HMI hỏng lỗi.</td></tr>
-                            <tr><td>✅ Lập trình mới hệ thống máy tự động hóa.</td></tr>
-                            <tr><td>✅ Lắp đặt tủ điện điều khiển theo yêu cầu.</td></tr>
-                            <tr><td>✅ Bảo trì định kỳ máy móc cho nhà máy.</td></tr>
-                        </table>
-                        <a href="tel:0355915000" class="btn-call" style="background:#d35400">ĐẶT LỊCH KHẢO SÁT</a>
-                    </div>
-                </div>
-            </div>
-        `;
-        window.scrollTo(0,0);
-    }
-
-    // Load trang chủ lần đầu
-    loadHome();
-</script>
-</body>
-</html>
+                            <tr><td><b>Encoder:</b></td><td>23-bit tuyệt đối (Absolute)</td></tr>
+                            <tr><td><b>Công suất:</b></td><td>200W - 7.5kW</td></tr>
+                            <tr><td><b>Tốc độ phản hồi:</b></td><td>3.0kHz cao nhất phân khúc</td></tr>
+                            <tr><td><b>Ứng dụng:</b></td><td>CNC
