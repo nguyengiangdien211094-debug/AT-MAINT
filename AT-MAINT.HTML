@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AT-Maint | Vật Tư & Kỹ Thuật</title>
+    <title>AT-Maint | Đại Lý Biến Tần WECON Chính Hãng</title>
     <style>
         :root { 
             --blue: #004a99; 
@@ -33,7 +33,7 @@
         .page-header { background: var(--blue); color: white; padding: 60px 8%; text-align: center; margin-bottom: 40px; }
         .container { max-width: 1200px; margin: auto; padding: 0 20px 60px 20px; }
 
-        /* Inverter Page Layout */
+        /* Product Row Layout */
         .product-section-title { font-size: 28px; color: var(--blue); border-bottom: 2px solid var(--orange); display: inline-block; margin-bottom: 40px; padding-bottom: 10px; }
         
         .product-row { 
@@ -41,15 +41,15 @@
             border-radius: 12px; margin-bottom: 50px; overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s;
         }
-        .product-row:hover { box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        .product-row:hover { box-shadow: 0 8px 25px rgba(0,0,0,0.1); border-color: var(--orange); }
         
         .img-box { flex: 1; background: #fff; display: flex; align-items: center; justify-content: center; padding: 20px; border-right: 1px solid #eee; }
-        .img-box img { max-width: 100%; height: auto; transition: 0.4s; }
-        .img-box:hover img { transform: scale(1.1); }
+        .img-box img { max-width: 100%; height: 250px; object-fit: contain; transition: 0.4s; }
+        .img-box:hover img { transform: scale(1.08); }
 
         .info-box { flex: 2; padding: 30px; }
         .info-box h2 { margin-top: 0; color: var(--blue); font-size: 24px; }
-        .info-box p { color: #666; font-style: italic; margin-bottom: 20px; }
+        .info-box .brand-tag { background: #eef5ff; color: var(--blue); padding: 5px 12px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-bottom: 10px; display: inline-block; }
 
         /* Specs Table */
         .specs { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
@@ -72,124 +72,4 @@
         <li>
             <a>📦 SẢN PHẨM ▼</a>
             <div class="dropdown-content">
-                <a onclick="loadInverters()">Biến Tần (Inverter)</a>
-                <a onclick="alert('Tính năng đang cập nhật!')">Bộ Điều Khiển PLC</a>
-                <a onclick="alert('Tính năng đang cập nhật!')">Màn Hình HMI</a>
-                <a onclick="alert('Tính năng đang cập nhật!')">Động Cơ Servo</a>
-            </div>
-        </li>
-        <li><a href="tel:0355915000">📞 HOTLINE: 0355.915.000</a></li>
-    </ul>
-</nav>
-
-<div id="page-content">
-    <div class="page-header">
-        <h1>CÔNG TY TNHH KỸ THUẬT AT-MAINT</h1>
-        <p>Phân phối vật tư tự động hóa - Dữ liệu tham khảo Hantech Automation</p>
-    </div>
-    <div class="container" style="text-align: center;">
-        <h2 style="color: var(--blue);">CHÀO MỪNG QUÝ KHÁCH</h2>
-        <p>Vui lòng chọn <b>Danh mục Biến Tần</b> trong phần Sản Phẩm để xem chi tiết thông số kỹ thuật và báo giá.</p>
-    </div>
-</div>
-
-<footer>
-    <p><b>AT-MAINT SERVICES</b></p>
-    <p>Địa chỉ: Liên hệ Hotline để biết thêm chi tiết | Hotline: 0355.915.000</p>
-    <p>&copy; 2024 AT-Maint - Uy Tín & Chất Lượng</p>
-</footer>
-
-<script>
-    const content = document.getElementById('page-content');
-
-    function loadHome() {
-        content.innerHTML = `
-            <div class="page-header">
-                <h1>CÔNG TY TNHH KỸ THUẬT AT-MAINT</h1>
-                <p>Phân phối vật tư tự động hóa - Dữ liệu tham khảo Hantech Automation</p>
-            </div>
-            <div class="container" style="text-align: center;">
-                <h2 style="color: var(--blue);">CHÀO MỪNG QUÝ KHÁCH</h2>
-                <p>Hãy khám phá các dòng sản phẩm chất lượng cao của chúng tôi.</p>
-            </div>
-        `;
-    }
-
-    function loadInverters() {
-        // Đây chính là "Trang mới" về Biến Tần
-        content.innerHTML = `
-            <div class="page-header" style="background: #003366;">
-                <h1>CHUYÊN TRANG BIẾN TẦN (INVERTER)</h1>
-                <p>Cung cấp giải pháp điều khiển động cơ từ Mitsubishi, LS, INVT, Schneider...</p>
-            </div>
-            
-            <div class="container">
-                <h2 class="product-section-title">Sản Phẩm Nổi Bật</h2>
-
-                <div class="product-row">
-                    <div class="img-box">
-                        <img src="https://hantech.vn/wp-content/uploads/2021/05/bien-tan-mitsubishi-e700.jpg" alt="Mitsubishi">
-                    </div>
-                    <div class="info-box">
-                        <h2>Biến tần Mitsubishi FR-E700</h2>
-                        <p>Dòng biến tần Nhật Bản hiệu suất cao, siêu bền bỉ cho công nghiệp nặng.</p>
-                        <table class="specs">
-                            <tr><td>Dải công suất</td><td>0.1kW - 15kW</td></tr>
-                            <tr><td>Điện áp vào</td><td>1 pha 220V / 3 pha 380V</td></tr>
-                            <tr><td>Khả năng chịu tải</td><td>200% trong 3 giây</td></tr>
-                            <tr><td>Chuẩn bảo vệ</td><td>IP20 (Hỗ trợ lắp tủ điện)</td></tr>
-                        </table>
-                        <div class="price-row">
-                            <span class="price">Giá: Liên hệ báo giá</span>
-                            <a href="tel:0355915000" class="btn-call">GỌI TƯ VẤN NGAY</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-row">
-                    <div class="img-box">
-                        <img src="https://hantech.vn/wp-content/uploads/2021/05/bien-tan-ls-ig5a.jpg" alt="LS">
-                    </div>
-                    <div class="info-box">
-                        <h2>Biến tần LS Starvert iG5A</h2>
-                        <p>Giải pháp kinh tế và mạnh mẽ từ Hàn Quốc, phù hợp nhiều loại máy móc.</p>
-                        <table class="specs">
-                            <tr><td>Đặc điểm điều khiển</td><td>Sensorless Vector Control</td></tr>
-                            <tr><td>Moment khởi động</td><td>150% tại 0.5 Hz</td></tr>
-                            <tr><td>Cổng giao tiếp</td><td>Tích hợp RS-485 (Modbus)</td></tr>
-                            <tr><td>Làm mát</td><td>Quạt thông minh tự điều chỉnh</td></tr>
-                        </table>
-                        <div class="price-row">
-                            <span class="price">Giá: Liên hệ báo giá</span>
-                            <a href="tel:0355915000" class="btn-call">GỌI TƯ VẤN NGAY</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-row">
-                    <div class="img-box">
-                        <img src="https://hantech.vn/wp-content/uploads/2021/05/bien-tan-invt-gd20.jpg" alt="INVT">
-                    </div>
-                    <div class="info-box">
-                        <h2>Biến tần INVT Goodrive GD20</h2>
-                        <p>Dòng biến tần đa năng thế hệ mới, tích hợp bộ lọc nhiễu tiêu chuẩn.</p>
-                        <table class="specs">
-                            <tr><td>Kích thước</td><td>Siêu nhỏ gọn, lắp sát nhau</td></tr>
-                            <tr><td>Tích hợp sẵn</td><td>Bộ lọc EMC chuẩn C3</td></tr>
-                            <tr><td>Tính năng an toàn</td><td>Chức năng STO (Safe Torque Off)</td></tr>
-                            <tr><td>Bảo hành</td><td>Chính hãng 24 tháng</td></tr>
-                        </table>
-                        <div class="price-row">
-                            <span class="price">Giá: Liên hệ báo giá</span>
-                            <a href="tel:0355915000" class="btn-call">GỌI TƯ VẤN NGAY</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
-        window.scrollTo(0, 0); // Cuộn lên đầu trang khi "chuyển trang"
-    }
-</script>
-
-</body>
-</html>
+                <a onclick="loadInverters()">Biến
