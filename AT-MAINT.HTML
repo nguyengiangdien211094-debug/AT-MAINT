@@ -12,8 +12,9 @@
             --white: #ffffff;
             --bg: #f8fafc;
             --text-main: #1e293b;
-            --text-sub: #64748b;
             --shadow: 0 10px 40px rgba(0,0,0,0.08);
+            --zalo-color: #0068ff;
+            --phone-color: #4CAF50;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
@@ -28,71 +29,172 @@
         .logo { font-size: 28px; font-weight: 800; color: var(--primary); text-decoration: none; cursor: pointer; }
         .logo span { color: var(--accent); }
         .nav-links { display: flex; gap: 30px; }
-        .nav-links a { 
-            text-decoration: none; color: var(--primary); font-weight: 600; 
-            transition: 0.3s; cursor: pointer; font-size: 0.95rem;
-        }
+        .nav-links a { text-decoration: none; color: var(--primary); font-weight: 600; cursor: pointer; transition: 0.3s; }
         .nav-links a:hover, .nav-links a.active { color: var(--accent); }
 
         /* PAGE SYSTEM */
         .page { display: none; animation: fadeIn 0.5s ease-in-out; }
         .page.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* HERO SECTION */
+        /* HERO */
         .hero {
-            height: 80vh;
-            background: linear-gradient(rgba(10, 25, 47, 0.75), rgba(10, 25, 47, 0.75)), 
-                        url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=2000') center/cover;
+            height: 70vh;
+            background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), 
+                        url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070') center/cover;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             color: white; text-align: center; padding: 0 10%;
         }
-        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; }
-        .hero p { font-size: 1.25rem; max-width: 800px; color: #cbd5e1; margin-bottom: 35px; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 20px; text-transform: uppercase; }
 
-        /* SECTION STYLES */
-        .section { padding: 80px 8%; }
-        .section-title { text-align: center; margin-bottom: 50px; }
-        .section-title h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 10px; }
-        .section-title .bar { width: 70px; height: 4px; background: var(--accent); margin: 0 auto; }
-
-        /* PRODUCT GRID */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: var(--white); border-radius: 15px; overflow: hidden; box-shadow: var(--shadow); transition: 0.4s; }
+        /* SECTION & CARDS */
+        .section { padding: 60px 8%; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); transition: 0.4s; }
         .card:hover { transform: translateY(-10px); }
-        .card-img { width: 100%; height: 230px; object-fit: cover; }
-        .card-body { padding: 25px; }
-        .price { color: var(--accent); font-weight: 800; font-size: 1.3rem; display: block; margin: 10px 0; }
+        .card-img { width: 100%; height: 220px; object-fit: cover; }
+        .card-body { padding: 20px; }
+        .price { color: var(--accent); font-weight: 800; font-size: 1.3rem; margin: 10px 0; display: block; }
 
-        /* QUOTE FORM SECTION */
-        .quote-section { background: var(--primary); color: white; border-radius: 20px; padding: 60px; margin-top: 40px; }
-        .quote-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .quote-info h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--accent); }
+        /* QUOTE FORM */
+        .quote-section { background: var(--primary); color: white; border-radius: 20px; padding: 50px; }
+        .quote-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .quote-form { background: white; padding: 25px; border-radius: 12px; color: var(--primary); }
+        .form-group { margin-bottom: 15px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; }
+
+        /* FLOATING CONTACT BUTTONS (NÚT TRÔI NỔI) */
+        .floating-contact {
+            position: fixed; bottom: 20px; left: 20px; z-index: 9999;
+            display: flex; flex-direction: column; gap: 12px;
+        }
+        .float-btn {
+            width: 55px; height: 55px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: white; text-decoration: none; font-size: 24px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: 0.3s; position: relative;
+        }
+        .float-btn:hover { transform: scale(1.1); }
+        .float-btn.zalo { background: var(--zalo-color); }
+        .float-btn.phone { background: var(--phone-color); }
         
-        .quote-form { background: white; padding: 30px; border-radius: 15px; }
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; color: var(--primary); font-weight: 600; margin-bottom: 8px; }
-        .form-group input, .form-group select, .form-group textarea {
-            width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px; outline: none; font-size: 1rem;
+        /* Hiệu ứng rung cho nút gọi điện */
+        .float-btn.phone { animation: quick-shake 2s infinite; }
+        @keyframes quick-shake {
+            0%, 100% { transform: rotate(0); }
+            10%, 30%, 50% { transform: rotate(-10deg); }
+            20%, 40%, 60% { transform: rotate(10deg); }
         }
-        .form-group input:focus { border-color: var(--accent); }
 
-        /* BUTTONS */
-        .btn { padding: 15px 30px; border-radius: 8px; font-weight: 700; cursor: pointer; border: none; transition: 0.3s; text-transform: uppercase; }
-        .btn-accent { background: var(--accent); color: white; width: 100%; }
-        .btn-accent:hover { background: #e66000; transform: translateY(-2px); }
+        .btn-accent { background: var(--accent); color: white; padding: 12px; width: 100%; border: none; font-weight: 700; cursor: pointer; border-radius: 6px; }
 
-        /* FOOTER */
-        footer { background: #050c1a; color: white; padding: 60px 8% 30px; text-align: center; }
+        footer { background: #050c1a; color: white; padding: 40px 8%; text-align: center; }
 
-        @media (max-width: 900px) {
-            .quote-container { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.5rem; }
-        }
+        @media (max-width: 850px) { .quote-container { grid-template-columns: 1fr; } .hero h1 { font-size: 2.2rem; } }
     </style>
 </head>
 <body>
 
+    <div class="floating-contact">
+        <a href="tel:0355915000" class="float-btn phone" title="Gọi ngay">
+            📞
+        </a>
+        <a href="https://zalo.me/0355915000" target="_blank" class="float-btn zalo" title="Chat Zalo">
+            <span style="font-size: 12px; font-weight: 800;">Zalo</span>
+        </a>
+    </div>
+
     <header>
         <div class="logo" onclick="navigateTo('home')">AT-<span>MAINT</span></div>
-        <nav
+        <nav class="nav-links">
+            <a onclick="navigateTo('home')" id="nav-home" class="active">Trang Chủ</a>
+            <a onclick="navigateTo('products')" id="nav-products">Sản Phẩm</a>
+            <a onclick="navigateTo('services')" id="nav-services">Dịch Vụ</a>
+        </nav>
+    </header>
+
+    <main id="home-page" class="page active">
+        <section class="hero">
+            <h1>AT-MAINT AUTOMATION</h1>
+            <p>Phân phối WECON & Sửa chữa thiết bị điện công nghiệp uy tín tại Việt Nam</p>
+            <button onclick="navigateTo('products')" class="btn-accent" style="width: auto; padding: 15px 40px;">XEM SẢN PHẨM</button>
+        </section>
+
+        <section class="section">
+            <div style="text-align: center; margin-bottom: 40px;">
+                <h2>Sản Phẩm Chiến Lược</h2>
+                <div style="width: 60px; height: 4px; background: var(--accent); margin: 10px auto;"></div>
+            </div>
+            <div class="grid">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?w=600" class="card-img">
+                    <div class="card-body">
+                        <h3>PLC WECON LX3V</h3>
+                        <span class="price">3.500.000đ</span>
+                        <button onclick="navigateTo('products')" class="btn-accent">Chi tiết</button>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600" class="card-img">
+                    <div class="card-body">
+                        <h3>HMI WECON Levi Series</h3>
+                        <span class="price">2.450.000đ</span>
+                        <button onclick="navigateTo('products')" class="btn-accent">Chi tiết</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="quote-section">
+                <div class="quote-container">
+                    <div class="quote-info">
+                        <h2>Báo Giá & Tư Vấn</h2>
+                        <p>Nhận báo giá thiết bị hoặc tư vấn kỹ thuật ngay lập tức. Đội ngũ kỹ sư của AT-MAINT sẵn sàng hỗ trợ bạn.</p>
+                        <p style="margin-top: 20px;">Hotline: 0355.915.000</p>
+                    </div>
+                    <div class="quote-form">
+                        <form onsubmit="handleForm(event)">
+                            <div class="form-group"><input type="text" placeholder="Họ và Tên" required></div>
+                            <div class="form-group"><input type="tel" placeholder="Số điện thoại" required></div>
+                            <div class="form-group">
+                                <select>
+                                    <option>Báo giá sản phẩm WECON</option>
+                                    <option>Dịch vụ sửa chữa kỹ thuật</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn-accent">GỬI YÊU CẦU</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <main id="products-page" class="page"><section class="section"><h2 style="text-align:center">Danh Mục Sản Phẩm</h2><div class="grid" id="full-list" style="margin-top:40px"></div></section></main>
+    <main id="services-page" class="page"><section class="section"><h2 style="text-align:center">Dịch Vụ Bảo Trì</h2><p style="text-align:center; margin-top:20px">Chúng tôi chuyên sửa chữa Biến tần, PLC, HMI của tất cả các hãng...</p></section></main>
+
+    <footer>
+        <p>&copy; 2024 CÔNG TY TNHH KỸ THUẬT AT-MAINT</p>
+    </footer>
+
+    <script>
+        function navigateTo(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId + '-page').classList.add('active');
+            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+            const nav = document.getElementById('nav-' + pageId);
+            if(nav) nav.classList.add('active');
+            if(pageId === 'products') document.getElementById('full-list').innerHTML = document.querySelector('#home-page .grid').innerHTML;
+            window.scrollTo(0, 0);
+        }
+
+        function handleForm(event) {
+            event.preventDefault();
+            alert("Thông tin đã được gửi! AT-MAINT sẽ liên hệ với bạn trong giây lát.");
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
