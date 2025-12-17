@@ -3,162 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AT-Maint | Vật Tư & Giải Pháp Tự Động Hóa (Hantech Partner)</title>
+    <title>AT-Maint | Cửa Hàng Vật Tư Tự Động Hóa</title>
     <style>
         :root { 
             --blue: #004a99; 
-            --dark-blue: #003366;
             --orange: #ff6600; 
             --gray: #f4f4f4; 
             --text: #333;
         }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; color: var(--text); line-height: 1.6; background: #fff; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; color: var(--text); background: #f9f9f9; }
         
         /* Header & Nav */
-        header { background: var(--blue); color: white; padding: 1.5rem 1rem; text-align: center; }
-        nav { background: #333; color: white; padding: 0; text-align: center; position: sticky; top: 0; z-index: 1000; }
-        nav ul { list-style: none; margin: 0; padding: 0; display: inline-flex; }
+        header { background: var(--blue); color: white; padding: 1rem; text-align: center; }
+        nav { background: #333; color: white; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; }
+        nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
         nav ul li { position: relative; }
-        nav ul li a { display: block; color: white; padding: 15px 20px; text-decoration: none; font-weight: bold; font-size: 13px; text-transform: uppercase; }
-        nav ul li a:hover { color: var(--orange); }
+        nav ul li a { display: block; color: white; padding: 15px 20px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 14px; }
+        nav ul li a:hover { background: #444; color: var(--orange); }
 
-        .dropdown-content { 
-            display: none; position: absolute; background-color: #ffffff; min-width: 220px; 
-            box-shadow: 0px 8px 16px rgba(0,0,0,0.1); z-index: 1; text-align: left;
-        }
-        .dropdown-content a { color: #333 !important; padding: 10px 15px; border-bottom: 1px solid #eee; text-transform: none; }
+        /* Dropdown */
+        .dropdown-content { display: none; position: absolute; background: white; min-width: 220px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
+        .dropdown-content a { color: #333 !important; padding: 12px 15px; border-bottom: 1px solid #eee; text-transform: none; cursor: pointer; }
+        .dropdown-content a:hover { background: var(--gray); }
         nav ul li:hover .dropdown-content { display: block; }
 
-        /* Hero */
-        .hero { 
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://hantech.vn/wp-content/uploads/2021/05/banner-hantech.jpg');
-            background-size: cover; background-position: center; height: 300px; 
-            display: flex; align-items: center; justify-content: center; color: white; flex-direction: column;
-        }
-
-        /* Product Styles */
-        .container { padding: 40px 8%; }
-        .section-title { border-left: 5px solid var(--orange); padding-left: 15px; margin-bottom: 30px; color: var(--blue); text-transform: uppercase; }
+        /* Content Area */
+        .container { padding: 40px 8%; min-height: 600px; }
+        .category-title { border-left: 5px solid var(--orange); padding-left: 15px; margin-bottom: 30px; color: var(--blue); text-transform: uppercase; }
         
-        .product-grid { 
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 50px;
-        }
-        .product-item { 
-            border: 1px solid #eee; padding: 15px; text-align: center; transition: 0.3s; position: relative;
-        }
-        .product-item:hover { border-color: var(--orange); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 25px; }
+        .product-item { background: white; border: 1px solid #eee; padding: 15px; text-align: center; transition: 0.3s; border-radius: 8px; }
+        .product-item:hover { transform: translateY(-5px); border-color: var(--orange); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
         .product-item img { width: 100%; height: 200px; object-fit: contain; }
-        .product-item h4 { font-size: 15px; margin: 15px 0 5px; color: var(--dark-blue); height: 40px; overflow: hidden; }
-        .product-desc { font-size: 12px; color: #777; margin-bottom: 10px; height: 35px; }
-        .product-price { color: var(--orange); font-weight: bold; font-size: 16px; margin-bottom: 15px; }
+        .product-item h4 { font-size: 16px; margin: 15px 0; color: var(--blue); height: 40px; overflow: hidden; }
+        .product-price { color: var(--orange); font-weight: bold; font-size: 18px; margin-bottom: 15px; }
         
-        .btn-buy { 
-            background: var(--blue); color: white; padding: 10px; text-decoration: none; display: block; font-size: 13px; font-weight: bold; border-radius: 3px;
-        }
-        .btn-buy:hover { background: var(--dark-blue); }
+        .btn-call { background: var(--blue); color: white; padding: 10px; text-decoration: none; display: block; border-radius: 5px; font-weight: bold; }
+        .btn-call:hover { background: var(--orange); }
 
-        footer { background: #222; color: #ccc; padding: 40px 8%; text-align: center; }
+        footer { background: #222; color: white; text-align: center; padding: 30px; margin-top: 50px; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>CÔNG TY TNHH DV KỸ THUẬT & BẢO TRÌ AT-MAINT</h1>
-    <p>Nhà cung cấp vật tư Tự Động Hóa chính hãng - Đối tác Hantech Automation</p>
+    <h1>AT-MAINT KỸ THUẬT & VẬT TƯ</h1>
+    <p>Giải Pháp Tự Động Hóa Từ Các Thương Hiệu Hàng Đầu</p>
 </header>
 
 <nav>
     <ul>
-        <li><a href="#">Trang Chủ</a></li>
+        <li><a onclick="showCategory('home')" style="cursor:pointer">Trang Chủ</a></li>
         <li>
-            <a href="#">Biến Tần ▼</a>
+            <a href="#">SẢN PHẨM ▼</a>
             <div class="dropdown-content">
-                <a href="#">Biến tần LS (Hàn Quốc)</a>
-                <a href="#">Biến tần Mitsubishi (Nhật)</a>
-                <a href="#">Biến tần INVT</a>
-                <a href="#">Biến tần Delta</a>
+                <a onclick="showCategory('inverter')">Biến Tần (Inverter)</a>
+                <a onclick="showCategory('plc')">Bộ Điều Khiển PLC</a>
+                <a onclick="showCategory('hmi')">Màn Hình HMI</a>
+                <a onclick="showCategory('servo')">Động Cơ Servo</a>
+                <a onclick="showCategory('switch')">Thiết Bị Đóng Cắt</a>
             </div>
         </li>
-        <li>
-            <a href="#">PLC & HMI ▼</a>
-            <div class="dropdown-content">
-                <a href="#">PLC Mitsubishi</a>
-                <a href="#">PLC Siemens</a>
-                <a href="#">Màn hình HMI Kinco</a>
-                <a href="#">Màn hình HMI Weintek</a>
-            </div>
-        </li>
-        <li><a href="tel:0355915000" style="color: var(--orange);">Hotline: 0355.915.000</a></li>
+        <li><a href="tel:0355915000">HOTLINE: 0355.915.000</a></li>
     </ul>
 </nav>
 
-<div class="hero">
-    <h2>DỮ LIỆU VẬT TƯ TỰ ĐỘNG HÓA 2024</h2>
-    <p>Sản phẩm chính hãng - Đầy đủ CO/CQ - Hỗ trợ kỹ thuật 24/7</p>
-</div>
-
-<div class="container">
-    
-    <h2 class="section-title">Biến Tần (Inverter)</h2>
-    <div class="product-grid">
-        <div class="product-item">
-            <img src="https://hantech.vn/wp-content/uploads/2021/05/bien-tan-ls-ig5a.jpg" alt="Biến tần LS iG5A">
-            <h4>Biến tần LS iG5A</h4>
-            <p class="product-desc">Công suất 0.4kW - 22kW. Hoạt động ổn định, momen khởi động lớn.</p>
-            <div class="product-price">Giá: Liên hệ</div>
-            <a href="tel:0355915000" class="btn-buy">BÁO GIÁ NGAY</a>
-        </div>
-        <div class="product-item">
-            <img src="https://hantech.vn/wp-content/uploads/2021/05/bien-tan-mitsubishi-e700.jpg" alt="Mitsubishi E700">
-            <h4>Mitsubishi FR-E700</h4>
-            <p class="product-desc">Dòng biến tần Nhật Bản siêu bền, tiết kiệm điện năng.</p>
-            <div class="product-price">Giá: Liên hệ</div>
-            <a href="tel:0355915000" class="btn-buy">BÁO GIÁ NGAY</a>
-        </div>
-        <div class="product-item">
-            <img src="https://hantech.vn/wp-content/uploads/2021/05/bien-tan-invt-gd20.jpg" alt="INVT GD20">
-            <h4>INVT Goodrive GD20</h4>
-            <p class="product-desc">Dòng biến tần đa năng, tích hợp bộ lọc EMC.</p>
-            <div class="product-price">Giá: Liên hệ</div>
-            <a href="tel:0355915000" class="btn-buy">BÁO GIÁ NGAY</a>
-        </div>
-    </div>
-
-    <h2 class="section-title">Thiết Bị Điều Khiển PLC & HMI</h2>
-    <div class="product-grid">
-        <div class="product-item">
-            <img src="https://hantech.vn/wp-content/uploads/2021/05/plc-mitsubishi-fx5u.jpg" alt="PLC FX5U">
-            <h4>PLC Mitsubishi FX5U-32MT/ES</h4>
-            <p class="product-desc">Dòng PLC iQ-F thế hệ mới, tích hợp cổng Ethernet.</p>
-            <div class="product-price">Giá: Liên hệ</div>
-            <a href="tel:0355915000" class="btn-buy">BÁO GIÁ NGAY</a>
-        </div>
-        <div class="product-item">
-            <img src="https://hantech.vn/wp-content/uploads/2021/05/hmi-weintek-mt8071ie.jpg" alt="HMI Weintek">
-            <h4>HMI Weintek MT8071iE</h4>
-            <p class="product-desc">Màn hình cảm ứng 7 inch, hiển thị 16 triệu màu.</p>
-            <div class="product-price">Giá: Liên hệ</div>
-            <a href="tel:0355915000" class="btn-buy">BÁO GIÁ NGAY</a>
-        </div>
-        <div class="product-item">
-            <img src="https://hantech.vn/wp-content/uploads/2021/05/plc-siemens-s7-1200.jpg" alt="Siemens S7-1200">
-            <h4>Siemens SIMATIC S7-1200</h4>
-            <p class="product-desc">Giải pháp tối ưu cho các ứng dụng tự động hóa vừa và nhỏ.</p>
-            <div class="product-price">Giá: Liên hệ</div>
-            <a href="tel:0355915000" class="btn-buy">BÁO GIÁ NGAY</a>
-        </div>
-    </div>
-
+<div class="container" id="main-content">
+    <h2 class="category-title">Chào mừng đến với AT-Maint</h2>
+    <p>Vui lòng chọn danh mục sản phẩm từ menu để xem chi tiết vật tư kỹ thuật.</p>
 </div>
 
 <footer>
-    <div style="margin-bottom: 20px;">
-        <h3 style="color: white;">CÔNG TY TNHH DV KỸ THUẬT & BẢO TRÌ AT-MAINT</h3>
-        <p>Phân phối thiết bị tự động hóa chuyên nghiệp</p>
-        <p>Hotline bán hàng: 0355.915.000 | Kỹ thuật: 0355.915.000</p>
-    </div>
-    <p>&copy; 2024 Nội dung được tham khảo từ đối tác Hantech Automation.</p>
+    <p>Hotline: 0355.915.000 | Email: contact@at-maint.com</p>
+    <p>&copy; 2024 AT-Maint - Dữ liệu sản phẩm từ đối tác Hantech Automation</p>
 </footer>
+
+<script>
+    // Cơ sở dữ liệu sản phẩm (Dữ liệu từ Hantech)
+    const database = {
+        inverter: {
+            title: "Biến Tần (Inverter)",
+            items: [
+                { name: "Biến tần LS iG5A", img: "https://hantech.vn/wp-content/uploads/2021/05/bien-tan-ls-ig5a.jpg", desc: "Dòng biến tần Hàn Quốc phổ biến nhất.", price: "Liên hệ: 0355.915.000" },
+                { name: "Mitsubishi FR-E700", img: "https://hantech.vn/wp-content/uploads/2021/05/bien-tan-mitsubishi-e700.jpg", desc: "Biến tần Nhật Bản siêu bền.", price: "Liên hệ: 0355.915.000" },
+                { name: "INVT Goodrive GD20", img: "https://hantech.vn/wp-content/uploads/2021/05/bien-tan-invt-gd20.jpg", desc: "Đa năng, hiệu suất cao.", price: "Liên hệ: 0355.915.000" }
+            ]
+        },
+        plc: {
+            title: "Bộ Điều Khiển PLC",
+            items: [
+                { name: "PLC Mitsubishi FX5U", img: "https://hantech.vn/wp-content/uploads/2021/05/plc-mitsubishi-fx5u.jpg", desc: "Thế hệ PLC iQ-F mạnh mẽ.", price: "Liên hệ: 0355.915.000" },
+                { name: "Siemens S7-1200", img: "https://hantech.vn/wp-content/uploads/2021/05/plc-siemens-s7-1200.jpg", desc: "Tiêu chuẩn tự động hóa Châu Âu.", price: "Liên hệ: 0355.915.000" },
+                { name: "PLC LS Master-K", img: "https://hantech.vn/wp-content/uploads/2021/05/plc-ls-master-k.jpg", desc: "Giải pháp kinh tế cho máy móc.", price: "Liên hệ: 0355.915.000" }
+            ]
+        },
+        hmi: {
+            title: "Màn Hình HMI",
+            items: [
+                { name: "HMI Weintek MT8071iE", img: "https://hantech.vn/wp-content/uploads/2021/05/hmi-weintek-mt8071ie.jpg", desc: "Màn hình cảm ứng 7 inch sắc nét.", price: "Liên hệ: 0355.915.000" },
+                { name: "HMI Kinco GL070", img: "https://hantech.vn/wp-content/uploads/2021/05/man-hinh-hmi-kinco.jpg", desc: "Kết nối đa dạng, giá thành tốt.", price: "Liên hệ: 0355.915.000" }
+            ]
+        },
+        servo: {
+            title: "Động Cơ Servo",
+            items: [
+                { name: "Servo Delta ASDA-B2", img: "https://hantech.vn/wp-content/uploads/2021/05/servo-delta-asda-b2.jpg", desc: "Điều khiển vị trí cực kỳ chính xác.", price: "Liên hệ: 0355.915.000" },
+                { name: "Servo Mitsubishi J4", img: "https://hantech.vn/wp-content/uploads/2021/05/servo-mitsubishi-j4.jpg", desc: "Dòng cao cấp cho dây chuyền tốc độ cao.", price: "Liên hệ: 0355.915.000" }
+            ]
+        },
+        switch: {
+            title: "Thiết Bị Đóng Cắt",
+            items: [
+                { name: "Aptomat (MCB/MCCB) LS", img: "https://hantech.vn/wp-content/uploads/2021/05/aptomat-ls.jpg", desc: "Thiết bị bảo vệ điện Hàn Quốc.", price: "Liên hệ: 0355.915.000" },
+                { name: "Contactor Schneider", img: "https://hantech.vn/wp-content/uploads/2021/05/khoi-dong-tu-schneider.jpg", desc: "Khởi động từ tiêu chuẩn quốc tế.", price: "Liên hệ: 0355.915.000" }
+            ]
+        }
+    };
+
+    function showCategory(catKey) {
+        const contentDiv = document.getElementById('main-content');
+        if (catKey === 'home') {
+            contentDiv.innerHTML = '<h2 class="category-title">Chào mừng đến với AT-Maint</h2><p>Vui lòng chọn danh mục sản phẩm từ menu để xem chi tiết.</p>';
+            return;
+        }
+
+        const data = database[catKey];
+        let html = `<h2 class="category-title">${data.title}</h2>`;
+        html += `<div class="product-grid">`;
+        
+        data.items.forEach(item => {
+            html += `
+                <div class="product-item">
+                    <img src="${item.img}" alt="${item.name}">
+                    <h4>${item.name}</h4>
+                    <p style="font-size:12px; color:#666">${item.desc}</p>
+                    <div class="product-price">${item.price}</div>
+                    <a href="tel:0355915000" class="btn-call">GỌI BÁO GIÁ</a>
+                </div>
+            `;
+        });
+        
+        html += `</div>`;
+        contentDiv.innerHTML = html;
+        window.scrollTo(0, 400); // Tự động cuộn xuống phần sản phẩm
+    }
+</script>
 
 </body>
 </html>
