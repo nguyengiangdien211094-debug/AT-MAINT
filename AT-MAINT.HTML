@@ -12,13 +12,13 @@
         nav ul li a { display: block; color: white; padding: 18px 25px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 14px; cursor: pointer; }
         .nav-products { background: var(--orange); }
         .dropdown-content { display: none; position: absolute; background: white; min-width: 280px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); border-top: 3px solid var(--orange); }
-        .dropdown-content a { color: #333 !important; padding: 15px 20px; border-bottom: 1px solid #eee; display: block; text-transform: none; text-decoration: none;}
+        .dropdown-content a { color: #333 !important; padding: 15px 20px; border-bottom: 1px solid #eee; display: block; text-transform: none; text-decoration: none; }
         nav ul li:hover .dropdown-content { display: block; }
         .page-header { background: var(--blue); color: white; padding: 60px 8%; text-align: center; }
         .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
         .product-row { display: flex; gap: 30px; background: white; border: 1px solid #ddd; border-radius: 12px; margin-bottom: 40px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .img-box { flex: 1; background: #fff; display: flex; align-items: center; justify-content: center; padding: 20px; min-width: 300px;}
-        .img-box img { max-width: 100%; height: auto; max-height: 280px; object-fit: contain; }
+        .img-box { flex: 1; background: #fff; display: flex; align-items: center; justify-content: center; padding: 20px; min-width: 250px; }
+        .img-box img { max-width: 100%; height: auto; max-height: 250px; object-fit: contain; }
         .info-box { flex: 2; padding: 30px; }
         .info-box h2 { color: var(--blue); margin-top: 0; }
         .specs { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
@@ -27,7 +27,7 @@
         .price { color: var(--orange); font-weight: bold; font-size: 22px; }
         .btn-view { padding: 12px 25px; background: var(--blue); color: white; text-decoration: none; border-radius: 6px; font-weight: bold; }
         footer { background: #222; color: white; text-align: center; padding: 30px; margin-top: 50px; }
-        @media (max-width: 768px) { .product-row { flex-direction: column; } .img-box { min-width: unset; } }
+        @media (max-width: 768px) { .product-row { flex-direction: column; } .img-box { min-width: auto; } }
     </style>
 </head>
 <body>
@@ -53,10 +53,11 @@
 <script>
     const content = document.getElementById('page-content');
 
-    // SỬ DỤNG LINK ẢNH TỪ WECON GLOBAL (STABLE)
-    const URL_BIEN_TAN = "https://www.wecon-vfd.com/uploads/allimg/210922/1-210922112440317.png";
-    const URL_PLC = "https://www.wecon-vfd.com/uploads/allimg/210922/1-210922110I0220.png";
-    const URL_HMI = "https://www.wecon-vfd.com/uploads/allimg/210922/1-210922105430449.png";
+    // DANH SÁCH LINK ẢNH TỪ SERVER WECON (RẤT ỔN ĐỊNH)
+    const IMG_INVERTER = "http://www.wecon.com.cn/upload/2021/11/17/16371190695034mizsk.png";
+    const IMG_PLC = "http://www.wecon.com.cn/upload/2021/11/17/16371318464344v6luz.png";
+    const IMG_HMI = "http://www.wecon.com.cn/upload/2021/11/17/163711319757656pksn.png";
+    const IMG_SERVICE = "https://cdn-icons-png.flaticon.com/512/4143/4143459.png"; // Biểu tượng kỹ thuật
 
     function loadHome() {
         content.innerHTML = `
@@ -65,38 +66,69 @@
                 <p>Đại lý WECON - Sửa chữa máy công nghiệp 24/7</p>
             </div>
             <div class="container" style="text-align:center">
-                <h2 style="color:var(--blue)">GIẢI PHÁP TỰ ĐỘNG HÓA TOÀN DIỆN</h2>
+                <h2 style="color:var(--blue)">Sản Phẩm & Dịch Vụ Chủ Đạo</h2>
                 <div style="display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-top:30px;">
-                    <img src="${URL_BIEN_TAN}" style="width:200px; height:200px; object-fit:contain; background:#fff; padding:10px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1)">
-                    <img src="${URL_PLC}" style="width:200px; height:200px; object-fit:contain; background:#fff; padding:10px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1)">
-                    <img src="${URL_HMI}" style="width:200px; height:200px; object-fit:contain; background:#fff; padding:10px; border-radius:10px; box-shadow:0 4px 8px rgba(0,0,0,0.1)">
+                    <div style="width:250px; cursor:pointer" onclick="loadInverters()">
+                        <img src="${IMG_INVERTER}" style="width:100%; height:200px; object-fit:contain; border:1px solid #eee; border-radius:10px; background:#fff">
+                        <h3>Biến Tần</h3>
+                    </div>
+                    <div style="width:250px; cursor:pointer" onclick="loadPLC()">
+                        <img src="${IMG_PLC}" style="width:100%; height:200px; object-fit:contain; border:1px solid #eee; border-radius:10px; background:#fff">
+                        <h3>PLC WECON</h3>
+                    </div>
+                    <div style="width:250px; cursor:pointer" onclick="loadHMI()">
+                        <img src="${IMG_HMI}" style="width:100%; height:200px; object-fit:contain; border:1px solid #eee; border-radius:10px; background:#fff">
+                        <h3>HMI WECON</h3>
+                    </div>
                 </div>
-                <p style="margin-top:30px; font-size:18px; color:#666;">Vui lòng chọn danh mục Sản phẩm để xem thông số kỹ thuật chi tiết.</p>
             </div>`;
     }
 
     function loadInverters() {
+        renderProductPage("BIẾN TẦN WECON", IMG_INVERTER, "WECON VB Series (Tải nặng)", [
+            ["Công suất", "0.75kW - 630kW"],
+            ["Ứng dụng", "Máy nén khí, Bơm, Quạt, Băng tải nặng"],
+            ["Bảo hành", "18 tháng chính hãng"]
+        ]);
+    }
+
+    function loadPLC() {
+        renderProductPage("BỘ ĐIỀU KHIỂN PLC", IMG_PLC, "PLC LX3V / LX5V Series", [
+            ["Tốc độ", "Xử lý cực nhanh 0.01us"],
+            ["Cổng kết nối", "Hỗ trợ Ethernet, RS485, CANopen"],
+            ["Đặc điểm", "Độ bền công nghiệp, chống nhiễu tốt"]
+        ]);
+    }
+
+    function loadHMI() {
+        renderProductPage("MÀN HÌNH HMI", IMG_HMI, "HMI PI Series (IIoT)", [
+            ["Kích thước", "4.3 inch - 15 inch"],
+            ["Tính năng", "Giám sát từ xa qua Cloud/Phone"],
+            ["Độ phân giải", "Màu sắc sắc nét, cảm ứng mượt"]
+        ]);
+    }
+
+    function loadServices() {
         content.innerHTML = `
-            <div class="page-header">
-                <h1>BIẾN TẦN WECON</h1>
-                <p>Điều khiển động cơ chính xác - Tiết kiệm điện năng</p>
+            <div class="page-header" style="background:#e67e22">
+                <h1>DỊCH VỤ SỬA CHỮA</h1>
+                <p>Khắc phục sự cố tận nơi - Chuyên nghiệp - Tận tâm</p>
             </div>
             <div class="container">
                 <div class="product-row">
                     <div class="img-box">
-                        <img src="${URL_BIEN_TAN}" alt="Biến tần Wecon VB">
+                        <img src="${IMG_SERVICE}" alt="Sửa chữa">
                     </div>
                     <div class="info-box">
-                        <h2>WECON VB Series (Tải nặng)</h2>
+                        <h2>Sửa chữa & Lập trình hệ thống</h2>
                         <table class="specs">
-                            <tr><td><b>Công suất:</b></td><td>0.75kW - 630kW</td></tr>
-                            <tr><td><b>Chế độ điều khiển:</b></td><td>V/F, Vector vòng hở, vòng kín</td></tr>
-                            <tr><td><b>Ứng dụng:</b></td><td>Máy nén khí, Cẩu trục, Máy đùn nhựa, Bơm/Quạt</td></tr>
-                            <tr><td><b>Khả năng chịu tải:</b></td><td>150% trong 60s, 180% trong 3s</td></tr>
+                            <tr><td><b>Dịch vụ:</b></td><td>Sửa Biến tần, PLC, HMI, Servo</td></tr>
+                            <tr><td><b>Kỹ thuật:</b></td><td>Lập trình mới hoặc nâng cấp máy cũ</td></tr>
+                            <tr><td><b>Phạm vi:</b></td><td>Hỗ trợ khảo sát tận nơi</td></tr>
                         </table>
                         <div class="price-row">
-                            <span class="price">GIÁ ƯU ĐÃI</span>
-                            <a href="tel:0355915000" class="btn-view">GỌI BÁO GIÁ</a>
+                            <span class="price">GỌI NGAY 24/7</span>
+                            <a href="tel:0355915000" class="btn-view">GỌI: 0355.915.000</a>
                         </div>
                     </div>
                 </div>
@@ -104,55 +136,28 @@
         window.scrollTo(0, 0);
     }
 
-    function loadPLC() {
-        content.innerHTML = `
-            <div class="page-header"><h1>PLC WECON</h1><p>Bộ điều khiển lập trình mạnh mẽ</p></div>
-            <div class="container">
-                <div class="product-row">
-                    <div class="img-box"><img src="${URL_PLC}"></div>
-                    <div class="info-box">
-                        <h2>LX3V / LX5V Series</h2>
-                        <table class="specs">
-                            <tr><td><b>Tốc độ xử lý:</b></td><td>0.01us - 0.06us</td></tr>
-                            <tr><td><b>Ngôn ngữ:</b></td><td>Ladder, Instruction List</td></tr>
-                            <tr><td><b>Kết nối:</b></td><td>RS485, Ethernet, CanOpen</td></tr>
-                        </table>
-                        <div class="price-row"><span class="price">CHÍNH HÃNG</span><a href="tel:0355915000" class="btn-view">LIÊN HỆ</a></div>
-                    </div>
-                </div>
-            </div>`;
-        window.scrollTo(0, 0);
-    }
+    // Hàm phụ trợ để tái sử dụng giao diện
+    function renderProductPage(header, img, name, specs) {
+        let specRows = "";
+        specs.forEach(s => {
+            specRows += `<tr><td><b>${s[0]}:</b></td><td>${s[1]}</td></tr>`;
+        });
 
-    function loadHMI() {
         content.innerHTML = `
-            <div class="page-header"><h1>MÀN HÌNH HMI</h1><p>Giao diện điều khiển thông minh</p></div>
+            <div class="page-header">
+                <h1>${header}</h1>
+                <p>Phân phối chính hãng & Giải pháp kỹ thuật chuyên nghiệp</p>
+            </div>
             <div class="container">
                 <div class="product-row">
-                    <div class="img-box"><img src="${URL_HMI}"></div>
+                    <div class="img-box"><img src="${img}" alt="${name}"></div>
                     <div class="info-box">
-                        <h2>PI Series IIoT</h2>
-                        <table class="specs">
-                            <tr><td><b>Kích thước:</b></td><td>4.3", 7", 10.2", 15"</td></tr>
-                            <tr><td><b>Tính năng:</b></td><td>Hỗ trợ Cloud, giám sát từ xa qua Phone</td></tr>
-                        </table>
-                        <div class="price-row"><span class="price">GIÁ TỐT</span><a href="tel:0355915000" class="btn-view">LIÊN HỆ</a></div>
-                    </div>
-                </div>
-            </div>`;
-        window.scrollTo(0, 0);
-    }
-
-    function loadServices() {
-        content.innerHTML = `
-            <div class="page-header" style="background:#e67e22"><h1>DỊCH VỤ KỸ THUẬT</h1><p>Sửa chữa - Bảo trì - Nâng cấp hệ thống</p></div>
-            <div class="container">
-                <div class="product-row">
-                    <div class="img-box" style="font-size:100px">🛠️</div>
-                    <div class="info-box">
-                        <h2>Sửa chữa Biến tần, PLC, HMI</h2>
-                        <p>- Xử lý lỗi nổ công suất, lỗi điều khiển.<br>- Lập trình mới hệ thống tự động hóa.<br>- Thay thế linh kiện chính hãng.</p>
-                        <div class="price-row"><span class="price">KHẢO SÁT TẬN NƠI</span><a href="tel:0355915000" class="btn-view">GỌI NGAY</a></div>
+                        <h2>${name}</h2>
+                        <table class="specs">${specRows}</table>
+                        <div class="price-row">
+                            <span class="price">HÀNG SẴN KHO</span>
+                            <a href="tel:0355915000" class="btn-view">NHẬN BÁO GIÁ</a>
+                        </div>
                     </div>
                 </div>
             </div>`;
