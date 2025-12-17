@@ -36,15 +36,15 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         .hero {
-            height: 60vh;
+            height: 65vh;
             background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), 
                         url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070') center/cover;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             color: white; text-align: center; padding: 0 10%;
         }
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; text-transform: uppercase; }
+        .hero h1 { font-size: 3.2rem; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
 
-        .section { padding: 60px 8%; }
+        .section { padding: 80px 8%; }
         .section-title { text-align: center; margin-bottom: 50px; }
         .section-title h2 { font-size: 2.2rem; color: var(--primary); text-transform: uppercase; }
         .section-title .bar { width: 70px; height: 4px; background: var(--accent); margin: 15px auto; }
@@ -53,31 +53,32 @@
         .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); transition: 0.4s; border: 1px solid #edf2f7; display: flex; flex-direction: column; }
         .card:hover { transform: translateY(-10px); border-color: var(--accent); }
         
-        .card-img-container { width: 100%; height: 280px; padding: 20px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .card-img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .card-img-container { width: 100%; height: 280px; padding: 10px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .card-img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
         
         .card-body { padding: 25px; border-top: 1px solid #f1f5f9; flex-grow: 1; display: flex; flex-direction: column; }
-        .card-body h3 { font-size: 1.2rem; margin-bottom: 10px; color: var(--primary); font-weight: 700; }
-        .card-body p { font-size: 0.9rem; color: #64748b; margin-bottom: 15px; min-height: 40px; line-height: 1.5; }
-        .price { color: var(--accent); font-weight: 800; font-size: 1.5rem; margin-bottom: 20px; display: block; }
-
-        .btn-accent { background: var(--accent); color: white; padding: 14px; width: 100%; border: none; font-weight: 700; cursor: pointer; border-radius: 8px; text-transform: uppercase; transition: 0.3s; text-align: center; text-decoration: none; display: block; }
-        .btn-accent:hover { background: #e66000; box-shadow: 0 5px 15px rgba(255,107,0,0.3); }
+        .card-body h3 { font-size: 1.2rem; margin-bottom: 10px; color: var(--primary); }
+        .card-body p { font-size: 0.9rem; color: #64748b; margin-bottom: 15px; min-height: 40px; }
+        .price { color: var(--accent); font-weight: 800; font-size: 1.4rem; margin-bottom: 20px; display: block; }
 
         .floating-contact { position: fixed; bottom: 30px; left: 30px; z-index: 9999; display: flex; flex-direction: column; gap: 15px; }
-        .float-btn { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; font-size: 26px; box-shadow: 0 8px 25px rgba(0,0,0,0.2); transition: 0.3s; }
+        .float-btn {
+            width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: white; text-decoration: none; font-size: 26px; box-shadow: 0 8px 25px rgba(0,0,0,0.2); transition: 0.3s;
+        }
         .float-btn.zalo { background: var(--zalo-color); font-size: 13px; font-weight: 800; }
         .float-btn.phone { background: var(--phone-color); animation: pulse-phone 2s infinite; }
         
+        .btn-accent { background: var(--accent); color: white; padding: 14px; width: 100%; border: none; font-weight: 700; cursor: pointer; border-radius: 8px; text-transform: uppercase; transition: 0.3s; text-align: center; text-decoration: none; }
+        .btn-accent:hover { background: #e66000; box-shadow: 0 5px 15px rgba(255,107,0,0.3); }
+
+        footer { background: #050c1a; color: #94a3b8; padding: 60px 8% 30px; text-align: center; border-top: 1px solid #1e293b; }
+
         @keyframes pulse-phone {
             0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
             70% { box-shadow: 0 0 0 15px rgba(76, 175, 80, 0); }
             100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
         }
-
-        footer { background: #050c1a; color: #94a3b8; padding: 40px 8%; text-align: center; border-top: 1px solid #1e293b; }
-
-        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } }
     </style>
 </head>
 <body>
@@ -91,7 +92,7 @@
         <div class="logo" onclick="navigateTo('home')">AT-<span>MAINT</span></div>
         <nav class="nav-links">
             <a onclick="navigateTo('home')" id="nav-home" class="active">Trang Chủ</a>
-            <a onclick="navigateTo('products')" id="nav-products">Sản Phẩm</a>
+            <a onclick="navigateTo('home')" id="nav-products">Sản Phẩm</a>
             <a onclick="navigateTo('services')" id="nav-services">Dịch Vụ</a>
         </nav>
     </header>
@@ -99,7 +100,7 @@
     <main id="home-page" class="page active">
         <section class="hero">
             <h1>CÔNG TY KỸ THUẬT AT-MAINT</h1>
-            <p>Giải pháp Tự động hóa WECON Chính Hãng - Uy Tín - Tận Tâm</p>
+            <p>Giải pháp Tự động hóa WECON Chính Hãng - Chuyên Nghiệp</p>
         </section>
 
         <section class="section">
@@ -110,51 +111,70 @@
             <div class="grid">
                 <div class="card">
                     <div class="card-img-container">
-                        <img src="https://thegioibientan.com.vn/wp-content/uploads/2019/11/LX3V-1212MT-A.png" class="card-img" alt="PLC WECON LX3V">
+                        <img src="https://plus.unsplash.com/premium_photo-1661883395982-69877478df8c?q=80&w=800" class="card-img" alt="PLC WECON LX3V">
                     </div>
                     <div class="card-body">
                         <h3>PLC WECON LX3V Series</h3>
-                        <p>Dòng PLC mạnh mẽ, hỗ trợ nhiều I/O, tốc độ xử lý nhanh, ổn định cho nhà máy.</p>
+                        <p>Dòng PLC mạnh mẽ, hỗ trợ nhiều I/O, tốc độ xử lý nhanh, ổn định.</p>
                         <span class="price">3.500.000đ</span>
-                        <a href="https://zalo.me/0355915000" target="_blank" class="btn-accent">TƯ VẤN KỸ THUẬT</a>
+                        <a href="https://zalo.me/0355915000" target="_blank" class="btn-accent">Tư Vấn Kỹ Thuật</a>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="card-img-container">
-                        <img src="https://thegioibientan.com.vn/wp-content/uploads/2019/11/WECON-HMI-PI3070i.png" class="card-img" alt="HMI WECON PI">
+                        <img src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?q=80&w=800" class="card-img" alt="HMI WECON PI">
                     </div>
                     <div class="card-body">
                         <h3>HMI WECON PI Series</h3>
-                        <p>Màn hình cảm ứng công nghiệp độ phân giải cao, hỗ trợ Cloud IIoT hiện đại.</p>
+                        <p>Màn hình cảm ứng công nghiệp độ phân giải cao, hỗ trợ Cloud IIoT.</p>
                         <span class="price">2.450.000đ</span>
-                        <a href="https://zalo.me/0355915000" target="_blank" class="btn-accent">TƯ VẤN KỸ THUẬT</a>
+                        <a href="https://zalo.me/0355915000" target="_blank" class="btn-accent">Tư Vấn Kỹ Thuật</a>
                     </div>
                 </div>
 
                 <div class="card">
                     <div class="card-img-container">
-                        <img src="https://i.ibb.co/N1f8KkF/18777-wecon-inverter.png" class="card-img" alt="Biến Tần WECON VB">
+                        <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=800" class="card-img" alt="VFD WECON VB">
                     </div>
                     <div class="card-body">
                         <h3>Biến Tần WECON VB Series</h3>
-                        <p>Giải pháp điều khiển tốc độ động cơ tối ưu, tiết kiệm điện năng và bền bỉ.</p>
+                        <p>Giải pháp điều khiển tốc độ động cơ tối ưu, tiết kiệm điện năng.</p>
                         <span class="price">3.200.000đ</span>
-                        <a href="https://zalo.me/0355915000" target="_blank" class="btn-accent">TƯ VẤN KỸ THUẬT</a>
+                        <a href="https://zalo.me/0355915000" target="_blank" class="btn-accent">Tư Vấn Kỹ Thuật</a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <main id="products-page" class="page">
-        <section class="section">
-            <div class="section-title"><h2>Danh Mục Sản Phẩm</h2><div class="bar"></div></div>
-            <div class="grid" id="full-list"></div>
-        </section>
-    </main>
-
     <main id="services-page" class="page">
         <section class="section">
             <div class="section-title"><h2>Dịch Vụ Kỹ Thuật</h2><div class="bar"></div></div>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto;">Chuyên sửa chữa Biến tần, lập trình PLC/HMI và bảo
+            <p style="text-align: center; font-size: 1.1rem; line-height: 1.8;">
+                Chúng tôi cung cấp dịch vụ chuyên nghiệp:<br>
+                <b>Sửa chữa Biến tần, PLC, HMI</b> và <b>Lắp đặt tủ điện công nghiệp</b>.<br>
+                Liên hệ hotline để được hỗ trợ tận nơi.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p style="color: white; font-weight: 700; margin-bottom: 10px;">CÔNG TY TNHH KỸ THUẬT AT-MAINT</p>
+        <p>&copy; 2024 AT-MAINT Automation. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function navigateTo(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(pageId + '-page').classList.add('active');
+            
+            document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+            const nav = document.getElementById('nav-' + pageId);
+            if(nav) nav.classList.add('active');
+            
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
