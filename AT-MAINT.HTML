@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AT-MAINT | Tự Động Hóa & Sửa Chữa Chuyên Nghiệp</title>
+    <title>AT-MAINT | Tự Động Hóa & Cửa Hàng Thiết Bị</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -24,10 +24,19 @@
             padding: 15px 8%; background: var(--white);
             position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.05);
         }
-        .logo { font-size: 26px; font-weight: 800; color: var(--primary); text-decoration: none; }
+        .logo { font-size: 26px; font-weight: 800; color: var(--primary); text-decoration: none; cursor: pointer; }
         .logo span { color: var(--accent); }
-        .nav-links a { margin-left: 25px; text-decoration: none; color: var(--primary); font-weight: 500; transition: 0.3s; }
+        .nav-links a { margin-left: 25px; text-decoration: none; color: var(--primary); font-weight: 500; transition: 0.3s; cursor: pointer; }
         .nav-links a:hover { color: var(--accent); }
+
+        /* Page Toggle Logic */
+        .page { display: none; animation: fadeIn 0.5s ease; }
+        .page.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
         /* Hero Section */
         .hero {
@@ -38,125 +47,74 @@
             color: white; text-align: center; padding: 0 20px;
         }
         .hero h1 { font-size: 3rem; margin-bottom: 20px; text-transform: uppercase; }
-        .hero p { font-size: 1.2rem; margin-bottom: 30px; color: #ccd6f6; max-width: 700px; }
 
-        /* Services Section */
-        .section { padding: 80px 8%; }
+        /* Sections */
+        .section { padding: 60px 8%; }
         .section-header { text-align: center; margin-bottom: 50px; }
-        .section-header h2 { font-size: 2.2rem; margin-bottom: 10px; position: relative; padding-bottom: 15px; }
+        .section-header h2 { font-size: 2.2rem; position: relative; padding-bottom: 15px; }
         .section-header h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 50px; height: 4px; background: var(--accent); }
 
-        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .service-card {
-            background: var(--white); padding: 40px; border-radius: 12px; box-shadow: var(--shadow);
-            transition: 0.3s; border-bottom: 4px solid transparent;
-        }
-        .service-card:hover { transform: translateY(-10px); border-color: var(--accent); }
-        .service-card h3 { margin-bottom: 15px; color: var(--primary); }
-        .service-card p { color: #666; line-height: 1.6; }
-
-        /* Products Grid */
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        /* Grid System */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
         .product-card {
             background: var(--white); border-radius: 12px; overflow: hidden;
-            box-shadow: var(--shadow); transition: 0.3s; position: relative;
+            box-shadow: var(--shadow); transition: 0.3s;
         }
-        .product-card:hover { transform: scale(1.02); }
-        .product-img { width: 100%; height: 200px; background: #eee; object-fit: cover; }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-img { width: 100%; height: 220px; object-fit: cover; }
         .product-info { padding: 20px; }
-        .product-name { font-weight: 600; font-size: 1.1rem; margin-bottom: 10px; display: block; }
-        .product-price { color: var(--accent); font-weight: 800; font-size: 1.2rem; }
+        .product-price { color: var(--accent); font-weight: 800; font-size: 1.2rem; display: block; margin: 10px 0; }
         
         .btn-order {
-            display: block; width: 100%; padding: 12px; margin-top: 15px;
+            display: block; width: 100%; padding: 12px;
             background: var(--primary); color: white; text-align: center;
-            text-decoration: none; border-radius: 6px; font-weight: 600; transition: 0.3s;
+            text-decoration: none; border-radius: 6px; font-weight: 600; transition: 0.3s; border: none; cursor: pointer;
         }
         .btn-order:hover { background: var(--accent); }
 
         /* Footer */
-        footer { background: var(--primary); color: white; padding: 40px 8%; text-align: center; }
+        footer { background: var(--primary); color: white; padding: 40px 8%; text-align: center; margin-top: 50px; }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .nav-links { display: none; }
-        }
+        /* Utility */
+        .back-home { margin-bottom: 20px; display: inline-block; color: var(--accent); text-decoration: none; font-weight: 600; }
     </style>
 </head>
 <body>
 
     <header>
-        <a href="#" class="logo">AT-<span>MAINT</span></a>
+        <div class="logo" onclick="showPage('home')">AT-<span>MAINT</span></div>
         <nav class="nav-links">
-            <a href="#products">Sản phẩm</a>
-            <a href="#services">Dịch vụ sửa chữa</a>
+            <a onclick="showPage('home')">Trang chủ</a>
+            <a onclick="showPage('shop')">Tất cả Sản phẩm</a>
             <a href="tel:0355915000" style="color:var(--accent)">Hotline: 0355.915.000</a>
         </nav>
     </header>
 
-    <section class="hero">
-        <h1>GIẢI PHÁP TỰ ĐỘNG HÓA WECON</h1>
-        <p>Phân phối thiết bị chính hãng và dịch vụ sửa chữa biến tần, PLC, HMI uy tín hàng đầu Việt Nam.</p>
-        <a href="#products" class="btn-order" style="width: auto; padding: 15px 40px; background: var(--accent);">Xem Sản Phẩm Ngay</a>
-    </section>
+    <main id="home" class="page active">
+        <section class="hero">
+            <h1>GIẢI PHÁP TỰ ĐỘNG HÓA WECON</h1>
+            <p>Uy tín - Chất lượng - Kỹ thuật chuyên sâu</p>
+            <button onclick="showPage('shop')" class="btn-order" style="width: auto; padding: 15px 40px; background: var(--accent); margin-top: 20px;">Vào Cửa Hàng Ngay</button>
+        </section>
 
-    <section class="section" id="services">
-        <div class="section-header">
-            <h2>Dịch Vụ Sửa Chữa Uy Tín</h2>
-            <p>Kỹ thuật viên chuyên nghiệp - Linh kiện chính hãng - Bảo hành dài hạn</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Sửa chữa Biến tần</h3>
-                <p>Khắc phục mọi lỗi trên các dòng biến tần Wecon, LS, ABB, Schneider... Kiểm tra miễn phí, báo giá trước khi sửa.</p>
+        <section class="section">
+            <div class="section-header">
+                <h2>Dịch Vụ Sửa Chữa</h2>
             </div>
-            <div class="service-card">
-                <h3>Lập trình PLC/HMI</h3>
-                <p>Thiết kế giao diện điều khiển, lập trình hệ thống tự động hóa theo yêu cầu. Nâng cấp hệ thống cũ sang công nghệ mới.</p>
+            <div style="text-align: center; color: #666;">
+                <p>Sửa chữa Biến tần, PLC, HMI tất cả các hãng. Bảo hành tận nơi.</p>
             </div>
-            <div class="service-card">
-                <h3>Bảo trì hệ thống</h3>
-                <p>Dịch vụ bảo trì định kỳ cho nhà máy, giúp giảm thiểu rủi ro dừng máy và tối ưu hóa hiệu suất vận hành.</p>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <section class="section" id="products" style="background: #eceff1;">
-        <div class="section-header">
-            <h2>Sản Phẩm Nổi Bật</h2>
-        </div>
-        <div class="product-grid">
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1558444479-c8f02791296e?auto=format&fit=crop&q=80&w=500" alt="PLC Wecon" class="product-img">
-                <div class="product-info">
-                    <span class="product-name">PLC Wecon LX3V Series</span>
-                    <span class="product-price">Liên hệ báo giá</span>
-                    <a href="https://zalo.me/0355915000" class="btn-order">Đặt hàng qua Zalo</a>
-                </div>
+    <main id="shop" class="page">
+        <section class="section">
+            <a onclick="showPage('home')" class="back-home">← Quay về Trang chủ</a>
+            <div class="section-header">
+                <h2>Danh Mục Sản Phẩm</h2>
+                <p>Chọn thiết bị bạn cần và đặt hàng trực tuyến</p>
             </div>
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-159742324403d-c1a5098a2807?auto=format&fit=crop&q=80&w=500" alt="HMI Wecon" class="product-img">
-                <div class="product-info">
-                    <span class="product-name">Màn hình HMI Wecon 7 inch</span>
-                    <span class="product-price">2.450.000đ</span>
-                    <a href="https://zalo.me/0355915000" class="btn-order">Đặt hàng ngay</a>
-                </div>
-            </div>
-            <div class="product-card">
-                <img src="https://images.unsplash.com/photo-1621905252507-b35220adcfba?auto=format&fit=crop&q=80&w=500" alt="Biến tần" class="product-img">
-                <div class="product-info">
-                    <span class="product-name">Biến tần Wecon VB Series</span>
-                    <span class="product-price">3.200.000đ</span>
-                    <a href="https://zalo.me/0355915000" class="btn-order">Đặt hàng ngay</a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <footer>
-        <p>&copy; 2024 AT-MAINT Automation. Địa chỉ: [Địa chỉ của bạn ở đây]</p>
-        <p>Email: info@at-maint.com | Hotline: 0355.915.000</p>
-    </footer>
-
-</body>
-</html>
+            <div class="product-grid">
+                <div class="product-card">
+                    <img src="
