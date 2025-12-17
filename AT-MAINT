@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>AT-Maint | Dịch vụ Kỹ thuật & Bảo trì Chuyên nghiệp</title>
+    <style>
+        :root { --blue: #004a99; --orange: #ff6600; --gray: #f4f4f4; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        header { background: var(--blue); color: white; padding: 1rem; text-align: center; }
+        nav { background: #333; color: white; padding: 10px; text-align: center; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+        .hero { background: url('camera-bg.jpg'); height: 400px; display: flex; align-items: center; justify-content: center; color: white; flex-direction: column; text-shadow: 2px 2px 4px #000; }
+        .services { display: flex; justify-content: space-around; padding: 50px; background: var(--gray); }
+        .service-card { background: white; padding: 20px; width: 25%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; }
+        .btn { background: var(--orange); color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>AT-MAINT SERVICES</h1>
+    <p>Giải Pháp Kỹ Thuật & Bảo Trì Toàn Diện</p>
+</header>
+
+<nav>
+    <a href="#">Trang Chủ</a> | <a href="#">Dịch Vụ</a> | <a href="#">Cửa Hàng</a> | <a href="#">Dự Án</a> | <a href="#">Liên Hệ</a>
+</nav>
+
+<div class="hero">
+    <h2>DỊCH VỤ CÀI ĐẶT & SỬA CHỮA TẬN NƠI</h2>
+    <p>Camera - Máy Tính - Mạng - Máy In</p>
+    <button class="btn">Yêu Cầu Tư Vấn Ngay</button>
+</div>
+
+<div class="services">
+    <div class="service-card">
+        <h3>Lắp đặt Camera</h3>
+        <p>Hệ thống giám sát chất lượng cao, xem qua điện thoại 24/7.</p>
+    </div>
+    <div class="service-card">
+        <h3>Hạ tầng Mạng</h3>
+        <p>Thi công mạng LAN/Wifi cho văn phòng, nhà xưởng.</p>
+    </div>
+    <div class="service-card">
+        <h3>Bảo trì Máy tính</h3>
+        <p>Vệ sinh, cài đặt phần mềm, tối ưu hóa hệ thống định kỳ.</p>
+    </div>
+</div>
+
+</body>
+</html>
