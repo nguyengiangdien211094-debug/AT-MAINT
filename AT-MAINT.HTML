@@ -3,147 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AT-Maint | Đại Lý WECON Chính Hãng</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>AT-Maint | Giải Pháp Tự Động Hóa WECON Chuyên Nghiệp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #003366;
             --accent: #ff6600;
-            --bg: #f8fafc;
+            --bg-light: #f8fafc;
+            --text-dark: #1e293b;
             --white: #ffffff;
+            --shadow-sm: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
         }
 
-        body { font-family: 'Roboto', sans-serif; margin: 0; background: var(--bg); color: #333; scroll-behavior: smooth; }
-        
-        /* HEADER */
+        * { box-sizing: border-box; outline: none; }
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            margin: 0; padding: 0; 
+            background-color: var(--bg-light); 
+            color: var(--text-dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, .logo { font-family: 'Montserrat', sans-serif; }
+
+        /* Navigation */
         header {
-            background: var(--white); height: 80px; display: flex; align-items: center;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            height: 80px;
+            display: flex;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+            position: sticky; top: 0; z-index: 1000;
         }
         .nav-container {
             max-width: 1200px; margin: 0 auto; width: 100%;
-            display: flex; justify-content: space-between; align-items: center; padding: 0 20px;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 20px;
         }
-        .logo { font-family: 'Montserrat'; font-weight: 800; font-size: 24px; color: var(--primary); text-decoration: none; }
+        .logo { font-weight: 800; font-size: 26px; color: var(--primary); text-decoration: none; border-left: 5px solid var(--accent); padding-left: 12px; letter-spacing: -1px; }
         .logo span { color: var(--accent); }
 
-        /* HERO */
-        .hero {
-            background: linear-gradient(rgba(0,51,102,0.8), rgba(0,51,102,0.8)), 
-                        url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1470&auto=format&fit=crop');
-            background-size: cover; background-position: center;
-            color: white; padding: 100px 20px; text-align: center;
+        nav ul { list-style: none; display: flex; gap: 30px; margin: 0; padding: 0; align-items: center; }
+        nav ul li a { 
+            text-decoration: none; color: var(--primary); font-weight: 600; 
+            font-size: 14px; text-transform: uppercase; transition: 0.3s;
         }
-        .hero h1 { font-family: 'Montserrat'; font-size: 38px; margin-bottom: 20px; }
-        .btn-call { background: var(--accent); color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block; margin-top: 20px; }
+        nav ul li a:hover { color: var(--accent); }
+        .btn-contact-nav { background: var(--accent); color: white !important; padding: 10px 20px; border-radius: 50px; box-shadow: 0 4px 15px rgba(255, 102, 0, 0.3); }
 
-        /* PRODUCT GRID */
-        .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
-        .section-title { text-align: center; margin-bottom: 50px; font-family: 'Montserrat'; }
-        .section-title h2 { color: var(--primary); font-size: 30px; }
-        .section-title .line { width: 60px; height: 4px; background: var(--accent); margin: 10px auto; }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(0,51,102,0.9), rgba(0,51,102,0.7)), 
+                        url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1500');
+            background-size: cover; background-position: center;
+            color: var(--white); padding: 140px 20px; text-align: center;
+            clip-path: ellipse(150% 100% at 50% 0%);
+        }
+        .hero h1 { font-size: 48px; margin: 0 0 20px; text-transform: uppercase; font-weight: 800; line-height: 1.2; }
+        .hero p { font-size: 20px; max-width: 700px; margin: 0 auto 40px; font-weight: 300; opacity: 0.9; }
+        .hero-btns { display: flex; gap: 20px; justify-content: center; }
+        .btn-main { background: var(--accent); color: white; padding: 18px 45px; text-decoration: none; border-radius: 8px; font-weight: 700; transition: 0.4s; }
+        .btn-sub { background: white; color: var(--primary); padding: 18px 45px; text-decoration: none; border-radius: 8px; font-weight: 700; transition: 0.4s; }
+        .btn-main:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(255,102,0,0.4); }
+
+        /* Products Section */
+        .container { max-width: 1200px; margin: 100px auto; padding: 0 20px; }
+        .section-header { text-align: center; margin-bottom: 70px; }
+        .section-header h2 { font-size: 36px; color: var(--primary); margin-bottom: 15px; position: relative; display: inline-block; }
+        .section-header h2::after { content: ''; width: 60px; height: 4px; background: var(--accent); position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%); }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
         .p-card {
-            background: var(--white); border-radius: 12px; overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05); transition: 0.3s;
-            border: 1px solid #eee; display: flex; flex-direction: column;
+            background: var(--white); border-radius: 20px; overflow: hidden;
+            box-shadow: var(--shadow-sm); transition: 0.4s;
+            border: 1px solid rgba(0,0,0,0.05); display: flex; flex-direction: column;
         }
-        .p-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .p-card:hover { transform: translateY(-15px); box-shadow: var(--shadow-lg); }
         
         .p-img-box {
-            height: 280px; padding: 20px; background: #fff;
-            display: flex; align-items: center; justify-content: center;
+            height: 300px; padding: 30px; background: #fff;
+            display: flex; align-items: center; justify-content: center; position: relative;
         }
         .p-img-box img { 
-            max-width: 100%; max-height: 100%; object-fit: contain; 
+            max-width: 100%; max-height: 100%; object-fit: contain; transition: 0.6s ease;
         }
+        .p-card:hover .p-img-box img { transform: scale(1.08); }
+        .p-badge { position: absolute; top: 20px; left: 20px; background: var(--primary); color: white; padding: 5px 15px; border-radius: 50px; font-size: 12px; font-weight: 600; }
 
-        .p-info { padding: 25px; flex-grow: 1; }
-        .p-info h3 { font-family: 'Montserrat'; font-size: 18px; margin: 0 0 15px; color: var(--primary); }
-        .p-specs { list-style: none; padding: 0; margin: 0 0 20px; font-size: 14px; }
-        .p-specs li { padding: 8px 0; border-bottom: 1px solid #f4f4f4; display: flex; justify-content: space-between; }
-        .p-specs li b { color: #666; }
+        .p-content { padding: 30px; flex-grow: 1; }
+        .p-content h3 { color: var(--primary); font-size: 20px; margin-bottom: 15px; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; }
+        .p-content p { font-size: 14px; color: #64748b; margin-bottom: 20px; min-height: 44px; }
+        
+        .p-specs { list-style: none; padding: 0; margin: 0 0 25px; }
+        .p-specs li { padding: 12px 0; border-bottom: 1px dashed #e2e8f0; font-size: 13px; display: flex; justify-content: space-between; }
+        .p-specs li b { color: var(--primary); font-weight: 600; }
 
-        .p-btn { 
-            background: #f8f9fa; color: var(--primary); display: block; text-align: center;
-            padding: 12px; text-decoration: none; border-radius: 5px; font-weight: bold;
-            border: 1px solid var(--primary); transition: 0.3s;
-        }
-        .p-btn:hover { background: var(--primary); color: white; }
+        /* Service Banner */
+        .service-banner { background: var(--white); padding: 100px 0; border-top: 1px solid #f1f5f9; }
+        .service-flex { display: flex; flex-wrap: wrap; gap: 60px; align-items: center; }
+        .service-text { flex: 1.2; min-width: 350px; }
+        .service-text h3 { font-size: 36px; color: var(--primary); margin-bottom: 25px; line-height: 1.3; }
+        .service-text span { color: var(--accent); }
+        .service-list { list-style: none; padding: 0; margin-bottom: 35px; }
+        .service-list li { margin-bottom: 20px; font-size: 16px; display: flex; align-items: center; }
+        .service-list li i { background: var(--accent); color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 15px; font-style: normal; font-weight: bold; font-size: 14px; }
 
-        /* FOOTER */
-        footer { background: #0a1929; color: white; padding: 40px 20px; text-align: center; margin-top: 60px; }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 28px; }
-        }
-    </style>
-</head>
-<body>
-
-<header>
-    <div class="nav-container">
-        <a href="#" class="logo">AT-<span>MAINT</span></a>
-        <div style="font-weight: bold; color: var(--accent);">Hotline: 0355.915.000</div>
-    </div>
-</header>
-
-<section class="hero">
-    <h1>GIẢI PHÁP TỰ ĐỘNG HÓA WECON</h1>
-    <p>Phân phối thiết bị chính hãng - Hỗ trợ kỹ thuật 24/7</p>
-    <a href="tel:0355915000" class="btn-call">GỌI TƯ VẤN NGAY</a>
-</section>
-
-<div class="container">
-    <div class="section-title">
-        <h2>SẢN PHẨM NỔI BẬT</h2>
-        <div class="line"></div>
-    </div>
-
-    <div class="product-grid" id="product-list">
-        </div>
-</div>
-
-<footer>
-    <p>&copy; 2024 AT-MAINT SERVICES - Đại Lý Ủy Quyền WECON Việt Nam</p>
-</footer>
-
-<script>
-    // Sử dụng link ảnh từ các nguồn mở hoặc dùng proxy để hiển thị ảnh từ website gốc
-    const products = [
-        {
-            name: "BIẾN TẦN WECON VB SERIES",
-            image: "https://files.plytix.com/api/v1.1/file/public_assets/5f33e08f1073b64c4897e68e/f45a6c11-944e-4f76-8f24-699709f19515.png", // Ảnh Biến tần chất lượng cao
-            specs: [["Tải trọng", "Tải nặng / Bơm Quạt"], ["Điện áp", "220V / 380V"], ["Bảo hành", "18 Tháng"]]
-        },
-        {
-            name: "PLC WECON LX/VC SERIES",
-            image: "https://ae01.alicdn.com/kf/H711585806436449195d8527a6966601bu/Wecon-PLC-LX3V-0806MR-A2-LX3V-0806MT-A2-Programmable-Logic-Controller.jpg", // Ảnh PLC 
-            specs: [["Tương thích", "Mitsubishi GX Works"], ["Tốc độ", "Cực cao"], ["Kết nối", "RS485 / Ethernet"]]
-        },
-        {
-            name: "HMI WECON PI SERIES",
-            image: "https://ae01.alicdn.com/kf/H12a201b1315444398716b9b6e82a4729I/Wecon-HMI-PI3070i-PI3070ig-PI3102i-PI8102-PI9120-Ethernet-Touch-Screen.jpg", // Ảnh HMI
-            specs: [["Kích thước", "7 inch - 15.6 inch"], ["Tính năng", "IIoT / Cloud"], ["Màu sắc", "16 Triệu màu"]]
-        },
-        {
-            name: "SERVO WECON VD2 SERIES",
-            image: "https://ae01.alicdn.com/kf/HTB1U6YxX.zrK1RjSspmq6A2LpXat/Wecon-Servo-Motor-and-Driver-VD2-Series-High-Performance.jpg", // Ảnh Servo
-            specs: [["Encoder", "23-bit"], ["Đáp ứng", "3.0 kHz"], ["Độ chính xác", "Cực cao"]]
-        },
-        {
-            name: "MODULE MỞ RỘNG WECON",
-            image: "https://ae01.alicdn.com/kf/H84992524330642f883907797745679927/Wecon-LX3V-Series-PLC-Extension-Module-LX3V-4AD-LX3V-4DA.jpg", // Ảnh Module
-            specs: [["Loại", "Analog / Nhiệt độ"], ["Kết nối", "Gắn trực tiếp PLC"], ["Kho hàng", "Sẵn số lượng"]]
-        }
-    ];
-
-    const list = document.getElementById('product-list');
-
-    products.forEach(p => {
-        const specHtml = p.specs.map(s => `<li><b>${s
+        /* Footer */
+        footer { background: #0f172a; color: #94a3b8; padding: 80px 20px 30px; }
+        .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 50px; }
+        .footer-col h4 { font-size: 18px; margin-bottom: 25px; color: var(--white); font-weight: 700; border-left: 3px solid var(--accent); padding-left: 15px; }
+        .footer-bottom { text-align: center; border-top: 1px
