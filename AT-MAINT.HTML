@@ -14,54 +14,49 @@
         }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; color: var(--text); line-height: 1.6; }
         
-        /* Header & Nav */
+        /* Header */
         header { background: var(--blue); color: white; padding: 2rem 1rem; text-align: center; }
-        nav { background: #333; color: white; padding: 12px; text-align: center; sticky: top; position: sticky; top: 0; z-index: 1000; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; font-size: 14px; text-transform: uppercase; }
-        nav a:hover { color: var(--orange); }
+
+        /* Navigation & Dropdown */
+        nav { background: #333; color: white; padding: 0; text-align: center; position: sticky; top: 0; z-index: 1000; }
+        
+        nav ul { list-style: none; margin: 0; padding: 0; display: inline-flex; }
+        nav ul li { position: relative; }
+        nav ul li a { display: block; color: white; padding: 15px 25px; text-decoration: none; font-weight: bold; font-size: 14px; text-transform: uppercase; }
+        nav ul li a:hover { background: #444; color: var(--orange); }
+
+        /* Hiệu ứng Dropdown */
+        .dropdown-content { 
+            display: none; 
+            position: absolute; 
+            background-color: #ffffff; 
+            min-width: 250px; 
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2); 
+            z-index: 1; 
+            text-align: left;
+            border-top: 3px solid var(--orange);
+        }
+        .dropdown-content a { color: #333 !important; padding: 12px 20px; text-transform: none; border-bottom: 1px solid #eee; }
+        .dropdown-content a:hover { background-color: var(--gray); color: var(--blue) !important; }
+        
+        /* Hiển thị khi hover */
+        nav ul li:hover .dropdown-content { display: block; }
 
         /* Hero Section */
         .hero { 
             background: linear-gradient(rgba(0,74,153,0.7), rgba(0,74,153,0.7)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000'); 
-            background-size: cover;
-            background-position: center;
-            height: 450px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            color: white; 
-            flex-direction: column; 
-            text-align: center;
-            padding: 0 20px;
+            background-size: cover; background-position: center; height: 400px; 
+            display: flex; align-items: center; justify-content: center; color: white; flex-direction: column; text-align: center; padding: 0 20px;
         }
-        .hero h2 { font-size: 2.5rem; margin-bottom: 10px; }
         
         /* Service Section */
         .section-title { text-align: center; margin-top: 50px; color: var(--blue); text-transform: uppercase; }
-        .services-container { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-            gap: 25px; 
-            padding: 40px 10%; 
-            background: var(--gray); 
-        }
+        .services-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; padding: 40px 10%; background: var(--gray); }
 
-        .service-card { 
-            background: white; 
-            padding: 30px; 
-            border-radius: 12px; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
-            text-align: center; 
-            transition: transform 0.3s;
-            border-top: 5px solid var(--blue);
-        }
+        .service-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); text-align: center; transition: 0.3s; border-top: 5px solid var(--blue); }
         .service-card:hover { transform: translateY(-10px); border-top: 5px solid var(--orange); }
-        .service-card h3 { color: var(--dark-blue); margin-bottom: 15px; height: 50px; display: flex; align-items: center; justify-content: center; }
-        .service-card p { font-size: 14px; color: #666; }
         
-        /* Buttons */
-        .btn { background: var(--orange); color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 16px; transition: 0.3s; text-decoration: none; display: inline-block; }
-        .btn:hover { background: #e65c00; transform: scale(1.05); }
+        .btn { background: var(--orange); color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; text-decoration: none; display: inline-block; }
 
         footer { background: #222; color: white; text-align: center; padding: 30px; margin-top: 50px; }
     </style>
@@ -70,66 +65,65 @@
 
 <header>
     <h1>CÔNG TY TNHH DV KỸ THUẬT & BẢO TRÌ AT-MAINT</h1>
-    <p>Uy Tín - Chất Lượng - Giải Pháp Tối Ưu Cho Doanh Nghiệp</p>
+    <p>Giải Pháp Kỹ Thuật Toàn Diện Cho Doanh Nghiệp</p>
 </header>
 
 <nav>
-    <a href="#">Trang Chủ</a>
-    <a href="#services">Dịch Vụ Kỹ Thuật</a>
-    <a href="#parts">Cung Cấp Vật Tư</a>
-    <a href="#contact">Liên Hệ</a>
+    <ul>
+        <li><a href="#">Trang Chủ</a></li>
+        <li>
+            <a href="#services">Dịch Vụ ▼</a>
+            <div class="dropdown-content">
+                <a href="#">Cung Cấp Sản Phẩm & Vật Tư</a>
+                <a href="#">Dịch Vụ Tự Động Hóa (PLC/Biến Tần)</a>
+                <a href="#">Vệ Sinh Công Nghiệp</a>
+                <a href="#">Gia Công Cơ Khí</a>
+                <a href="#">An Toàn Điện & Chống Sét</a>
+                <a href="#">Hệ Thống Camera & IT</a>
+            </div>
+        </li>
+        <li><a href="#projects">Dự Án</a></li>
+        <li><a href="#contact">Liên Hệ</a></li>
+    </ul>
 </nav>
 
 <div class="hero">
-    <h2>GIẢI PHÁP KỸ THUẬT TOÀN DIỆN</h2>
-    <p>Chuyên nghiệp trong Sửa chữa - Bảo trì - Cung ứng vật tư công nghiệp</p>
+    <h2>DỊCH VỤ KỸ THUẬT ĐA NGÀNH</h2>
+    <p>Từ Tự động hóa đến Cơ khí và Vệ sinh công nghiệp</p>
     <a href="tel:0900000000" class="btn">GỌI TƯ VẤN NGAY</a>
 </div>
 
-<h2 class="section-title" id="services">Dịch Vụ Kỹ Thuật Trọng Tâm</h2>
+<h2 class="section-title" id="services">Danh Mục Dịch Vụ Chính</h2>
 <div class="services-container">
     <div class="service-card">
-        <h3>Sửa Chữa Máy Móc Tự Động Hóa</h3>
-        <p>Xử lý lỗi hệ thống PLC, Biến tần, Servo, HMI. Nâng cấp và cải tiến dây chuyền sản xuất tự động.</p>
-        <a href="#" style="color: var(--blue); font-weight: bold;">Xem chi tiết →</a>
+        <h3>Tự Động Hóa</h3>
+        <p>Sửa chữa PLC, Biến tần, thiết kế tủ điện điều khiển, lập trình hệ thống máy móc tự động hóa.</p>
+        <a href="#" style="color: var(--blue); font-weight: bold;">Chi tiết dịch vụ →</a>
     </div>
 
     <div class="service-card">
-        <h3>Giải Pháp An Toàn Điện</h3>
-        <p>Tư vấn lắp đặt hệ thống chống giật, tiếp địa an toàn, kiểm tra rò rỉ điện và chống sét cho nhà xưởng.</p>
-        <a href="#" style="color: var(--blue); font-weight: bold;">Xem chi tiết →</a>
+        <h3>Gia Công Cơ Khí</h3>
+        <p>Thiết kế, gia công chi tiết máy, đồ gá, hàn cắt kỹ thuật và lắp đặt kết cấu nhà xưởng.</p>
+        <a href="#" style="color: var(--blue); font-weight: bold;">Chi tiết dịch vụ →</a>
     </div>
 
     <div class="service-card">
-        <h3>Cung Cấp Linh Kiện Vật Tư</h3>
-        <p>Phân phối thiết bị đóng cắt, cảm biến, linh kiện điện tử và vật tư tiêu hao ngành kỹ thuật chính hãng.</p>
-        <a href="#" style="color: var(--blue); font-weight: bold;">Xem chi tiết →</a>
+        <h3>Vệ Sinh Công Nghiệp</h3>
+        <p>Vệ sinh hệ thống máy móc, nhà xưởng, đường ống công nghiệp bằng thiết bị chuyên dụng.</p>
+        <a href="#" style="color: var(--blue); font-weight: bold;">Chi tiết dịch vụ →</a>
     </div>
 
     <div class="service-card">
-        <h3>Lắp Đặt Camera & Mạng</h3>
-        <p>Thi công hệ thống giám sát an ninh và hạ tầng mạng LAN/Wifi chuyên nghiệp cho văn phòng.</p>
-        <a href="#" style="color: var(--blue); font-weight: bold;">Xem chi tiết →</a>
-    </div>
-
-    <div class="service-card">
-        <h3>Bảo Trì Máy Tính & Máy In</h3>
-        <p>Dịch vụ IT Support, bảo trì định kỳ hệ thống máy tính, máy in giúp doanh nghiệp vận hành thông suốt.</p>
-        <a href="#" style="color: var(--blue); font-weight: bold;">Xem chi tiết →</a>
-    </div>
-
-    <div class="service-card">
-        <h3>Bảo Trì Hệ Thống Cơ Điện</h3>
-        <p>Kiểm tra, bảo dưỡng tủ điện, hệ thống chiếu sáng và máy móc công nghiệp định kỳ.</p>
-        <a href="#" style="color: var(--blue); font-weight: bold;">Xem chi tiết →</a>
+        <h3>Sản Phẩm & Vật Tư</h3>
+        <p>Cung cấp linh kiện điện, vật tư cơ khí, cảm biến và thiết bị thay thế chính hãng.</p>
+        <a href="#" style="color: var(--blue); font-weight: bold;">Vào cửa hàng →</a>
     </div>
 </div>
 
 <footer id="contact">
     <h3>AT-MAINT SERVICES</h3>
-    <p>Địa chỉ: [Cập nhật địa chỉ của bạn]</p>
-    <p>Email: contact@at-maint.com | Hotline: 09xx.xxx.xxx</p>
-    <p>&copy; 2024 AT-Maint. All rights reserved.</p>
+    <p>Hotline: 09xx.xxx.xxx | Email: contact@at-maint.com</p>
+    <p>&copy; 2024 AT-Maint. Chuyên nghiệp - Tận tâm - Hiệu quả.</p>
 </footer>
 
 </body>
