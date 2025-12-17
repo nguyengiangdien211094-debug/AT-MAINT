@@ -2,50 +2,135 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>AT-Maint | Dịch vụ Kỹ thuật & Bảo trì Chuyên nghiệp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AT-Maint | Dịch vụ Kỹ thuật & Bảo trì Công nghiệp</title>
     <style>
-        :root { --blue: #004a99; --orange: #ff6600; --gray: #f4f4f4; }
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        header { background: var(--blue); color: white; padding: 1rem; text-align: center; }
-        nav { background: #333; color: white; padding: 10px; text-align: center; }
-        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
-        .hero { background: url('camera-bg.jpg'); height: 400px; display: flex; align-items: center; justify-content: center; color: white; flex-direction: column; text-shadow: 2px 2px 4px #000; }
-        .services { display: flex; justify-content: space-around; padding: 50px; background: var(--gray); }
-        .service-card { background: white; padding: 20px; width: 25%; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); text-align: center; }
-        .btn { background: var(--orange); color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; }
+        :root { 
+            --blue: #004a99; 
+            --dark-blue: #003366;
+            --orange: #ff6600; 
+            --gray: #f4f4f4; 
+            --text: #333;
+        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; color: var(--text); line-height: 1.6; }
+        
+        /* Header & Nav */
+        header { background: var(--blue); color: white; padding: 2rem 1rem; text-align: center; }
+        nav { background: #333; color: white; padding: 12px; text-align: center; sticky: top; position: sticky; top: 0; z-index: 1000; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; font-size: 14px; text-transform: uppercase; }
+        nav a:hover { color: var(--orange); }
+
+        /* Hero Section */
+        .hero { 
+            background: linear-gradient(rgba(0,74,153,0.7), rgba(0,74,153,0.7)), url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000'); 
+            background-size: cover;
+            background-position: center;
+            height: 450px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: white; 
+            flex-direction: column; 
+            text-align: center;
+            padding: 0 20px;
+        }
+        .hero h2 { font-size: 2.5rem; margin-bottom: 10px; }
+        
+        /* Service Section */
+        .section-title { text-align: center; margin-top: 50px; color: var(--blue); text-transform: uppercase; }
+        .services-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 25px; 
+            padding: 40px 10%; 
+            background: var(--gray); 
+        }
+
+        .service-card { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 12px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+            text-align: center; 
+            transition: transform 0.3s;
+            border-top: 5px solid var(--blue);
+        }
+        .service-card:hover { transform: translateY(-10px); border-top: 5px solid var(--orange); }
+        .service-card h3 { color: var(--dark-blue); margin-bottom: 15px; height: 50px; display: flex; align-items: center; justify-content: center; }
+        .service-card p { font-size: 14px; color: #666; }
+        
+        /* Buttons */
+        .btn { background: var(--orange); color: white; padding: 12px 25px; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; font-size: 16px; transition: 0.3s; text-decoration: none; display: inline-block; }
+        .btn:hover { background: #e65c00; transform: scale(1.05); }
+
+        footer { background: #222; color: white; text-align: center; padding: 30px; margin-top: 50px; }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>AT-MAINT SERVICES</h1>
-    <p>Giải Pháp Kỹ Thuật & Bảo Trì Toàn Diện</p>
+    <h1>CÔNG TY TNHH DV KỸ THUẬT & BẢO TRÌ AT-MAINT</h1>
+    <p>Uy Tín - Chất Lượng - Giải Pháp Tối Ưu Cho Doanh Nghiệp</p>
 </header>
 
 <nav>
-    <a href="#">Trang Chủ</a> | <a href="#">Dịch Vụ</a> | <a href="#">Cửa Hàng</a> | <a href="#">Dự Án</a> | <a href="#">Liên Hệ</a>
+    <a href="#">Trang Chủ</a>
+    <a href="#services">Dịch Vụ Kỹ Thuật</a>
+    <a href="#parts">Cung Cấp Vật Tư</a>
+    <a href="#contact">Liên Hệ</a>
 </nav>
 
 <div class="hero">
-    <h2>DỊCH VỤ CÀI ĐẶT & SỬA CHỮA TẬN NƠI</h2>
-    <p>Camera - Máy Tính - Mạng - Máy In</p>
-    <button class="btn">Yêu Cầu Tư Vấn Ngay</button>
+    <h2>GIẢI PHÁP KỸ THUẬT TOÀN DIỆN</h2>
+    <p>Chuyên nghiệp trong Sửa chữa - Bảo trì - Cung ứng vật tư công nghiệp</p>
+    <a href="tel:0900000000" class="btn">GỌI TƯ VẤN NGAY</a>
 </div>
 
-<div class="services">
+<h2 class="section-title" id="services">Dịch Vụ Kỹ Thuật Trọng Tâm</h2>
+<div class="services-container">
     <div class="service-card">
-        <h3>Lắp đặt Camera</h3>
-        <p>Hệ thống giám sát chất lượng cao, xem qua điện thoại 24/7.</p>
+        <h3>Sửa Chữa Máy Móc Tự Động Hóa</h3>
+        <p>Xử lý lỗi hệ thống PLC, Biến tần, Servo, HMI. Nâng cấp và cải tiến dây chuyền sản xuất tự động.</p>
+        <a href="#" style="color: var(--blue); font-weight: bold;">Xem chi tiết →</a>
     </div>
+
     <div class="service-card">
-        <h3>Hạ tầng Mạng</h3>
-        <p>Thi công mạng LAN/Wifi cho văn phòng, nhà xưởng.</p>
+        <h3>Giải Pháp An Toàn Điện</h3>
+        <p>Tư vấn lắp đặt hệ thống chống giật, tiếp địa an toàn, kiểm tra rò rỉ điện và chống sét cho nhà xưởng.</p>
+        <a href="#" style="color: var(--blue); font-weight: bold;">Xem chi tiết →</a>
     </div>
+
     <div class="service-card">
-        <h3>Bảo trì Máy tính</h3>
-        <p>Vệ sinh, cài đặt phần mềm, tối ưu hóa hệ thống định kỳ.</p>
+        <h3>Cung Cấp Linh Kiện Vật Tư</h3>
+        <p>Phân phối thiết bị đóng cắt, cảm biến, linh kiện điện tử và vật tư tiêu hao ngành kỹ thuật chính hãng.</p>
+        <a href="#" style="color: var(--blue); font-weight: bold;">Xem chi tiết →</a>
+    </div>
+
+    <div class="service-card">
+        <h3>Lắp Đặt Camera & Mạng</h3>
+        <p>Thi công hệ thống giám sát an ninh và hạ tầng mạng LAN/Wifi chuyên nghiệp cho văn phòng.</p>
+        <a href="#" style="color: var(--blue); font-weight: bold;">Xem chi tiết →</a>
+    </div>
+
+    <div class="service-card">
+        <h3>Bảo Trì Máy Tính & Máy In</h3>
+        <p>Dịch vụ IT Support, bảo trì định kỳ hệ thống máy tính, máy in giúp doanh nghiệp vận hành thông suốt.</p>
+        <a href="#" style="color: var(--blue); font-weight: bold;">Xem chi tiết →</a>
+    </div>
+
+    <div class="service-card">
+        <h3>Bảo Trì Hệ Thống Cơ Điện</h3>
+        <p>Kiểm tra, bảo dưỡng tủ điện, hệ thống chiếu sáng và máy móc công nghiệp định kỳ.</p>
+        <a href="#" style="color: var(--blue); font-weight: bold;">Xem chi tiết →</a>
     </div>
 </div>
+
+<footer id="contact">
+    <h3>AT-MAINT SERVICES</h3>
+    <p>Địa chỉ: [Cập nhật địa chỉ của bạn]</p>
+    <p>Email: contact@at-maint.com | Hotline: 09xx.xxx.xxx</p>
+    <p>&copy; 2024 AT-Maint. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
