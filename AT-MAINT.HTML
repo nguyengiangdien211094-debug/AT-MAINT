@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AT-Maint | Đại Lý WECON Chính Hãng</title>
+    <title>AT-Maint | Đại Lý WECON & Dịch Vụ Kỹ Thuật</title>
     <style>
         :root { 
             --blue: #004a99; 
@@ -26,7 +26,7 @@
         .dropdown-content a:hover { background: var(--gray); color: var(--blue) !important; }
         nav ul li:hover .dropdown-content { display: block; }
 
-        /* Page Transitions Animation */
+        /* Animation */
         #page-content { animation: fadeIn 0.4s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -36,7 +36,7 @@
         .section-title { text-align: center; color: var(--blue); font-size: 28px; margin-bottom: 40px; text-transform: uppercase; position: relative; }
         .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--orange); margin: 10px auto; }
 
-        /* Product Row Styling */
+        /* Product & Service Cards */
         .product-row { 
             display: flex; gap: 30px; background: white; border: 1px solid #ddd; 
             border-radius: 12px; margin-bottom: 50px; overflow: hidden;
@@ -50,7 +50,6 @@
         .specs { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
         .specs td { padding: 10px; border-bottom: 1px solid #eee; font-size: 14px; }
         
-        /* Price & Buttons */
         .price-row { display: flex; align-items: center; justify-content: space-between; border-top: 2px dashed #eee; padding-top: 20px; }
         .price { color: var(--orange); font-weight: bold; font-size: 22px; }
         .btn-view { display: inline-block; padding: 10px 25px; background: var(--blue); color: white; text-decoration: none; border-radius: 4px; font-weight: bold; cursor: pointer; }
@@ -65,24 +64,24 @@
     <ul>
         <li><a onclick="loadHome()">🏠 Trang Chủ</a></li>
         <li>
-            <a>📦 SẢN PHẨM ▼</a>
+            <a>📦 SẢN PHẨM & DỊCH VỤ ▼</a>
             <div class="dropdown-content">
                 <a onclick="loadInverters()">Biến Tần WECON (Chính hãng)</a>
                 <a onclick="loadPLC()">Bộ Điều Khiển PLC</a>
                 <a onclick="loadHMI()">Màn Hình HMI</a>
+                <a onclick="loadServices()">Dịch vụ Bảo trì & Sửa chữa</a>
             </div>
         </li>
         <li><a href="tel:0355915000">📞 HOTLINE: 0355.915.000</a></li>
     </ul>
 </nav>
 
-<div id="page-content">
-    </div>
+<div id="page-content"></div>
 
 <footer>
-    <p><b>AT-MAINT SERVICES - CHUYÊN THIẾT BỊ WECON CHÍNH HÃNG</b></p>
+    <p><b>AT-MAINT SERVICES - GIẢI PHÁP KỸ THUẬT TOÀN DIỆN</b></p>
     <p>Hỗ trợ kỹ thuật 24/7 | Hotline: 0355.915.000</p>
-    <p>&copy; 2024 AT-Maint - Giải pháp kỹ thuật toàn diện</p>
+    <p>&copy; 2024 AT-Maint - Uy tín - Chất lượng - Tận tâm</p>
 </footer>
 
 <script>
@@ -93,25 +92,30 @@
         content.innerHTML = `
             <div class="page-header">
                 <h1>AT-MAINT KỸ THUẬT & VẬT TƯ</h1>
-                <p>Đại lý ủy quyền cung cấp giải pháp Tự động hóa WECON toàn quốc</p>
+                <p>Đại lý WECON và Đơn vị cung cấp dịch vụ kỹ thuật máy công nghiệp</p>
             </div>
             <div class="container">
-                <h2 class="section-title">Sản Phẩm Nổi Bật</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                <h2 class="section-title">Danh Mục Nổi Bật</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
                     <div style="text-align:center; padding:20px; border:1px solid #eee; border-radius:10px;">
-                        <img src="https://wecon-plc.com/image/catalog/Inverter/VB-Inverter.png" height="150">
+                        <img src="https://wecon-plc.com/image/catalog/Inverter/VB-Inverter.png" height="120">
                         <h3>BIẾN TẦN</h3>
-                        <a onclick="loadInverters()" class="btn-view">XEM NGAY</a>
+                        <a onclick="loadInverters()" class="btn-view">XEM</a>
                     </div>
                     <div style="text-align:center; padding:20px; border:1px solid #eee; border-radius:10px;">
-                        <img src="https://wecon-plc.com/image/catalog/PLC/LX3V.png" height="150">
-                        <h3>BỘ ĐIỀU KHIỂN PLC</h3>
-                        <a onclick="loadPLC()" class="btn-view">XEM NGAY</a>
+                        <img src="https://wecon-plc.com/image/catalog/PLC/LX3V.png" height="120">
+                        <h3>PLC</h3>
+                        <a onclick="loadPLC()" class="btn-view">XEM</a>
                     </div>
                     <div style="text-align:center; padding:20px; border:1px solid #eee; border-radius:10px;">
-                        <img src="https://wecon-plc.com/image/catalog/HMI/PI3000.png" height="150">
-                        <h3>MÀN HÌNH HMI</h3>
-                        <a onclick="loadHMI()" class="btn-view">XEM NGAY</a>
+                        <img src="https://wecon-plc.com/image/catalog/HMI/PI3000.png" height="120">
+                        <h3>HMI</h3>
+                        <a onclick="loadHMI()" class="btn-view">XEM</a>
+                    </div>
+                    <div style="text-align:center; padding:20px; border:1px solid #eee; border-radius:10px; background: #fffcf5;">
+                        <div style="font-size: 60px; margin-bottom: 10px;">🛠️</div>
+                        <h3>DỊCH VỤ SỬA CHỮA</h3>
+                        <a onclick="loadServices()" class="btn-view" style="background:var(--orange)">CHI TIẾT</a>
                     </div>
                 </div>
             </div>
@@ -124,18 +128,16 @@
         content.innerHTML = `
             <div class="page-header" style="background: #003366;">
                 <h1>BIẾN TẦN WECON CHÍNH HÃNG</h1>
-                <p>Giải pháp điều khiển tốc độ động cơ tối ưu</p>
+                <p>Điều khiển tốc độ - Tiết kiệm điện năng</p>
             </div>
             <div class="container">
-                <h2 class="section-title">Danh Mục Biến Tần</h2>
                 <div class="product-row">
                     <div class="img-box"><img src="https://wecon-plc.com/image/catalog/Inverter/VB-Inverter.png"></div>
                     <div class="info-box">
-                        <h2>WECON VB Series (Vector Control)</h2>
+                        <h2>WECON VB Series</h2>
                         <table class="specs">
                             <tr><td><b>Công suất:</b></td><td>0.75kW - 630kW</td></tr>
-                            <tr><td><b>Điều khiển:</b></td><td>SVC, V/F Control</td></tr>
-                            <tr><td><b>Moment:</b></td><td>150% tại 0.5Hz</td></tr>
+                            <tr><td><b>Ứng dụng:</b></td><td>Bơm, quạt, máy nén, cẩu trục</td></tr>
                         </table>
                         <div class="price-row">
                             <span class="price">Liên hệ báo giá</span>
@@ -153,21 +155,19 @@
         content.innerHTML = `
             <div class="page-header" style="background: #2c3e50;">
                 <h1>BỘ ĐIỀU KHIỂN PLC WECON</h1>
-                <p>Điều khiển thông minh - Lập trình linh hoạt</p>
+                <p>Giải pháp tự động hóa tin cậy</p>
             </div>
             <div class="container">
-                <h2 class="section-title">Danh Mục PLC</h2>
                 <div class="product-row">
                     <div class="img-box"><img src="https://wecon-plc.com/image/catalog/PLC/LX3V.png"></div>
                     <div class="info-box">
-                        <h2>PLC WECON LX3V Series</h2>
+                        <h2>PLC WECON LX3V</h2>
                         <table class="specs">
-                            <tr><td><b>Tốc độ:</b></td><td>Xử lý lệnh cực nhanh</td></tr>
-                            <tr><td><b>Kết nối:</b></td><td>Hỗ trợ RS485, Ethernet</td></tr>
-                            <tr><td><b>Phần mềm:</b></td><td>Tương thích Mitsubishi Works 2</td></tr>
+                            <tr><td><b>Đặc điểm:</b></td><td>Tốc độ cao, dễ lập trình</td></tr>
+                            <tr><td><b>Tương thích:</b></td><td>Phần mềm Mitsubishi</td></tr>
                         </table>
                         <div class="price-row">
-                            <span class="price">Giá cực tốt</span>
+                            <span class="price">Hàng sẵn kho</span>
                             <a href="tel:0355915000" class="btn-view">NHẬN BÁO GIÁ</a>
                         </div>
                     </div>
@@ -182,22 +182,20 @@
         content.innerHTML = `
             <div class="page-header" style="background: #16a085;">
                 <h1>MÀN HÌNH HMI WECON</h1>
-                <p>Giao diện người máy sắc nét - Cảm ứng mượt mà</p>
+                <p>Giao diện trực quan - Kết nối đa dạng</p>
             </div>
             <div class="container">
-                <h2 class="section-title">Danh Mục HMI</h2>
                 <div class="product-row">
                     <div class="img-box"><img src="https://wecon-plc.com/image/catalog/HMI/PI3000.png"></div>
                     <div class="info-box">
                         <h2>HMI WECON PI Series</h2>
                         <table class="specs">
-                            <tr><td><b>Kích thước:</b></td><td>4.3", 7", 10.2", 15.6"</td></tr>
-                            <tr><td><b>Màu sắc:</b></td><td>16 triệu màu sắc nét</td></tr>
-                            <tr><td><b>Tính năng:</b></td><td>Hỗ trợ Cloud, giám sát từ xa</td></tr>
+                            <tr><td><b>Kích thước:</b></td><td>7", 10.2", 15"</td></tr>
+                            <tr><td><b>Kết nối:</b></td><td>Ethernet, Cloud, RS485</td></tr>
                         </table>
                         <div class="price-row">
-                            <span class="price">Liên hệ hotline</span>
-                            <a href="tel:0355915000" class="btn-view">TƯ VẤN MIỄN PHÍ</a>
+                            <span class="price">Giá cạnh tranh</span>
+                            <a href="tel:0355915000" class="btn-view">LIÊN HỆ</a>
                         </div>
                     </div>
                 </div>
@@ -206,9 +204,11 @@
         window.scrollTo(0, 0);
     }
 
-    // Mặc định load trang chủ khi vừa mở web
-    loadHome();
-</script>
-
-</body>
-</html>
+    // 5. TRANG DỊCH VỤ (MỚI THÊM)
+    function loadServices() {
+        content.innerHTML = `
+            <div class="page-header" style="background: #d35400;">
+                <h1>DỊCH VỤ BẢO TRÌ & SỬA CHỮA</h1>
+                <p>Khắc phục sự cố nhanh chóng - Duy trì máy móc ổn định</p>
+            </div>
+            <div
