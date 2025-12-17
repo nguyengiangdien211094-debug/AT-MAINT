@@ -53,8 +53,8 @@
         .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: var(--shadow); transition: 0.4s; border: 1px solid #edf2f7; display: flex; flex-direction: column; }
         .card:hover { transform: translateY(-10px); border-color: var(--accent); }
         
-        .card-img-container { width: 100%; height: 280px; padding: 10px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        .card-img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+        .card-img-container { width: 100%; height: 280px; padding: 20px; background: #fff; display: flex; align-items: center; justify-content: center; }
+        .card-img { max-width: 100%; max-height: 100%; object-fit: contain; }
         
         .card-body { padding: 25px; border-top: 1px solid #f1f5f9; flex-grow: 1; display: flex; flex-direction: column; }
         .card-body h3 { font-size: 1.2rem; margin-bottom: 10px; color: var(--primary); }
@@ -92,7 +92,7 @@
         <div class="logo" onclick="navigateTo('home')">AT-<span>MAINT</span></div>
         <nav class="nav-links">
             <a onclick="navigateTo('home')" id="nav-home" class="active">Trang Chủ</a>
-            <a onclick="navigateTo('home')" id="nav-products">Sản Phẩm</a>
+            <a onclick="navigateTo('products')" id="nav-products">Sản Phẩm</a>
             <a onclick="navigateTo('services')" id="nav-services">Dịch Vụ</a>
         </nav>
     </header>
@@ -111,11 +111,11 @@
             <div class="grid">
                 <div class="card">
                     <div class="card-img-container">
-                        <img src="wecon-inverter.jpg" class="card-img" alt="PLC WECON LX3V">
+                        <img src="https://wecon.com.vn/wp-content/uploads/2019/04/LX3V-1412MT-A-1.jpg" class="card-img" alt="PLC WECON LX3V">
                     </div>
                     <div class="card-body">
                         <h3>PLC WECON LX3V Series</h3>
-                        <p>Dòng PLC mạnh mẽ, hỗ trợ nhiều I/O, tốc độ xử lý nhanh, ổn định.</p>
+                        <p>Dòng PLC mạnh mẽ, hỗ trợ nhiều I/O, tốc độ xử lý nhanh.</p>
                         <span class="price">3.500.000đ</span>
                         <a href="https://zalo.me/0355915000" target="_blank" class="btn-accent">Tư Vấn Kỹ Thuật</a>
                     </div>
@@ -123,11 +123,11 @@
 
                 <div class="card">
                     <div class="card-img-container">
-                        <img src="https://images.unsplash.com/photo-1555664424-778a1e5e1b48?q=80&w=800" class="card-img" alt="HMI WECON PI">
+                        <img src="https://wecon.com.vn/wp-content/uploads/2019/04/PI3070ie.jpg" class="card-img" alt="HMI WECON PI">
                     </div>
                     <div class="card-body">
                         <h3>HMI WECON PI Series</h3>
-                        <p>Màn hình cảm ứng công nghiệp độ phân giải cao, hỗ trợ Cloud IIoT.</p>
+                        <p>Màn hình cảm ứng công nghiệp độ phân giải cao.</p>
                         <span class="price">2.450.000đ</span>
                         <a href="https://zalo.me/0355915000" target="_blank" class="btn-accent">Tư Vấn Kỹ Thuật</a>
                     </div>
@@ -135,11 +135,11 @@
 
                 <div class="card">
                     <div class="card-img-container">
-                        <img src="https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=800" class="card-img" alt="VFD WECON VB">
+                        <img src="18777-wecon-inverter.jpg" class="card-img" alt="Biến Tần WECON VB">
                     </div>
                     <div class="card-body">
                         <h3>Biến Tần WECON VB Series</h3>
-                        <p>Giải pháp điều khiển tốc độ động cơ tối ưu, tiết kiệm điện năng.</p>
+                        <p>Giải pháp điều khiển tốc độ động cơ tối ưu, tiết kiệm điện.</p>
                         <span class="price">3.200.000đ</span>
                         <a href="https://zalo.me/0355915000" target="_blank" class="btn-accent">Tư Vấn Kỹ Thuật</a>
                     </div>
@@ -148,14 +148,22 @@
         </section>
     </main>
 
+    <main id="products-page" class="page">
+        <section class="section">
+            <div class="section-title"><h2>Danh Mục Sản Phẩm</h2><div class="bar"></div></div>
+            <div class="grid" id="full-list">
+                </div>
+        </section>
+    </main>
+
     <main id="services-page" class="page">
         <section class="section">
             <div class="section-title"><h2>Dịch Vụ Kỹ Thuật</h2><div class="bar"></div></div>
-            <p style="text-align: center; font-size: 1.1rem; line-height: 1.8;">
-                Chúng tôi cung cấp dịch vụ chuyên nghiệp:<br>
-                <b>Sửa chữa Biến tần, PLC, HMI</b> và <b>Lắp đặt tủ điện công nghiệp</b>.<br>
-                Liên hệ hotline để được hỗ trợ tận nơi.
-            </p>
+            <div style="text-align: center; max-width: 800px; margin: 0 auto; line-height: 1.8;">
+                <p>Sửa chữa Biến tần, PLC, HMI các hãng.</p>
+                <p>Thiết kế và thi công lắp đặt tủ điện điều khiển công nghiệp.</p>
+                <p>Lập trình hệ thống SCADA, giám sát từ xa qua Cloud IoT.</p>
+            </div>
         </section>
     </main>
 
@@ -166,12 +174,20 @@
 
     <script>
         function navigateTo(pageId) {
+            // Ẩn tất cả các trang
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            // Hiện trang được chọn
             document.getElementById(pageId + '-page').classList.add('active');
             
+            // Cập nhật trạng thái menu
             document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
             const nav = document.getElementById('nav-' + pageId);
             if(nav) nav.classList.add('active');
+
+            // Nếu vào trang sản phẩm, lấy nội dung từ trang chủ đổ sang
+            if(pageId === 'products') {
+                document.getElementById('full-list').innerHTML = document.querySelector('#home-page .grid').innerHTML;
+            }
             
             window.scrollTo(0, 0);
         }
