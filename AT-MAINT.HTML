@@ -3,163 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AT-Maint | Chuyên Cung Cấp Biến Tần Chính Hãng</title>
+    <title>AT-Maint | Vật Tư & Kỹ Thuật</title>
     <style>
         :root { 
             --blue: #004a99; 
             --orange: #ff6600; 
+            --dark: #222;
             --gray: #f4f4f4; 
-            --text: #333;
         }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; color: var(--text); background: #f9f9f9; }
-        
-        /* Nav & Header */
-        header { background: var(--blue); color: white; padding: 1rem; text-align: center; }
-        nav { background: #333; color: white; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #fff; overflow-x: hidden; }
+
+        /* Navigation Bar */
+        nav { background: #333; color: white; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
         nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
         nav ul li { position: relative; }
-        nav ul li a { display: block; color: white; padding: 15px 20px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 14px; cursor: pointer; }
-        nav ul li a:hover { color: var(--orange); }
+        nav ul li a { display: block; color: white; padding: 18px 25px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 14px; transition: 0.3s; cursor: pointer; }
+        nav ul li a:hover { background: var(--orange); }
 
-        .dropdown-content { display: none; position: absolute; background: white; min-width: 220px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); }
-        .dropdown-content a { color: #333 !important; padding: 12px 15px; border-bottom: 1px solid #eee; text-transform: none; }
+        .dropdown-content { display: none; position: absolute; background: white; min-width: 250px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); border-top: 3px solid var(--orange); }
+        .dropdown-content a { color: #333 !important; padding: 12px 15px; border-bottom: 1px solid #eee; text-transform: none; font-weight: normal; }
+        .dropdown-content a:hover { background: var(--gray); color: var(--blue) !important; }
         nav ul li:hover .dropdown-content { display: block; }
 
-        .container { padding: 40px 8%; min-height: 600px; }
-        .category-title { border-left: 5px solid var(--orange); padding-left: 15px; margin-bottom: 30px; color: var(--blue); text-transform: uppercase; }
+        /* Page Transitions */
+        #page-content { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Biến tần Page Styling */
-        .product-detail-card { 
-            background: white; border: 1px solid #ddd; border-radius: 8px; 
-            margin-bottom: 40px; display: flex; flex-wrap: wrap; overflow: hidden;
-        }
-        .product-image-side { flex: 1; min-width: 300px; padding: 20px; text-align: center; background: #fff; }
-        .product-image-side img { max-width: 100%; height: auto; transition: 0.3s; }
-        .product-image-side img:hover { transform: scale(1.05); }
+        /* Container */
+        .page-header { background: var(--blue); color: white; padding: 60px 8%; text-align: center; margin-bottom: 40px; }
+        .container { max-width: 1200px; margin: auto; padding: 0 20px 60px 20px; }
 
-        .product-info-side { flex: 2; min-width: 350px; padding: 30px; border-left: 1px solid #eee; }
-        .product-info-side h3 { color: var(--blue); margin-top: 0; font-size: 24px; }
+        /* Inverter Page Layout */
+        .product-section-title { font-size: 28px; color: var(--blue); border-bottom: 2px solid var(--orange); display: inline-block; margin-bottom: 40px; padding-bottom: 10px; }
         
-        .spec-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
-        .spec-table th, .spec-table td { border: 1px solid #eee; padding: 10px; text-align: left; }
-        .spec-table th { background: #f8f8f8; width: 35%; }
-
-        .price-tag { font-size: 22px; color: var(--orange); font-weight: bold; margin: 20px 0; }
-        .btn-contact { 
-            background: var(--orange); color: white; padding: 12px 25px; 
-            text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;
+        .product-row { 
+            display: flex; gap: 30px; background: white; border: 1px solid #ddd; 
+            border-radius: 12px; margin-bottom: 50px; overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s;
         }
+        .product-row:hover { box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
+        
+        .img-box { flex: 1; background: #fff; display: flex; align-items: center; justify-content: center; padding: 20px; border-right: 1px solid #eee; }
+        .img-box img { max-width: 100%; height: auto; transition: 0.4s; }
+        .img-box:hover img { transform: scale(1.1); }
 
-        footer { background: #222; color: white; text-align: center; padding: 30px; margin-top: 50px; }
+        .info-box { flex: 2; padding: 30px; }
+        .info-box h2 { margin-top: 0; color: var(--blue); font-size: 24px; }
+        .info-box p { color: #666; font-style: italic; margin-bottom: 20px; }
+
+        /* Specs Table */
+        .specs { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        .specs td { padding: 10px; border-bottom: 1px solid #eee; font-size: 14px; }
+        .specs td:first-child { font-weight: bold; color: #555; width: 35%; }
+
+        .price-row { display: flex; align-items: center; justify-content: space-between; margin-top: 20px; padding-top: 20px; border-top: 2px dashed #eee; }
+        .price { font-size: 24px; color: var(--orange); font-weight: bold; }
+        .btn-call { background: var(--blue); color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
+        .btn-call:hover { background: var(--orange); }
+
+        footer { background: var(--dark); color: white; text-align: center; padding: 40px; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>AT-MAINT KỸ THUẬT & VẬT TƯ</h1>
-    <p>Dữ liệu sản phẩm cập nhật theo tiêu chuẩn Hantech Automation</p>
-</header>
-
 <nav>
     <ul>
-        <li><a onclick="showHome()">Trang Chủ</a></li>
+        <li><a onclick="loadHome()">🏠 Trang Chủ</a></li>
         <li>
-            <a>SẢN PHẨM ▼</a>
+            <a>📦 SẢN PHẨM ▼</a>
             <div class="dropdown-content">
-                <a onclick="showInverters()">Biến Tần (Inverter)</a>
-                <a href="#">Bộ Điều Khiển PLC</a>
-                <a href="#">Màn Hình HMI</a>
-                <a href="#">Động Cơ Servo</a>
+                <a onclick="loadInverters()">Biến Tần (Inverter)</a>
+                <a onclick="alert('Tính năng đang cập nhật!')">Bộ Điều Khiển PLC</a>
+                <a onclick="alert('Tính năng đang cập nhật!')">Màn Hình HMI</a>
+                <a onclick="alert('Tính năng đang cập nhật!')">Động Cơ Servo</a>
             </div>
         </li>
-        <li><a href="tel:0355915000">HOTLINE: 0355.915.000</a></li>
+        <li><a href="tel:0355915000">📞 HOTLINE: 0355.915.000</a></li>
     </ul>
 </nav>
 
-<div class="container" id="main-content">
-    <h2 class="category-title">Chào mừng đến với AT-Maint</h2>
-    <p>Vui lòng chọn danh mục "Biến Tần" để xem thông số kỹ thuật chi tiết.</p>
+<div id="page-content">
+    <div class="page-header">
+        <h1>CÔNG TY TNHH KỸ THUẬT AT-MAINT</h1>
+        <p>Phân phối vật tư tự động hóa - Dữ liệu tham khảo Hantech Automation</p>
+    </div>
+    <div class="container" style="text-align: center;">
+        <h2 style="color: var(--blue);">CHÀO MỪNG QUÝ KHÁCH</h2>
+        <p>Vui lòng chọn <b>Danh mục Biến Tần</b> trong phần Sản Phẩm để xem chi tiết thông số kỹ thuật và báo giá.</p>
+    </div>
 </div>
 
-<script>
-    const mainContent = document.getElementById('main-content');
+<footer>
+    <p><b>AT-MAINT SERVICES</b></p>
+    <p>Địa chỉ: Liên hệ Hotline để biết thêm chi tiết | Hotline: 0355.915.000</p>
+    <p>&copy; 2024 AT-Maint - Uy Tín & Chất Lượng</p>
+</footer>
 
-    function showHome() {
-        mainContent.innerHTML = `
-            <h2 class="category-title">Chào mừng đến với AT-Maint</h2>
-            <p>Chọn danh mục sản phẩm từ thực đơn để xem thông tin chi tiết và báo giá.</p>
+<script>
+    const content = document.getElementById('page-content');
+
+    function loadHome() {
+        content.innerHTML = `
+            <div class="page-header">
+                <h1>CÔNG TY TNHH KỸ THUẬT AT-MAINT</h1>
+                <p>Phân phối vật tư tự động hóa - Dữ liệu tham khảo Hantech Automation</p>
+            </div>
+            <div class="container" style="text-align: center;">
+                <h2 style="color: var(--blue);">CHÀO MỪNG QUÝ KHÁCH</h2>
+                <p>Hãy khám phá các dòng sản phẩm chất lượng cao của chúng tôi.</p>
+            </div>
         `;
     }
 
-    function showInverters() {
-        mainContent.innerHTML = `
-            <h2 class="category-title">Danh Mục: Biến Tần (Inverter)</h2>
+    function loadInverters() {
+        // Đây chính là "Trang mới" về Biến Tần
+        content.innerHTML = `
+            <div class="page-header" style="background: #003366;">
+                <h1>CHUYÊN TRANG BIẾN TẦN (INVERTER)</h1>
+                <p>Cung cấp giải pháp điều khiển động cơ từ Mitsubishi, LS, INVT, Schneider...</p>
+            </div>
             
-            <div class="product-detail-card">
-                <div class="product-image-side">
-                    <img src="https://hantech.vn/wp-content/uploads/2021/05/bien-tan-mitsubishi-e700.jpg" alt="Mitsubishi E700">
-                </div>
-                <div class="product-info-side">
-                    <h3>Biến tần Mitsubishi FR-E700 Series</h3>
-                    <p>Dòng biến tần đa năng, kích thước nhỏ gọn, hiệu suất vận hành cao của Nhật Bản.</p>
-                    <table class="spec-table">
-                        <tr><th>Công suất</th><td>0.1kW - 15kW</td></tr>
-                        <tr><th>Điện áp vào</th><td>1 pha 220V, 3 pha 380V</td></tr>
-                        <tr><th>Khả năng chịu quá tải</th><td>150% trong 60s, 200% trong 0.5s</td></tr>
-                        <tr><th>Truyền thông</th><td>RS-485, Modbus RTU, CC-Link</td></tr>
-                        <tr><th>Ứng dụng</th><td>Băng tải, máy đóng gói, máy công cụ...</td></tr>
-                    </table>
-                    <div class="price-tag">Giá: Liên hệ 0355.915.000</div>
-                    <a href="tel:0355915000" class="btn-contact">NHẬN BÁO GIÁ CHI TIẾT</a>
-                </div>
-            </div>
+            <div class="container">
+                <h2 class="product-section-title">Sản Phẩm Nổi Bật</h2>
 
-            <div class="product-detail-card">
-                <div class="product-image-side">
-                    <img src="https://hantech.vn/wp-content/uploads/2021/05/bien-tan-ls-ig5a.jpg" alt="LS iG5A">
+                <div class="product-row">
+                    <div class="img-box">
+                        <img src="https://hantech.vn/wp-content/uploads/2021/05/bien-tan-mitsubishi-e700.jpg" alt="Mitsubishi">
+                    </div>
+                    <div class="info-box">
+                        <h2>Biến tần Mitsubishi FR-E700</h2>
+                        <p>Dòng biến tần Nhật Bản hiệu suất cao, siêu bền bỉ cho công nghiệp nặng.</p>
+                        <table class="specs">
+                            <tr><td>Dải công suất</td><td>0.1kW - 15kW</td></tr>
+                            <tr><td>Điện áp vào</td><td>1 pha 220V / 3 pha 380V</td></tr>
+                            <tr><td>Khả năng chịu tải</td><td>200% trong 3 giây</td></tr>
+                            <tr><td>Chuẩn bảo vệ</td><td>IP20 (Hỗ trợ lắp tủ điện)</td></tr>
+                        </table>
+                        <div class="price-row">
+                            <span class="price">Giá: Liên hệ báo giá</span>
+                            <a href="tel:0355915000" class="btn-call">GỌI TƯ VẤN NGAY</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="product-info-side">
-                    <h3>Biến tần LS iG5A (Starvert)</h3>
-                    <p>Dòng biến tần mạnh mẽ từ Hàn Quốc, giao diện thân thiện, dễ cài đặt.</p>
-                    <table class="spec-table">
-                        <tr><th>Dải tần số</th><td>0.1Hz - 400Hz</td></tr>
-                        <tr><th>Phương pháp điều khiển</th><td>V/F, Sensorless Vector</td></tr>
-                        <tr><th>Moment khởi động</th><td>150% tại 0.5Hz</td></tr>
-                        <tr><th>Cấp bảo vệ</th><td>IP20</td></tr>
-                        <tr><th>Tính năng nổi bật</th><td>Tích hợp bộ hãm phanh (Braking Unit)</td></tr>
-                    </table>
-                    <div class="price-tag">Giá: Liên hệ 0355.915.000</div>
-                    <a href="tel:0355915000" class="btn-contact">NHẬN BÁO GIÁ CHI TIẾT</a>
-                </div>
-            </div>
 
-            <div class="product-detail-card">
-                <div class="product-image-side">
-                    <img src="https://hantech.vn/wp-content/uploads/2021/05/bien-tan-invt-gd20.jpg" alt="INVT GD20">
+                <div class="product-row">
+                    <div class="img-box">
+                        <img src="https://hantech.vn/wp-content/uploads/2021/05/bien-tan-ls-ig5a.jpg" alt="LS">
+                    </div>
+                    <div class="info-box">
+                        <h2>Biến tần LS Starvert iG5A</h2>
+                        <p>Giải pháp kinh tế và mạnh mẽ từ Hàn Quốc, phù hợp nhiều loại máy móc.</p>
+                        <table class="specs">
+                            <tr><td>Đặc điểm điều khiển</td><td>Sensorless Vector Control</td></tr>
+                            <tr><td>Moment khởi động</td><td>150% tại 0.5 Hz</td></tr>
+                            <tr><td>Cổng giao tiếp</td><td>Tích hợp RS-485 (Modbus)</td></tr>
+                            <tr><td>Làm mát</td><td>Quạt thông minh tự điều chỉnh</td></tr>
+                        </table>
+                        <div class="price-row">
+                            <span class="price">Giá: Liên hệ báo giá</span>
+                            <a href="tel:0355915000" class="btn-call">GỌI TƯ VẤN NGAY</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="product-info-side">
-                    <h3>Biến tần INVT Goodrive GD20</h3>
-                    <p>Dòng biến tần vector vòng hở cao cấp, ứng dụng đa năng và kinh tế.</p>
-                    <table class="spec-table">
-                        <tr><th>Điện áp</th><td>1P 220V / 3P 380V</td></tr>
-                        <tr><th>Bộ lọc nhiễu</th><td>Tích hợp sẵn bộ lọc EMC chuẩn C3</td></tr>
-                        <tr><th>Chức năng an toàn</th><td>STO (Safe Torque Off)</td></tr>
-                        <tr><th>Lắp đặt</th><td>Có thể lắp sát nhau giúp tiết kiệm tủ điện</td></tr>
-                        <tr><th>Bảo hành</th><td>24 tháng theo tiêu chuẩn nhà sản xuất</td></tr>
-                    </table>
-                    <div class="price-tag">Giá: Liên hệ 0355.915.000</div>
-                    <a href="tel:0355915000" class="btn-contact">NHẬN BÁO GIÁ CHI TIẾT</a>
+
+                <div class="product-row">
+                    <div class="img-box">
+                        <img src="https://hantech.vn/wp-content/uploads/2021/05/bien-tan-invt-gd20.jpg" alt="INVT">
+                    </div>
+                    <div class="info-box">
+                        <h2>Biến tần INVT Goodrive GD20</h2>
+                        <p>Dòng biến tần đa năng thế hệ mới, tích hợp bộ lọc nhiễu tiêu chuẩn.</p>
+                        <table class="specs">
+                            <tr><td>Kích thước</td><td>Siêu nhỏ gọn, lắp sát nhau</td></tr>
+                            <tr><td>Tích hợp sẵn</td><td>Bộ lọc EMC chuẩn C3</td></tr>
+                            <tr><td>Tính năng an toàn</td><td>Chức năng STO (Safe Torque Off)</td></tr>
+                            <tr><td>Bảo hành</td><td>Chính hãng 24 tháng</td></tr>
+                        </table>
+                        <div class="price-row">
+                            <span class="price">Giá: Liên hệ báo giá</span>
+                            <a href="tel:0355915000" class="btn-call">GỌI TƯ VẤN NGAY</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         `;
-        window.scrollTo(0, 0);
+        window.scrollTo(0, 0); // Cuộn lên đầu trang khi "chuyển trang"
     }
 </script>
-
-<footer>
-    <p>Hotline: 0355.915.000 | Email: contact@at-maint.com</p>
-    <p>&copy; 2024 AT-Maint - Giải pháp kỹ thuật toàn diện</p>
-</footer>
 
 </body>
 </html>
