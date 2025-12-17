@@ -135,7 +135,7 @@
 
                 <div class="card">
                     <div class="card-img-container">
-                        <img src="wecon-inverter.jpg" class="card-img" alt="Biến Tần WECON VB">
+                        <img src="wecon-inverter.jpg" class="card-img" alt="Biến Tần WECON">
                     </div>
                     <div class="card-body">
                         <h3>Biến Tần WECON VB Series</h3>
@@ -151,8 +151,7 @@
     <main id="products-page" class="page">
         <section class="section">
             <div class="section-title"><h2>Danh Mục Sản Phẩm</h2><div class="bar"></div></div>
-            <div class="grid" id="full-list">
-                </div>
+            <div class="grid" id="full-list"></div>
         </section>
     </main>
 
@@ -174,17 +173,13 @@
 
     <script>
         function navigateTo(pageId) {
-            // Ẩn tất cả các trang
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            // Hiện trang được chọn
             document.getElementById(pageId + '-page').classList.add('active');
             
-            // Cập nhật trạng thái menu
             document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
             const nav = document.getElementById('nav-' + pageId);
             if(nav) nav.classList.add('active');
 
-            // Nếu vào trang sản phẩm, lấy nội dung từ trang chủ đổ sang
             if(pageId === 'products') {
                 document.getElementById('full-list').innerHTML = document.querySelector('#home-page .grid').innerHTML;
             }
