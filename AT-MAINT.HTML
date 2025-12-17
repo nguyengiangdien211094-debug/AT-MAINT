@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AT-MAINT | Giải Pháp Tự Động Hóa & Kỹ Thuật Chuyên Nghiệp</title>
+    <title>AT-MAINT | Giải Pháp Tự Động Hóa & Báo Giá Trực Tuyến</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -41,208 +41,58 @@
 
         /* HERO SECTION */
         .hero {
-            height: 85vh;
+            height: 80vh;
             background: linear-gradient(rgba(10, 25, 47, 0.75), rgba(10, 25, 47, 0.75)), 
                         url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=2000') center/cover;
             display: flex; flex-direction: column; justify-content: center; align-items: center;
             color: white; text-align: center; padding: 0 10%;
         }
-        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; }
         .hero p { font-size: 1.25rem; max-width: 800px; color: #cbd5e1; margin-bottom: 35px; }
 
-        /* COMMON SECTION STYLES */
-        .section { padding: 100px 8%; }
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
-        .section-title .bar { width: 80px; height: 5px; background: var(--accent); margin: 0 auto; border-radius: 10px; }
+        /* SECTION STYLES */
+        .section { padding: 80px 8%; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.2rem; color: var(--primary); margin-bottom: 10px; }
+        .section-title .bar { width: 70px; height: 4px; background: var(--accent); margin: 0 auto; }
 
-        /* ABOUT SECTION ON HOME */
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-        .about-text h3 { font-size: 1.8rem; margin-bottom: 20px; color: var(--accent); }
-        .about-text p { color: var(--text-sub); margin-bottom: 20px; line-height: 1.8; }
-
-        /* PRODUCT CARDS */
+        /* PRODUCT GRID */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-        .card { background: var(--white); border-radius: 15px; overflow: hidden; box-shadow: var(--shadow); transition: 0.4s; border: 1px solid #edf2f7; }
+        .card { background: var(--white); border-radius: 15px; overflow: hidden; box-shadow: var(--shadow); transition: 0.4s; }
         .card:hover { transform: translateY(-10px); }
-        .card-img { width: 100%; height: 250px; object-fit: cover; }
+        .card-img { width: 100%; height: 230px; object-fit: cover; }
         .card-body { padding: 25px; }
-        .card-body h3 { margin-bottom: 10px; font-size: 1.3rem; }
-        .price { color: var(--accent); font-weight: 800; font-size: 1.4rem; display: block; margin: 15px 0; }
+        .price { color: var(--accent); font-weight: 800; font-size: 1.3rem; display: block; margin: 10px 0; }
 
-        /* SERVICE SECTION STYLES */
-        .service-item { background: white; padding: 40px; border-radius: 20px; text-align: center; transition: 0.3s; }
-        .service-item:hover { background: var(--primary); color: white; }
-        .service-item h3 { margin-bottom: 15px; }
+        /* QUOTE FORM SECTION */
+        .quote-section { background: var(--primary); color: white; border-radius: 20px; padding: 60px; margin-top: 40px; }
+        .quote-container { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+        .quote-info h2 { font-size: 2.5rem; margin-bottom: 20px; color: var(--accent); }
+        
+        .quote-form { background: white; padding: 30px; border-radius: 15px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; color: var(--primary); font-weight: 600; margin-bottom: 8px; }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 12px; border: 1px solid #e2e8f0; border-radius: 8px; outline: none; font-size: 1rem;
+        }
+        .form-group input:focus { border-color: var(--accent); }
 
         /* BUTTONS */
-        .btn { padding: 16px 40px; border-radius: 50px; font-weight: 700; text-decoration: none; display: inline-block; transition: 0.3s; border: none; cursor: pointer; text-transform: uppercase; }
-        .btn-accent { background: var(--accent); color: white; }
-        .btn-primary { background: var(--primary); color: white; width: 100%; text-align: center; }
-        .btn:hover { opacity: 0.9; box-shadow: 0 10px 20px rgba(255, 107, 0, 0.3); }
+        .btn { padding: 15px 30px; border-radius: 8px; font-weight: 700; cursor: pointer; border: none; transition: 0.3s; text-transform: uppercase; }
+        .btn-accent { background: var(--accent); color: white; width: 100%; }
+        .btn-accent:hover { background: #e66000; transform: translateY(-2px); }
 
         /* FOOTER */
-        footer { background: var(--primary); color: white; padding: 80px 8% 40px; }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; margin-bottom: 50px; text-align: left; }
-        .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; text-align: center; color: #94a3b8; }
+        footer { background: #050c1a; color: white; padding: 60px 8% 30px; text-align: center; }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            .about-grid { grid-template-columns: 1fr; }
-            .nav-links { display: none; }
+        @media (max-width: 900px) {
+            .quote-container { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <a class="logo" onclick="navigateTo('home')">AT-<span>MAINT</span></a>
-        <nav class="nav-links">
-            <a onclick="navigateTo('home')" id="nav-home" class="active">Trang Chủ</a>
-            <a onclick="navigateTo('products')" id="nav-products">Sản Phẩm</a>
-            <a onclick="navigateTo('services')" id="nav-services">Dịch Vụ Kỹ Thuật</a>
-            <a href="tel:0355915000" style="color: var(--accent)">Hotline: 0355.915.000</a>
-        </nav>
-    </header>
-
-    <main id="home-page" class="page active">
-        <section class="hero">
-            <h1>CÔNG TY TNHH DỊCH VỤ  KỸ THUẬT VÀ BẢO TRÌ AT-MAINT</h1>
-            <p>Dẫn đầu giải pháp Tự Động Hóa WECON tại Việt Nam. Chúng tôi cung cấp thiết bị chính hãng và dịch vụ kỹ thuật sửa chữa chuyên sâu.</p>
-            <div>
-                <button onclick="navigateTo('products')" class="btn btn-accent">Khám phá sản phẩm</button>
-            </div>
-        </section>
-
-        <section class="section">
-            <div class="about-grid">
-                <img src="https://images.unsplash.com/photo-1565608411311-2da4ec0495f4?auto=format&fit=crop&q=80&w=800" style="width:100%; border-radius:20px; box-shadow: var(--shadow);">
-                <div class="about-text">
-                    <div class="section-title" style="text-align:left; margin-bottom:30px">
-                        <h2>Về AT-MAINT</h2>
-                        <div class="bar" style="margin:0"></div>
-                    </div>
-                    <h3>Giải pháp tối ưu cho mọi nhà máy</h3>
-                    <p>Với đội ngũ kỹ sư giàu kinh nghiệm, <strong>AT-MAINT</strong> không chỉ bán thiết bị, chúng tôi trao cho bạn sự an tâm trong vận hành sản xuất.</p>
-                    <p>Chúng tôi chuyên phân phối các dòng PLC, HMI, Biến tần WECON chính hãng với đầy đủ CO/CQ và chính sách bảo hành dài hạn.</p>
-                    <button onclick="navigateTo('services')" class="btn btn-accent" style="padding:12px 25px; font-size:0.8rem">Xem năng lực dịch vụ</button>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" style="background: #f1f5f9;">
-            <div class="section-title">
-                <h2>Sản Phẩm Chiến Lược</h2>
-                <div class="bar"></div>
-            </div>
-            <div class="grid">
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1558444479-c8f02791296e?w=600" class="card-img">
-                    <div class="card-body">
-                        <h3>PLC WECON LX3V</h3>
-                        <p>Dòng PLC mạnh mẽ, ổn định, hỗ trợ nhiều cổng giao tiếp.</p>
-                        <span class="price">3.500.000đ</span>
-                        <button onclick="navigateTo('products')" class="btn btn-primary">Xem chi tiết</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-159742324403d-c1a5098a2807?w=600" class="card-img">
-                    <div class="card-body">
-                        <h3>Màn hình HMI 7" - Levi</h3>
-                        <p>Độ phân giải cao, cảm ứng nhạy, giao diện dễ lập trình.</p>
-                        <span class="price">2.450.000đ</span>
-                        <button onclick="navigateTo('products')" class="btn btn-primary">Xem chi tiết</button>
-                    </div>
-                </div>
-                <div class="card">
-                    <img src="https://images.unsplash.com/photo-1621905252507-b35220adcfba?w=600" class="card-img">
-                    <div class="card-body">
-                        <h3>Biến Tần VB Series</h3>
-                        <p>Tiết kiệm năng lượng, khởi động mềm mượt cho động cơ.</p>
-                        <span class="price">3.200.000đ</span>
-                        <button onclick="navigateTo('products')" class="btn btn-primary">Xem chi tiết</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <main id="products-page" class="page">
-        <section class="section">
-            <div class="section-title">
-                <h2>Cửa Hàng Thiết Bị Toàn Diện</h2>
-                <div class="bar"></div>
-            </div>
-            <div class="grid" id="product-list">
-                </div>
-        </section>
-    </main>
-
-    <main id="services-page" class="page">
-        <section class="section">
-            <div class="section-title">
-                <h2>Dịch Vụ Kỹ Thuật Chuyên Sâu</h2>
-                <div class="bar"></div>
-            </div>
-            <div class="grid">
-                <div class="service-item shadow">
-                    <h3>Sửa Chữa Biến Tần</h3>
-                    <p>Khắc phục lỗi mất nguồn, quá dòng, lỗi bo mạch công suất nhanh chóng.</p>
-                </div>
-                <div class="service-item shadow">
-                    <h3>Lập Trình PLC/HMI</h3>
-                    <p>Cải tiến hệ thống máy móc, viết mới chương trình theo yêu cầu kỹ thuật.</p>
-                </div>
-                <div class="service-item shadow">
-                    <h3>Bảo Trì Hệ Thống</h3>
-                    <p>Bảo trì định kỳ tủ điện, vệ sinh máy móc công nghiệp.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-grid">
-            <div>
-                <div class="logo" style="color:white; margin-bottom:20px">AT-<span>MAINT</span></div>
-                <p>Giải pháp tự động hóa hàng đầu cho doanh nghiệp sản xuất.</p>
-            </div>
-            <div>
-                <h4 style="margin-bottom:20px">Liên Kết</h4>
-                <p onclick="navigateTo('home')" style="cursor:pointer; margin-bottom:10px">Trang Chủ</p>
-                <p onclick="navigateTo('products')" style="cursor:pointer; margin-bottom:10px">Sản Phẩm</p>
-                <p onclick="navigateTo('services')" style="cursor:pointer; margin-bottom:10px">Dịch Vụ</p>
-            </div>
-            <div>
-                <h4 style="margin-bottom:20px">Liên Hệ</h4>
-                <p>Hotline: 0355.915.000</p>
-                <p>Email: info@at-maint.com</p>
-                <p>Địa chỉ: TP. Hồ Chí Minh</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            &copy; 2024 CÔNG TY TNHH KỸ THUẬT AT-MAINT. All Rights Reserved.
-        </div>
-    </footer>
-
-    <script>
-        function navigateTo(pageId) {
-            // Chuyển đổi trang
-            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
-            document.getElementById(pageId + '-page').classList.add('active');
-
-            // Cập nhật Menu
-            document.querySelectorAll('.nav-links a').forEach(link => link.classList.remove('active'));
-            const navItem = document.getElementById('nav-' + pageId);
-            if(navItem) navItem.classList.add('active');
-
-            // Copy sản phẩm sang trang sản phẩm nếu trang đó trống
-            if(pageId === 'products') {
-                document.getElementById('product-list').innerHTML = document.querySelector('#home-page .grid').innerHTML;
-            }
-
-            window.scrollTo(0, 0);
-        }
-    </script>
-</body>
-</html>
+        <div class="logo" onclick="navigateTo('home')">AT-<span>MAINT</span></div>
+        <nav
