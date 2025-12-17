@@ -5,69 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AT-Maint | WECON & Dịch Vụ Kỹ Thuật</title>
     <style>
-        :root { 
-            --blue: #004a99; 
-            --orange: #ff6600; 
-            --dark: #333;
-            --gray: #f4f4f4; 
-        }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #fdfdfd; overflow-x: hidden; }
-
-        /* Navigation Bar */
-        nav { background: var(--dark); color: white; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
-        nav ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; }
-        nav ul li { position: relative; }
-        nav ul li a { display: block; color: white; padding: 18px 25px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 14px; transition: 0.3s; cursor: pointer; }
+        :root { --blue: #004a99; --orange: #ff6600; --dark: #333; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #fdfdfd; }
         
+        /* Navigation */
+        nav { background: var(--dark); color: white; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; }
+        nav ul { list-style: none; margin: 0; padding: 0; display: flex; }
+        nav ul li a { display: block; color: white; padding: 18px 25px; text-decoration: none; font-weight: bold; text-transform: uppercase; cursor: pointer; }
         .nav-products { background: var(--orange); }
-        nav ul li a:hover { background: #444; }
-        .nav-products:hover { background: #e65c00 !important; }
-
-        /* Dropdown Menu */
-        .dropdown-content { display: none; position: absolute; background: white; min-width: 300px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); border-top: 3px solid var(--orange); }
-        .dropdown-content a { color: #333 !important; padding: 15px 20px; border-bottom: 1px solid #eee; text-transform: none; font-weight: 600; display: block; text-decoration: none; cursor: pointer; font-size: 15px;}
-        .dropdown-content a:hover { background: var(--gray); color: var(--blue) !important; padding-left: 25px; transition: 0.3s; }
+        .dropdown-content { display: none; position: absolute; background: white; min-width: 250px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); }
+        .dropdown-content a { color: #333 !important; padding: 15px; border-bottom: 1px solid #eee; text-transform: none; }
         nav ul li:hover .dropdown-content { display: block; }
 
-        /* Animation nội dung */
-        #page-content { animation: fadeIn 0.4s ease-in-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Layout Elements */
-        .page-header { background: var(--blue); color: white; padding: 60px 8%; text-align: center; }
+        /* Layout */
+        .page-header { background: var(--blue); color: white; padding: 40px; text-align: center; }
         .container { max-width: 1200px; margin: auto; padding: 40px 20px; }
-        .section-title { text-align: center; color: var(--blue); font-size: 28px; margin-bottom: 40px; text-transform: uppercase; position: relative; }
-        .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--orange); margin: 10px auto; }
+        .section-title { text-align: center; color: var(--blue); text-transform: uppercase; margin-bottom: 40px; }
+        
+        /* Grid cho Trang Chủ */
+        .quick-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .quick-card { background: white; border: 1px solid #eee; border-radius: 12px; padding: 20px; text-align: center; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .quick-card:hover { transform: translateY(-5px); border-color: var(--orange); }
+        .quick-card img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 15px; }
 
-        /* Quick Access Grid (Trang Chủ) */
-        .quick-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px; }
-        .quick-card { 
-            background: white; border: 1px solid #eee; border-radius: 12px; padding: 25px; 
-            text-align: center; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            display: flex; flex-direction: column; justify-content: space-between;
-        }
-        .quick-card:hover { transform: translateY(-5px); border-color: var(--orange); box-shadow: 0 12px 25px rgba(0,0,0,0.1); }
-        .quick-card img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 15px; border-radius: 8px; }
-        .quick-card h3 { color: var(--blue); margin: 10px 0; font-size: 18px; text-transform: uppercase; }
-
-        /* Product Row Styling */
-        .product-row { 
-            display: flex; gap: 30px; background: white; border: 1px solid #ddd; 
-            border-radius: 12px; margin-bottom: 50px; overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s;
-        }
-        .img-box { flex: 1; background: #fff; display: flex; align-items: center; justify-content: center; padding: 20px; border-right: 1px solid #eee; }
+        /* Danh mục sản phẩm */
+        .product-row { display: flex; gap: 30px; background: white; border: 1px solid #ddd; border-radius: 12px; margin-bottom: 30px; overflow: hidden; }
+        .img-box { flex: 1; padding: 20px; display: flex; align-items: center; justify-content: center; background: #fff; }
         .img-box img { max-width: 100%; height: 250px; object-fit: contain; }
         .info-box { flex: 2; padding: 30px; }
-        .info-box h2 { color: var(--blue); margin: 0 0 15px 0; }
         .specs { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-        .specs td { padding: 12px 0; border-bottom: 1px solid #eee; font-size: 15px; }
-        
-        .price-row { display: flex; align-items: center; justify-content: space-between; border-top: 2px dashed #eee; padding-top: 20px; }
-        .btn-view { display: inline-block; padding: 12px 28px; background: var(--blue); color: white; text-decoration: none; border-radius: 6px; font-weight: bold; cursor: pointer; }
-        .btn-view:hover { background: var(--orange); }
-
-        footer { background: #222; color: white; text-align: center; padding: 40px; margin-top: 50px; }
+        .specs td { padding: 10px 0; border-bottom: 1px solid #eee; }
+        .btn-view { display: inline-block; padding: 12px 25px; background: var(--blue); color: white; text-decoration: none; border-radius: 6px; font-weight: bold; }
     </style>
 </head>
 <body>
@@ -78,49 +46,83 @@
         <li>
             <a class="nav-products">📦 SẢN PHẨM ▼</a>
             <div class="dropdown-content">
-                <a onclick="loadInverters()">Biến Tần WECON (Chính hãng)</a>
+                <a onclick="loadInverters()">Biến Tần WECON</a>
                 <a onclick="loadPLC()">Bộ Điều Khiển PLC</a>
                 <a onclick="loadHMI()">Màn Hình HMI</a>
-                <a onclick="loadServo()">Động Cơ Servo</a>
-                <a onclick="loadSwitchgear()">Thiết Bị Đóng Cắt</a>
-                <a onclick="loadServices()" style="background: #fff5f0; color: var(--orange) !important;">🛠️ Dịch Vụ Bảo Trì & Sửa Chữa</a>
+                <a onclick="loadServices()">🛠️ Dịch Vụ Sửa Chữa</a>
             </div>
         </li>
-        <li><a href="tel:0355915000" style="color: #00ff00;">📞 HOTLINE: 0355.915.000</a></li>
+        <li><a href="tel:0355915000">📞 HOTLINE: 0355.915.000</a></li>
     </ul>
 </nav>
 
 <div id="page-content"></div>
-
-<footer>
-    <p><b>AT-MAINT SERVICES - GIẢI PHÁP KỸ THUẬT TOÀN DIỆN</b></p>
-    <p>Hỗ trợ kỹ thuật 24/7 | Hotline: 0355.915.000</p>
-    <p>&copy; 2024 AT-Maint - Uy tín - Chất lượng - Tận tâm</p>
-</footer>
 
 <script>
     const content = document.getElementById('page-content');
 
     function loadHome() {
         content.innerHTML = `
-            <div class="page-header">
-                <h1>AT-MAINT KỸ THUẬT & VẬT TƯ</h1>
-                <p>Đại lý ủy quyền WECON và Đơn vị sửa chữa máy công nghiệp chuyên nghiệp</p>
-            </div>
+            <div class="page-header"><h1>DANH MỤC SẢN PHẨM & DỊCH VỤ</h1></div>
             <div class="container">
-                <h2 class="section-title">DANH MỤC SẢN PHẨM & DỊCH VỤ</h2>
                 <div class="quick-grid">
                     <div class="quick-card" onclick="loadInverters()">
-                        <img src="https://ple.vn/bientan/images/virtuemart/category/10-bientan-wecon-ngang.jpg" alt="Biến tần WECON">
+                        <img src="https://www.wecon.com.cn/uploadfiles/2022/03/20220315152010260.png" alt="Biến tần">
                         <h3>BIẾN TẦN WECON</h3>
                         <p>Giải pháp điều khiển động cơ tối ưu</p>
                     </div>
-
                     <div class="quick-card" onclick="loadPLC()">
-                        <img src="https://wecon-plc.com/image/catalog/PLC/LX3V-Series.png" alt="PLC WECON">
+                        <img src="https://www.wecon.com.cn/uploadfiles/2022/03/20220315152345532.png" alt="PLC">
                         <h3>BỘ ĐIỀU KHIỂN PLC</h3>
                         <p>Lập trình hệ thống tự động hóa</p>
                     </div>
-
                     <div class="quick-card" onclick="loadHMI()">
-                        <img src="https://wecon-plc.com/image/catalog/HMI/
+                        <img src="https://www.wecon.com.cn/uploadfiles/2022/03/20220315152140885.png" alt="HMI">
+                        <h3>MÀN HÌNH HMI</h3>
+                        <p>Giao diện người máy thông minh</p>
+                    </div>
+                    <div class="quick-card" onclick="loadServices()">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4233/4233830.png" alt="Sửa chữa">
+                        <h3>DỊCH VỤ SỬA CHỮA</h3>
+                        <p>Bảo trì & Khắc phục sự cố 24/7</p>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    function loadInverters() {
+        content.innerHTML = `
+            <div class="page-header"><h1>BIẾN TẦN WECON</h1></div>
+            <div class="container">
+                <h2 class="section-title">DANH MỤC BIẾN TẦN</h2>
+                <div class="product-row">
+                    <div class="img-box">
+                        <img src="https://www.wecon.com.cn/uploadfiles/2022/03/20220315152010260.png" alt="VB Series">
+                    </div>
+                    <div class="info-box">
+                        <h2>WECON VB Series (Tải Nặng)</h2>
+                        <table class="specs">
+                            <tr><td><b>Công suất:</b></td><td>0.75kW - 630kW</td></tr>
+                            <tr><td><b>Điều khiển:</b></td><td>Vector Control (SVC), V/F Control</td></tr>
+                            <tr><td><b>Đặc điểm:</b></td><td>Chịu quá tải tốt, moment khởi động cao.</td></tr>
+                        </table>
+                        <div style="display:flex; justify-content: space-between; align-items: center;">
+                            <span style="color:var(--orange); font-weight:bold; font-size:20px;">Hàng Sẵn Kho</span>
+                            <a href="tel:0355915000" class="btn-view">NHẬN BÁO GIÁ</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    // Tương tự cho PLC và HMI...
+    function loadPLC() { /* Nội dung PLC kèm ảnh */ }
+    function loadHMI() { /* Nội dung HMI kèm ảnh */ }
+    function loadServices() { /* Nội dung Dịch vụ */ }
+
+    loadHome(); // Khởi tạo trang chủ
+</script>
+</body>
+</html>
