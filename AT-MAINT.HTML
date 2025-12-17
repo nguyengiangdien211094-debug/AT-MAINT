@@ -3,184 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AT-Maint | Phân Phối WECON & Kỹ Thuật Bảo Trì</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>AT-MAINT | Tự Động Hóa & Sửa Chữa Chuyên Nghiệp</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #003366;
-            --accent: #ff6600;
-            --bg-light: #f4f7f9;
+            --primary: #0a192f;
+            --accent: #ff6b00;
+            --bg-light: #f4f7f6;
             --white: #ffffff;
-            --text: #1a1a1a;
+            --text-dark: #1f2937;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
 
-        * { box-sizing: border-box; }
-        body { font-family: 'Roboto', sans-serif; margin: 0; background: var(--bg-light); color: var(--text); scroll-behavior: smooth; }
-        
-        /* Navigation */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        body { background-color: var(--bg-light); color: var(--text-dark); scroll-behavior: smooth; }
+
+        /* Header */
         header {
-            background: var(--white); height: 80px; display: flex; align-items: center;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 8%; background: var(--white);
+            position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 15px rgba(0,0,0,0.05);
         }
-        .nav-container {
-            max-width: 1200px; margin: 0 auto; width: 100%;
-            display: flex; justify-content: space-between; align-items: center; padding: 0 20px;
-        }
-        .logo { font-family: 'Montserrat'; font-weight: 800; font-size: 26px; color: var(--primary); text-decoration: none; border-left: 5px solid var(--accent); padding-left: 10px; }
+        .logo { font-size: 26px; font-weight: 800; color: var(--primary); text-decoration: none; }
         .logo span { color: var(--accent); }
+        .nav-links a { margin-left: 25px; text-decoration: none; color: var(--primary); font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent); }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,51,102,0.8), rgba(0,51,102,0.8)), 
-                        url('https://images.unsplash.com/photo-1513828583688-c52646db42da?auto=format&fit=crop&q=80&w=1500');
-            background-size: cover; background-position: center;
-            color: white; padding: 100px 20px; text-align: center;
+            height: 60vh;
+            background: linear-gradient(rgba(10, 25, 47, 0.8), rgba(10, 25, 47, 0.8)), 
+                        url('https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=2000') center/cover;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            color: white; text-align: center; padding: 0 20px;
         }
-        .hero h1 { font-family: 'Montserrat'; font-size: 40px; margin-bottom: 15px; text-transform: uppercase; }
-        .hero p { font-size: 18px; margin-bottom: 30px; opacity: 0.9; }
-        .btn-call { background: var(--accent); color: white; padding: 15px 35px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; display: inline-block; }
-        .btn-call:hover { transform: scale(1.05); background: #e65c00; }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; text-transform: uppercase; }
+        .hero p { font-size: 1.2rem; margin-bottom: 30px; color: #ccd6f6; max-width: 700px; }
 
-        /* Product Section */
-        .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
+        /* Services Section */
+        .section { padding: 80px 8%; }
         .section-header { text-align: center; margin-bottom: 50px; }
-        .section-header h2 { font-family: 'Montserrat'; font-size: 32px; color: var(--primary); text-transform: uppercase; margin-bottom: 10px; }
-        .line { width: 70px; height: 4px; background: var(--accent); margin: 0 auto; }
+        .section-header h2 { font-size: 2.2rem; margin-bottom: 10px; position: relative; padding-bottom: 15px; }
+        .section-header h2::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 50px; height: 4px; background: var(--accent); }
 
-        /* Product Grid */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .service-card {
+            background: var(--white); padding: 40px; border-radius: 12px; box-shadow: var(--shadow);
+            transition: 0.3s; border-bottom: 4px solid transparent;
         }
-        .p-card {
+        .service-card:hover { transform: translateY(-10px); border-color: var(--accent); }
+        .service-card h3 { margin-bottom: 15px; color: var(--primary); }
+        .service-card p { color: #666; line-height: 1.6; }
+
+        /* Products Grid */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .product-card {
             background: var(--white); border-radius: 12px; overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05); border: 1px solid #eee;
-            display: flex; flex-direction: column; transition: 0.3s;
+            box-shadow: var(--shadow); transition: 0.3s; position: relative;
         }
-        .p-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .product-card:hover { transform: scale(1.02); }
+        .product-img { width: 100%; height: 200px; background: #eee; object-fit: cover; }
+        .product-info { padding: 20px; }
+        .product-name { font-weight: 600; font-size: 1.1rem; margin-bottom: 10px; display: block; }
+        .product-price { color: var(--accent); font-weight: 800; font-size: 1.2rem; }
         
-        .p-img-box {
-            height: 300px; padding: 20px; background: white;
-            display: flex; align-items: center; justify-content: center;
+        .btn-order {
+            display: block; width: 100%; padding: 12px; margin-top: 15px;
+            background: var(--primary); color: white; text-align: center;
+            text-decoration: none; border-radius: 6px; font-weight: 600; transition: 0.3s;
         }
-        .p-img-box img { max-width: 100%; max-height: 100%; object-fit: contain; }
-
-        .p-content { padding: 25px; flex-grow: 1; border-top: 1px solid #f9f9f9; }
-        .p-content h3 { font-family: 'Montserrat'; color: var(--primary); font-size: 19px; margin: 0 0 15px; }
-        
-        .p-specs { list-style: none; padding: 0; margin: 0 0 20px; }
-        .p-specs li { padding: 10px 0; border-bottom: 1px dashed #eee; font-size: 14px; display: flex; justify-content: space-between; }
-        .p-specs li b { color: #666; }
-        .p-specs li span { color: var(--primary); font-weight: bold; }
-
-        .btn-quote { 
-            display: block; text-align: center; background: var(--primary); color: white; 
-            padding: 12px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s;
-        }
-        .btn-quote:hover { background: var(--accent); }
+        .btn-order:hover { background: var(--accent); }
 
         /* Footer */
-        footer { background: #0a1929; color: white; padding: 50px 20px; text-align: center; margin-top: 80px; }
-        .footer-info { opacity: 0.7; font-size: 14px; margin-top: 15px; }
+        footer { background: var(--primary); color: white; padding: 40px 8%; text-align: center; }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 28px; }
-            .product-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <div class="nav-container">
+    <header>
         <a href="#" class="logo">AT-<span>MAINT</span></a>
-        <div style="font-weight: bold; color: var(--accent);">Hotline: 0355.915.000</div>
-    </div>
-</header>
+        <nav class="nav-links">
+            <a href="#products">Sản phẩm</a>
+            <a href="#services">Dịch vụ sửa chữa</a>
+            <a href="tel:0355915000" style="color:var(--accent)">Hotline: 0355.915.000</a>
+        </nav>
+    </header>
 
-<section class="hero">
-    <h1>GIẢI PHÁP TỰ ĐỘNG HÓA WECON</h1>
-    <p>Đại lý ủy quyền - Hỗ trợ kỹ thuật lắp đặt & bảo trì 24/7</p>
-    <a href="tel:0355915000" class="btn-call">GỌI TƯ VẤN KỸ THUẬT</a>
-</section>
+    <section class="hero">
+        <h1>GIẢI PHÁP TỰ ĐỘNG HÓA WECON</h1>
+        <p>Phân phối thiết bị chính hãng và dịch vụ sửa chữa biến tần, PLC, HMI uy tín hàng đầu Việt Nam.</p>
+        <a href="#products" class="btn-order" style="width: auto; padding: 15px 40px; background: var(--accent);">Xem Sản Phẩm Ngay</a>
+    </section>
 
-<div class="container" id="san-pham">
-    <div class="section-header">
-        <h2>SẢN PHẨM NỔI BẬT</h2>
-        <div class="line"></div>
-    </div>
-
-    <div class="product-grid">
-        <div class="p-card">
-            <div class="p-img-box">
-                <img src="https://ae01.alicdn.com/kf/H76878b209a3c42878d655f4a0a54e99a2/Wecon-High-Performance-Vector-Control-Inverter-VB-Series-3-Phase-380V-Variable-Frequency-Drive.jpg" alt="Biến tần Wecon">
+    <section class="section" id="services">
+        <div class="section-header">
+            <h2>Dịch Vụ Sửa Chữa Uy Tín</h2>
+            <p>Kỹ thuật viên chuyên nghiệp - Linh kiện chính hãng - Bảo hành dài hạn</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Sửa chữa Biến tần</h3>
+                <p>Khắc phục mọi lỗi trên các dòng biến tần Wecon, LS, ABB, Schneider... Kiểm tra miễn phí, báo giá trước khi sửa.</p>
             </div>
-            <div class="p-content">
-                <h3>BIẾN TẦN WECON VB SERIES</h3>
-                <ul class="p-specs">
-                    <li><b>Công suất:</b> <span>0.75kW - 630kW</span></li>
-                    <li><b>Ứng dụng:</b> <span>Tải nặng, Bơm, Quạt</span></li>
-                    <li><b>Bảo hành:</b> <span>18 Tháng</span></li>
-                </ul>
-                <a href="tel:0355915000" class="btn-quote">NHẬN BÁO GIÁ</a>
+            <div class="service-card">
+                <h3>Lập trình PLC/HMI</h3>
+                <p>Thiết kế giao diện điều khiển, lập trình hệ thống tự động hóa theo yêu cầu. Nâng cấp hệ thống cũ sang công nghệ mới.</p>
+            </div>
+            <div class="service-card">
+                <h3>Bảo trì hệ thống</h3>
+                <p>Dịch vụ bảo trì định kỳ cho nhà máy, giúp giảm thiểu rủi ro dừng máy và tối ưu hóa hiệu suất vận hành.</p>
             </div>
         </div>
+    </section>
 
-        <div class="p-card">
-            <div class="p-img-box">
-                <img src="https://ae01.alicdn.com/kf/Hec8df804473e449a888a7c2e3519f7ccN/Wecon-PLC-LX3V-0806MR-A2-Programmable-Logic-Controller-High-Speed.jpg" alt="PLC Wecon">
+    <section class="section" id="products" style="background: #eceff1;">
+        <div class="section-header">
+            <h2>Sản Phẩm Nổi Bật</h2>
+        </div>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1558444479-c8f02791296e?auto=format&fit=crop&q=80&w=500" alt="PLC Wecon" class="product-img">
+                <div class="product-info">
+                    <span class="product-name">PLC Wecon LX3V Series</span>
+                    <span class="product-price">Liên hệ báo giá</span>
+                    <a href="https://zalo.me/0355915000" class="btn-order">Đặt hàng qua Zalo</a>
+                </div>
             </div>
-            <div class="p-content">
-                <h3>PLC WECON LX/VC SERIES</h3>
-                <ul class="p-specs">
-                    <li><b>Tốc độ:</b> <span>0.01μs (Cực nhanh)</span></li>
-                    <li><b>Kết nối:</b> <span>Ethernet / RS485</span></li>
-                    <li><b>Phần mềm:</b> <span>Miễn phí 100%</span></li>
-                </ul>
-                <a href="tel:0355915000" class="btn-quote">NHẬN BÁO GIÁ</a>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-159742324403d-c1a5098a2807?auto=format&fit=crop&q=80&w=500" alt="HMI Wecon" class="product-img">
+                <div class="product-info">
+                    <span class="product-name">Màn hình HMI Wecon 7 inch</span>
+                    <span class="product-price">2.450.000đ</span>
+                    <a href="https://zalo.me/0355915000" class="btn-order">Đặt hàng ngay</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1621905252507-b35220adcfba?auto=format&fit=crop&q=80&w=500" alt="Biến tần" class="product-img">
+                <div class="product-info">
+                    <span class="product-name">Biến tần Wecon VB Series</span>
+                    <span class="product-price">3.200.000đ</span>
+                    <a href="https://zalo.me/0355915000" class="btn-order">Đặt hàng ngay</a>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="p-card">
-            <div class="p-img-box">
-                <img src="https://ae01.alicdn.com/kf/H1b5391500f4f46998782a17072c72b25B/Wecon-HMI-7-inch-Ethernet-PI3070i-PI3070ig-Cloud-SCADA.jpg" alt="HMI Wecon">
-            </div>
-            <div class="p-content">
-                <h3>HMI WECON PI SERIES (IIoT)</h3>
-                <ul class="p-specs">
-                    <li><b>Kích thước:</b> <span>4.3" - 15.6"</span></li>
-                    <li><b>Tính năng:</b> <span>Cloud / App Mobile</span></li>
-                    <li><b>Hiển thị:</b> <span>16 Triệu màu sắc</span></li>
-                </ul>
-                <a href="tel:0355915000" class="btn-quote">NHẬN BÁO GIÁ</a>
-            </div>
-        </div>
-
-        <div class="p-card">
-            <div class="p-img-box">
-                <img src="https://ae01.alicdn.com/kf/HTB1U6YxX.zrK1RjSspmq6A2LpXat/Wecon-Servo-Motor-and-Driver-VD2-Series-High-Performance.jpg" alt="Servo Wecon">
-            </div>
-            <div class="p-content">
-                <h3>SERVO MOTOR VD2 SERIES</h3>
-                <ul class="p-specs">
-                    <li><b>Độ phân giải:</b> <span>23-bit Absolute</span></li>
-                    <li><b>Tần số đáp ứng:</b> <span>3.0 kHz</span></li>
-                    <li><b>Độ chính xác:</b> <span>Cực cao</span></li>
-                </ul>
-                <a href="tel:0355915000" class="btn-quote">NHẬN BÁO GIÁ</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<footer>
-    <div style="font-weight: bold; font-size: 18px; color: var(--accent);">AT-MAINT SERVICES</div>
-    <div class="footer-info">
-        Đại Lý Ủy Quyền WECON Việt Nam - Uy Tín - Chất Lượng - Tận Tâm<br>
-        📞 Hotline Kỹ Thuật: 0355.915.000 (Hỗ trợ 24/7)
-    </div>
-</footer>
+    <footer>
+        <p>&copy; 2024 AT-MAINT Automation. Địa chỉ: [Địa chỉ của bạn ở đây]</p>
+        <p>Email: info@at-maint.com | Hotline: 0355.915.000</p>
+    </footer>
 
 </body>
 </html>
