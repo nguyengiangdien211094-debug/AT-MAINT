@@ -11,7 +11,7 @@
             --dark: #222;
             --gray: #f4f4f4; 
         }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #fff; overflow-x: hidden; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #fdfdfd; overflow-x: hidden; }
 
         /* Navigation Bar */
         nav { background: #333; color: white; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.3); }
@@ -29,37 +29,35 @@
         #page-content { animation: fadeIn 0.5s ease-in-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Container & Layout */
-        .page-header { background: var(--blue); color: white; padding: 60px 8%; text-align: center; margin-bottom: 40px; }
-        .container { max-width: 1200px; margin: auto; padding: 0 20px 60px 20px; }
+        /* Layout Elements */
+        .page-header { background: var(--blue); color: white; padding: 60px 8%; text-align: center; }
+        .container { max-width: 1200px; margin: auto; padding: 40px 20px; }
+        .section-title { text-align: center; color: var(--blue); font-size: 28px; margin-bottom: 40px; text-transform: uppercase; position: relative; }
+        .section-title::after { content: ''; display: block; width: 60px; height: 3px; background: var(--orange); margin: 10px auto; }
 
-        .product-section-title { font-size: 28px; color: var(--blue); border-bottom: 2px solid var(--orange); display: inline-block; margin-bottom: 40px; padding-bottom: 10px; }
-        
+        /* Home Page Grid Styling */
+        .featured-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .featured-card { background: white; border: 1px solid #eee; border-radius: 10px; padding: 20px; text-align: center; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .featured-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-color: var(--orange); }
+        .featured-card img { height: 180px; object-fit: contain; margin-bottom: 15px; }
+        .featured-card h3 { color: var(--blue); margin: 10px 0; font-size: 20px; }
+        .btn-view { display: inline-block; margin-top: 15px; padding: 10px 20px; background: var(--orange); color: white; text-decoration: none; border-radius: 4px; font-weight: bold; cursor: pointer; }
+
+        /* Detail Page Styling (product-row) */
         .product-row { 
             display: flex; gap: 30px; background: white; border: 1px solid #ddd; 
             border-radius: 12px; margin-bottom: 50px; overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-        .product-row:hover { box-shadow: 0 8px 25px rgba(0,0,0,0.1); border-color: var(--orange); }
-        
         .img-box { flex: 1; background: #fff; display: flex; align-items: center; justify-content: center; padding: 20px; border-right: 1px solid #eee; }
-        .img-box img { max-width: 100%; height: 280px; object-fit: contain; transition: 0.4s; }
-
+        .img-box img { max-width: 100%; height: 250px; object-fit: contain; }
         .info-box { flex: 2; padding: 30px; }
-        .info-box h2 { margin-top: 0; color: var(--blue); font-size: 24px; }
-        .info-box .brand-tag { background: #eef5ff; color: var(--blue); padding: 5px 12px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-bottom: 10px; display: inline-block; }
-
-        /* Specs Table */
         .specs { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-        .specs td { padding: 12px 10px; border-bottom: 1px solid #eee; font-size: 14px; }
-        .specs td:first-child { font-weight: bold; color: #555; width: 35%; background: #fafafa; }
+        .specs td { padding: 8px; border-bottom: 1px solid #eee; font-size: 14px; }
+        .price-row { display: flex; align-items: center; justify-content: space-between; border-top: 2px dashed #eee; padding-top: 20px; }
+        .price { color: var(--orange); font-weight: bold; font-size: 22px; }
 
-        .price-row { display: flex; align-items: center; justify-content: space-between; margin-top: 20px; padding-top: 20px; border-top: 2px dashed #eee; }
-        .price { font-size: 24px; color: var(--orange); font-weight: bold; }
-        .btn-call { background: var(--blue); color: white; padding: 12px 25px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; }
-        .btn-call:hover { background: var(--orange); }
-
-        footer { background: var(--dark); color: white; text-align: center; padding: 40px; }
+        footer { background: var(--dark); color: white; text-align: center; padding: 40px; margin-top: 50px; }
     </style>
 </head>
 <body>
@@ -71,8 +69,8 @@
             <a>📦 SẢN PHẨM ▼</a>
             <div class="dropdown-content">
                 <a onclick="loadInverters()">Biến Tần WECON (Chính hãng)</a>
-                <a onclick="alert('Vui lòng liên hệ để biết chi tiết PLC Wecon!')">Bộ Điều Khiển PLC</a>
-                <a onclick="alert('Vui lòng liên hệ để biết chi tiết HMI Wecon!')">Màn Hình HMI</a>
+                <a onclick="alert('Vui lòng liên hệ PLC Wecon!')">Bộ Điều Khiển PLC</a>
+                <a onclick="alert('Vui lòng liên hệ HMI Wecon!')">Màn Hình HMI</a>
             </div>
         </li>
         <li><a href="tel:0355915000">📞 HOTLINE: 0355.915.000</a></li>
@@ -81,19 +79,39 @@
 
 <div id="page-content">
     <div class="page-header">
-        <h1>CÔNG TY TNHH KỸ THUẬT AT-MAINT</h1>
-        <p>Đại lý ủy quyền cung cấp dòng Biến Tần WECON hiệu năng cao</p>
+        <h1>AT-MAINT KỸ THUẬT & VẬT TƯ</h1>
+        <p>Đại lý ủy quyền cung cấp giải pháp Biến tần WECON toàn quốc</p>
     </div>
-    <div class="container" style="text-align: center;">
-        <h2 style="color: var(--blue);">CHÀO MỪNG QUÝ KHÁCH</h2>
-        <p>Vui lòng chọn <b>Biến Tần WECON</b> trong menu Sản Phẩm để xem chi tiết thông số kỹ thuật.</p>
+    
+    <div class="container">
+        <h2 class="section-title">Sản Phẩm WECON Nổi Bật</h2>
+        <div class="featured-grid">
+            <div class="featured-card">
+                <img src="https://wecon-plc.com/image/catalog/Inverter/VB-Inverter.png" alt="WECON VB">
+                <h3>WECON VB Series</h3>
+                <p>Dòng Vector cao cấp cho tải nặng, ổn định và chính xác.</p>
+                <div class="btn-view" onclick="loadInverters()">XEM CHI TIẾT</div>
+            </div>
+            <div class="featured-card">
+                <img src="https://wecon-plc.com/image/catalog/Inverter/VFD-Inverter.png" alt="WECON VFD">
+                <h3>WECON VFD Series</h3>
+                <p>Biến tần kinh tế cho bơm, quạt và ứng dụng đơn giản.</p>
+                <div class="btn-view" onclick="loadInverters()">XEM CHI TIẾT</div>
+            </div>
+            <div class="featured-card">
+                <img src="https://hantech.vn/wp-content/uploads/2021/05/bien-tan-wecon-vb.jpg" alt="WECON VB500">
+                <h3>WECON VB500 Series</h3>
+                <p>Thế hệ mới nhất, hỗ trợ cả động cơ đồng bộ & không đồng bộ.</p>
+                <div class="btn-view" onclick="loadInverters()">XEM CHI TIẾT</div>
+            </div>
+        </div>
     </div>
 </div>
 
 <footer>
-    <p><b>AT-MAINT SERVICES - ĐẠI LÝ WECON VIỆT NAM</b></p>
-    <p>Hotline hỗ trợ kỹ thuật: 0355.915.000</p>
-    <p>&copy; 2024 AT-Maint - Uy Tín & Chất Lượng</p>
+    <p><b>AT-MAINT SERVICES - CHUYÊN BIẾN TẦN WECON</b></p>
+    <p>Địa chỉ: Liên hệ Hotline để được tư vấn kỹ thuật | Hotline: 0355.915.000</p>
+    <p>&copy; 2024 AT-Maint - Giải pháp kỹ thuật toàn diện</p>
 </footer>
 
 <script>
@@ -102,75 +120,84 @@
     function loadHome() {
         content.innerHTML = `
             <div class="page-header">
-                <h1>CÔNG TY TNHH KỸ THUẬT AT-MAINT</h1>
-                <p>Giải pháp tự động hóa toàn diện với thiết bị WECON</p>
+                <h1>AT-MAINT KỸ THUẬT & VẬT TƯ</h1>
+                <p>Đại lý ủy quyền cung cấp giải pháp Biến tần WECON toàn quốc</p>
             </div>
-            <div class="container" style="text-align: center;">
-                <h2 style="color: var(--blue);">TỔNG KHO VẬT TƯ WECON</h2>
-                <p>Chúng tôi tự hào là đối tác cung cấp các dòng biến tần WECON chất lượng nhất thị trường.</p>
-                <img src="https://wecon-plc.com/image/catalog/Inverter/VB-Inverter.png" style="max-width:300px; margin-top:20px;">
+            <div class="container">
+                <h2 class="section-title">Sản Phẩm WECON Nổi Bật</h2>
+                <div class="featured-grid">
+                    <div class="featured-card">
+                        <img src="https://wecon-plc.com/image/catalog/Inverter/VB-Inverter.png" alt="WECON VB">
+                        <h3>WECON VB Series</h3>
+                        <p>Dòng Vector cao cấp cho tải nặng, ổn định và chính xác.</p>
+                        <div class="btn-view" onclick="loadInverters()">XEM CHI TIẾT</div>
+                    </div>
+                    <div class="featured-card">
+                        <img src="https://wecon-plc.com/image/catalog/Inverter/VFD-Inverter.png" alt="WECON VFD">
+                        <h3>WECON VFD Series</h3>
+                        <p>Biến tần kinh tế cho bơm, quạt và ứng dụng đơn giản.</p>
+                        <div class="btn-view" onclick="loadInverters()">XEM CHI TIẾT</div>
+                    </div>
+                    <div class="featured-card">
+                        <img src="https://hantech.vn/wp-content/uploads/2021/05/bien-tan-wecon-vb.jpg" alt="WECON VB500">
+                        <h3>WECON VB500 Series</h3>
+                        <p>Thế hệ mới nhất, hỗ trợ cả động cơ đồng bộ & không đồng bộ.</p>
+                        <div class="btn-view" onclick="loadInverters()">XEM CHI TIẾT</div>
+                    </div>
+                </div>
             </div>
         `;
+        window.scrollTo(0, 0);
     }
 
     function loadInverters() {
         content.innerHTML = `
             <div class="page-header" style="background: #003366;">
-                <h1>THÔNG SỐ KỸ THUẬT BIẾN TẦN WECON</h1>
-                <p>Danh mục đầy đủ các dòng sản phẩm WECON chính hãng</p>
+                <h1>CHI TIẾT DÒNG BIẾN TẦN WECON</h1>
+                <p>Thông số kỹ thuật đầy đủ và báo giá đại lý</p>
             </div>
             
             <div class="container">
-                <h2 class="product-section-title">Chi Tiết Sản Phẩm WECON</h2>
+                <h2 class="section-title">Danh Mục Kỹ Thuật</h2>
 
                 <div class="product-row">
-                    <div class="img-box">
-                        <img src="https://wecon-plc.com/image/catalog/Inverter/VB-Inverter.png" alt="Wecon VB">
-                    </div>
+                    <div class="img-box"><img src="https://wecon-plc.com/image/catalog/Inverter/VB-Inverter.png"></div>
                     <div class="info-box">
-                        <div class="brand-tag">WECON - TẢI NẶNG</div>
-                        <h2>Biến tần WECON VB Series (High Performance)</h2>
-                        <p>Dòng biến tần Vector cao cấp chuyên dụng cho các ứng dụng yêu cầu độ chính xác và moment lớn.</p>
+                        <h2>WECON VB Series (Vector Control)</h2>
                         <table class="specs">
-                            <tr><td>Dải công suất</td><td>0.75kW - 630kW</td></tr>
-                            <tr><td>Điện áp ngõ vào</td><td>3 Pha 380V - 480V (±15%)</td></tr>
-                            <tr><td>Tần số ngõ ra</td><td>0.00Hz - 600.00Hz</td></tr>
-                            <tr><td>Chế độ điều khiển</td><td>V/F, Sensorless Vector (SVC), Torque Control</td></tr>
-                            <tr><td>Moment khởi động</td><td>150% tại 0.5Hz (SVC), 180% tại 0Hz (FVC)</td></tr>
-                            <tr><td>Truyền thông</td><td>Modbus RTU (RS485) tích hợp sẵn</td></tr>
+                            <tr><td><b>Công suất:</b></td><td>0.75kW - 630kW</td></tr>
+                            <tr><td><b>Điều khiển:</b></td><td>SVC, V/F Control</td></tr>
+                            <tr><td><b>Moment:</b></td><td>150% tại 0.5Hz</td></tr>
+                            <tr><td><b>Quá tải:</b></td><td>150% trong 60s</td></tr>
                         </table>
                         <div class="price-row">
                             <span class="price">Giá: Liên hệ báo giá</span>
-                            <a href="tel:0355915000" class="btn-call">GỌI TƯ VẤN KỸ THUẬT</a>
+                            <a href="tel:0355915000" class="btn-view" style="background:var(--blue)">NHẬN BÁO GIÁ</a>
                         </div>
                     </div>
                 </div>
 
                 <div class="product-row">
-                    <div class="img-box">
-                        <img src="https://wecon-plc.com/image/catalog/Inverter/VFD-Inverter.png" alt="Wecon VFD">
-                    </div>
+                    <div class="img-box"><img src="https://wecon-plc.com/image/catalog/Inverter/VFD-Inverter.png"></div>
                     <div class="info-box">
-                        <div class="brand-tag">WECON - KINH TẾ</div>
-                        <h2>Biến tần WECON VFD Series (Compact Type)</h2>
-                        <p>Giải pháp tối ưu chi phí cho các ứng dụng cơ bản như bơm quạt, máy đóng gói nhỏ.</p>
+                        <h2>WECON VFD Series (Compact)</h2>
                         <table class="specs">
-                            <tr><td>Dải công suất</td><td>0.4kW - 4.0kW</td></tr>
-                            <tr><td>Điện áp ngõ vào</td><td>1 Pha 220V / 3 Pha 380V</td></tr>
-                            <tr><td>Khả năng quá tải</td><td>150% dòng định mức trong 60 giây</td></tr>
-                            <tr><td>Phương thức làm mát</td><td>Quạt làm mát hiệu suất cao</td></tr>
-                            <tr><td>Tính năng nổi bật</td><td>Thiết kế Slim nhỏ gọn, lắp đặt sát nhau tiết kiệm tủ điện</td></tr>
-                            <tr><td>Ứng dụng</td><td>Máy thực phẩm, dệt sợi, băng chuyền nhỏ</td></tr>
+                            <tr><td><b>Điện áp:</b></td><td>1P 220V / 3P 380V</td></tr>
+                            <tr><td><b>Tần số:</b></td><td>0 - 600Hz</td></tr>
+                            <tr><td><b>Thiết kế:</b></td><td>Nhỏ gọn tiết kiệm diện tích</td></tr>
+                            <tr><td><b>Bảo vệ:</b></td><td>Đa tầng (Quá dòng, áp, nhiệt)</td></tr>
                         </table>
                         <div class="price-row">
                             <span class="price">Giá: Liên hệ báo giá</span>
-                            <a href="tel:0355915000" class="btn-call">GỌI TƯ VẤN KỸ THUẬT</a>
+                            <a href="tel:0355915000" class="btn-view" style="background:var(--blue)">NHẬN BÁO GIÁ</a>
                         </div>
                     </div>
                 </div>
+            </div>
+        `;
+        window.scrollTo(0, 0);
+    }
+</script>
 
-                <div class="product-row">
-                    <div class="img-box">
-                        <img src="https://hantech.vn/wp-content/uploads/2021/05/bien-tan-wecon-vb.jpg" alt="Wecon VB500">
-                    </div>
-                    <div class="info-box">
+</body>
+</html>
