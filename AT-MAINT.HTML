@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AT-Maint | WECON & Giải Pháp Tự Động Hóa</title>
+    <title>AT-Maint | WECON Bình Dương</title>
     <style>
         :root { 
             --blue: #004a99; 
@@ -40,15 +40,15 @@
         }
         .quick-card:hover { transform: translateY(-5px); border-color: var(--orange); }
         .img-placeholder { 
-            width: 100%; height: 180px; background: #fff; border-radius: 5px; 
+            width: 100%; height: 200px; background: #fff; border-radius: 5px; 
             margin-bottom: 15px; display: flex; align-items: center; justify-content: center; overflow: hidden;
         }
-        .img-placeholder img { max-width: 95%; max-height: 95%; object-fit: contain; }
+        .img-placeholder img { max-width: 100%; max-height: 100%; object-fit: contain; }
 
         /* Product Detail */
         .product-row { display: flex; gap: 30px; background: white; border: 1px solid #eee; border-radius: 12px; padding: 30px; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .img-large { flex: 1; text-align: center; }
-        .img-large img { max-width: 100%; max-height: 350px; object-fit: contain; }
+        .img-large img { max-width: 100%; max-height: 400px; object-fit: contain; }
         .info-box { flex: 1.5; }
         .btn-contact { display: inline-block; padding: 12px 30px; background: var(--blue); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 15px; }
 
@@ -78,17 +78,17 @@
 
 <footer>
     <p><b>AT-MAINT SERVICES</b> - Đối tác giải pháp WECON uy tín</p>
-    <p>Hỗ trợ kỹ thuật 24/7 | Hotline: 0355.915.000</p>
+    <p>Hotline: 0355.915.000 | Email: kỹ thuật@at-maint.com</p>
 </footer>
 
 <script>
     const content = document.getElementById('page-content');
 
-    // Cập nhật link ảnh mới chất lượng cao
+    // SỬ DỤNG TÊN FILE BẠN ĐÃ TẢI LÊN
     const IMAGES = {
-        inverter: "http://googleusercontent.com/image_collection/image_retrieval/1019727081935542298_0", 
-        plc: "http://googleusercontent.com/image_collection/image_retrieval/15118196000115487917_0",
-        hmi: "http://googleusercontent.com/image_collection/image_retrieval/4310584170350411643_0",
+        inverter: "18777-wecon-inverter.jpg", // File bạn vừa gửi
+        plc: "https://i.ibb.co/LdnvXfP/plc-wecon.jpg", 
+        hmi: "https://i.ibb.co/m0f6vS8/hmi-wecon.jpg",
         repair: "https://cdn-icons-png.flaticon.com/512/4233/4233830.png",
         fallback: "https://via.placeholder.com/300x300?text=WECON+PRODUCT"
     };
@@ -102,30 +102,30 @@
         content.innerHTML = `
             <div class="page-header">
                 <h1>AT-MAINT KỸ THUẬT & VẬT TƯ</h1>
-                <p>Giải pháp tự động hóa WECON chuyên nghiệp</p>
+                <p>Đại lý ủy quyền WECON - Giải pháp tự động hóa tối ưu</p>
             </div>
             <div class="container">
-                <h2 class="section-title">Sản Phẩm Chính</h2>
+                <h2 class="section-title">DANH MỤC CHÍNH</h2>
                 <div class="quick-grid">
                     <div class="quick-card" onclick="loadInverters()">
-                        <div class="img-placeholder"><img src="${IMAGES.inverter}" onerror="fixImage(this)" alt="Biến tần Wecon"></div>
+                        <div class="img-placeholder"><img src="${IMAGES.inverter}" onerror="fixImage(this)"></div>
                         <h3>BIẾN TẦN WECON</h3>
                         <p>Dòng VB chuyên cho tải nặng</p>
                     </div>
                     <div class="quick-card" onclick="loadPLC()">
-                        <div class="img-placeholder"><img src="${IMAGES.plc}" onerror="fixImage(this)" alt="PLC Wecon"></div>
+                        <div class="img-placeholder"><img src="${IMAGES.plc}" onerror="fixImage(this)"></div>
                         <h3>BỘ ĐIỀU KHIỂN PLC</h3>
-                        <p>Dòng LX ổn định, mạnh mẽ</p>
+                        <p>Dòng LX/LX5V tốc độ cao</p>
                     </div>
                     <div class="quick-card" onclick="loadHMI()">
-                        <div class="img-placeholder"><img src="${IMAGES.hmi}" onerror="fixImage(this)" alt="HMI Wecon"></div>
+                        <div class="img-placeholder"><img src="${IMAGES.hmi}" onerror="fixImage(this)"></div>
                         <h3>MÀN HÌNH HMI</h3>
-                        <p>Dòng PI cảm ứng đa điểm</p>
+                        <p>Dòng PI sắc nét, mượt mà</p>
                     </div>
                     <div class="quick-card" onclick="loadServices()">
-                        <div class="img-placeholder"><img src="${IMAGES.repair}" onerror="fixImage(this)" alt="Dịch vụ"></div>
+                        <div class="img-placeholder"><img src="${IMAGES.repair}" onerror="fixImage(this)"></div>
                         <h3>DỊCH VỤ KỸ THUẬT</h3>
-                        <p>Sửa chữa, lắp đặt 24/7</p>
+                        <p>Sửa chữa & Bảo trì 24/7</p>
                     </div>
                 </div>
             </div>
@@ -140,11 +140,11 @@
                     <div class="img-large"><img src="${IMAGES.inverter}" onerror="fixImage(this)"></div>
                     <div class="info-box">
                         <h2>WECON VB Series (Tải nặng)</h2>
-                        <p>Được thiết kế chuyên biệt cho các ứng dụng đòi hỏi moment khởi động lớn và độ bền cao.</p>
+                        <p>Sản phẩm biến tần chất lượng cao, chuyên dụng cho các hệ thống máy công nghiệp tại Bình Dương.</p>
                         <ul>
-                            <li>Dải công suất rộng: 0.75kW - 630kW.</li>
-                            <li>Chế độ điều khiển Vector, V/F linh hoạt.</li>
-                            <li>Khả năng chống nhiễu và bảo vệ động cơ tối ưu.</li>
+                            <li><b>Công suất:</b> 0.75kW - 630kW.</li>
+                            <li><b>Đặc điểm:</b> Moment khởi động cao, chịu tải vượt định mức tốt.</li>
+                            <li><b>Ứng dụng:</b> Máy nén khí, máy đùn nhựa, cẩu trục, băng tải...</li>
                         </ul>
                         <a href="tel:0355915000" class="btn-contact">LIÊN HỆ BÁO GIÁ</a>
                     </div>
@@ -161,11 +161,11 @@
                     <div class="img-large"><img src="${IMAGES.plc}" onerror="fixImage(this)"></div>
                     <div class="info-box">
                         <h2>PLC WECON LX3V / LX5V</h2>
-                        <p>Giải pháp lập trình điều khiển mạnh mẽ với tốc độ xử lý vượt trội.</p>
+                        <p>Bộ điều khiển lập trình ổn định, tương thích tốt với các phần mềm phổ biến.</p>
                         <ul>
-                            <li>Tích hợp nhiều cổng giao tiếp: RS485, Ethernet.</li>
-                            <li>Hỗ trợ các module mở rộng đa dạng.</li>
-                            <li>Phần mềm lập trình thân thiện, dễ sử dụng.</li>
+                            <li>Xử lý lệnh tốc độ cao.</li>
+                            <li>Hỗ trợ nhiều ngõ vào/ra và module mở rộng.</li>
+                            <li>Giá thành cạnh tranh, bảo hành dài hạn.</li>
                         </ul>
                         <a href="tel:0355915000" class="btn-contact">TƯ VẤN KỸ THUẬT</a>
                     </div>
@@ -182,11 +182,11 @@
                     <div class="img-large"><img src="${IMAGES.hmi}" onerror="fixImage(this)"></div>
                     <div class="info-box">
                         <h2>Màn Hình HMI PI Series</h2>
-                        <p>Giao diện người máy thông minh với khả năng hiển thị sắc nét.</p>
+                        <p>Màn hình cảm ứng công nghiệp thế hệ mới của WECON.</p>
                         <ul>
-                            <li>Kích thước từ 4.3" đến 15" phù hợp mọi không gian.</li>
-                            <li>Hỗ trợ giám sát và điều khiển từ xa qua Cloud.</li>
-                            <li>Cảm ứng nhạy, hoạt động ổn định trong môi trường công nghiệp.</li>
+                            <li>Kích thước: 4.3 inch - 15 inch.</li>
+                            <li>Màu sắc trung thực, cảm ứng điện dung nhạy.</li>
+                            <li>Hỗ trợ kết nối Cloud/IoT để giám sát qua điện thoại.</li>
                         </ul>
                         <a href="tel:0355915000" class="btn-contact">NHẬN CATALOGUE</a>
                     </div>
@@ -202,21 +202,20 @@
                 <div class="product-row">
                     <div class="img-large"><img src="${IMAGES.repair}" onerror="fixImage(this)"></div>
                     <div class="info-box">
-                        <h2>Dịch vụ Kỹ thuật AT-Maint</h2>
-                        <p>Chúng tôi cung cấp giải pháp trọn gói từ cung cấp thiết bị đến bảo trì hệ thống.</p>
+                        <h2>Sửa Chữa & Bảo Trì Tận Nơi</h2>
+                        <p>AT-Maint chuyên xử lý các sự cố về hệ thống tự động hóa nhanh chóng.</p>
                         <ul>
-                            <li>Sửa chữa Biến tần, PLC, HMI tất cả các hãng.</li>
-                            <li>Thiết kế, lắp đặt tủ điện điều khiển theo yêu cầu.</li>
-                            <li>Nâng cấp, cải tiến dây chuyền máy móc tự động.</li>
+                            <li>Sửa biến tần, PLC, HMI tất cả các hãng.</li>
+                            <li>Lập trình mới hệ thống theo yêu cầu sản xuất.</li>
+                            <li>Cung cấp linh kiện vật tư thay thế chính hãng.</li>
                         </ul>
-                        <a href="tel:0355915000" class="btn-contact" style="background:var(--orange)">GỌI CỨU HỘ KỸ THUẬT</a>
+                        <a href="tel:0355915000" class="btn-contact" style="background:var(--orange)">GỌI NGAY: 0355.915.000</a>
                     </div>
                 </div>
             </div>
         `;
     }
 
-    // Khởi tạo mặc định
     loadHome();
 </script>
 </body>
