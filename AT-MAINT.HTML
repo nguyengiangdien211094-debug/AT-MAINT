@@ -11,58 +11,49 @@
             --dark: #222;
             --gray: #f8f9fa; 
         }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; background: #fff; overflow-x: hidden; color: #333; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; padding: 0; background: #fff; color: #333; }
 
-        /* Navigation */
+        /* Header & Nav */
         nav { background: var(--dark); color: white; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: center; box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
         nav ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; }
         nav ul li { position: relative; }
-        nav ul li a { display: block; color: white; padding: 20px 25px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 14px; transition: 0.3s; cursor: pointer; }
+        nav ul li a { display: block; color: white; padding: 18px 22px; text-decoration: none; font-weight: bold; text-transform: uppercase; font-size: 13px; transition: 0.3s; cursor: pointer; }
         .nav-products { background: var(--orange); }
         nav ul li a:hover { background: #444; }
 
-        /* Dropdown Menu */
-        .dropdown-content { display: none; position: absolute; background: white; min-width: 280px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); border-top: 4px solid var(--orange); }
-        .dropdown-content a { color: #333 !important; padding: 15px 20px; border-bottom: 1px solid #eee; text-transform: none; font-weight: 600; display: block; text-decoration: none; font-size: 15px; }
-        .dropdown-content a:hover { background: var(--gray); color: var(--blue) !important; padding-left: 30px; }
+        /* Dropdown */
+        .dropdown-content { display: none; position: absolute; background: white; min-width: 250px; box-shadow: 0 8px 16px rgba(0,0,0,0.1); border-top: 4px solid var(--orange); }
+        .dropdown-content a { color: #333 !important; padding: 12px 20px; border-bottom: 1px solid #eee; text-transform: none; display: block; }
+        .dropdown-content a:hover { background: var(--gray); color: var(--blue) !important; }
         nav ul li:hover .dropdown-content { display: block; }
 
-        /* Layout */
-        .page-header { background: var(--blue); color: white; padding: 60px 5%; text-align: center; }
-        .container { max-width: 1200px; margin: auto; padding: 40px 20px; }
-        .section-title { text-align: center; color: var(--blue); font-size: 28px; margin-bottom: 40px; text-transform: uppercase; }
-        .section-title::after { content: ''; display: block; width: 80px; height: 4px; background: var(--orange); margin: 10px auto; }
-
-        /* Quick Access Grid */
-        .quick-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
-        .quick-card { 
-            background: white; border: 1px solid #eee; border-radius: 12px; padding: 25px; 
-            text-align: center; cursor: pointer; transition: 0.4s; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            display: flex; flex-direction: column; align-items: center;
-        }
-        .quick-card:hover { transform: translateY(-8px); border-color: var(--orange); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .quick-card .img-wrapper { width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; margin-bottom: 15px; overflow: hidden; }
-        .quick-card img { max-width: 100%; max-height: 100%; object-fit: contain; }
-        .quick-card h3 { color: var(--blue); margin: 10px 0; font-size: 18px; }
-
-        /* Product Detail Row */
-        .product-row { 
-            display: flex; gap: 40px; background: white; border: 1px solid #eee; 
-            border-radius: 15px; margin-bottom: 40px; padding: 30px; align-items: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
-        }
-        .img-box { flex: 1; text-align: center; }
-        .img-box img { max-width: 100%; height: auto; max-height: 350px; object-fit: contain; }
-        .info-box { flex: 1.5; }
-        .info-box h2 { color: var(--blue); margin-top: 0; border-bottom: 2px solid var(--orange); display: inline-block; padding-bottom: 5px; }
-        .specs { width: 100%; border-collapse: collapse; margin: 20px 0; }
-        .specs td { padding: 12px 0; border-bottom: 1px solid #eee; font-size: 15px; }
-        .btn-call { display: inline-block; padding: 15px 35px; background: var(--blue); color: white; text-decoration: none; border-radius: 8px; font-weight: bold; font-size: 16px; transition: 0.3s; }
-        .btn-call:hover { background: var(--orange); transform: scale(1.05); }
-
-        footer { background: var(--dark); color: white; text-align: center; padding: 40px; margin-top: 60px; }
+        /* Content Sections */
+        .page-header { background: var(--blue); color: white; padding: 50px 5%; text-align: center; }
+        .container { max-width: 1100px; margin: auto; padding: 40px 20px; }
+        .section-title { text-align: center; color: var(--blue); margin-bottom: 30px; text-transform: uppercase; }
         
-        @media (max-width: 768px) { .product-row { flex-direction: column; text-align: center; } }
+        /* Grid Layout */
+        .quick-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+        .quick-card { 
+            background: white; border: 1px solid #eee; border-radius: 10px; padding: 20px; 
+            text-align: center; cursor: pointer; transition: 0.3s; box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .quick-card:hover { transform: translateY(-5px); border-color: var(--orange); }
+        .img-placeholder { 
+            width: 100%; height: 180px; background: #fff; border-radius: 5px; 
+            margin-bottom: 15px; display: flex; align-items: center; justify-content: center; overflow: hidden;
+        }
+        .img-placeholder img { max-width: 90%; max-height: 90%; object-fit: contain; }
+
+        /* Product Detail */
+        .product-row { display: flex; gap: 30px; background: white; border: 1px solid #eee; border-radius: 12px; padding: 30px; align-items: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .img-large { flex: 1; text-align: center; }
+        .img-large img { max-width: 100%; max-height: 300px; }
+        .info-box { flex: 1.5; }
+        .btn-contact { display: inline-block; padding: 12px 30px; background: var(--blue); color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 15px; }
+
+        footer { background: var(--dark); color: white; text-align: center; padding: 30px; margin-top: 50px; }
+        @media (max-width: 768px) { .product-row { flex-direction: column; } }
     </style>
 </head>
 <body>
@@ -76,74 +67,65 @@
                 <a onclick="loadInverters()">Biến Tần WECON</a>
                 <a onclick="loadPLC()">Bộ Điều Khiển PLC</a>
                 <a onclick="loadHMI()">Màn Hình HMI</a>
-                <a onclick="loadServo()">Hệ Thống Servo</a>
-                <a onclick="loadSwitchgear()">Thiết Bị Đóng Cắt</a>
-                <a onclick="loadServices()" style="background: #fff5f0; color: var(--orange) !important;">🛠️ Dịch Vụ Kỹ Thuật</a>
+                <a onclick="loadServices()">🛠️ Dịch Vụ Sửa Chữa</a>
             </div>
         </li>
-        <li><a href="tel:0355915000" style="color: #00ff00;">📞 HOTLINE: 0355.915.000</a></li>
+        <li><a href="tel:0355915000" style="color: #00ff00;">📞 0355.915.000</a></li>
     </ul>
 </nav>
 
 <div id="page-content"></div>
 
 <footer>
-    <p><b>AT-MAINT SERVICES - CHUYÊN GIA TỰ ĐỘNG HÓA</b></p>
-    <p>Hỗ trợ kỹ thuật tận nơi 24/7 | Hotline: 0355.915.000</p>
+    <p><b>AT-MAINT SERVICES</b> - Hỗ trợ kỹ thuật 24/7</p>
 </footer>
 
 <script>
     const content = document.getElementById('page-content');
 
-    // Link ảnh ổn định hơn (tránh lỗi hiển thị)
+    // Link ảnh mới từ nguồn ổn định hơn
     const IMAGES = {
-        inverter: "https://files.vuton.vn/uploads/images/wecon-vb-series.png", // Dự phòng ảnh từ nguồn khác
+        inverter: "https://img.vuton.vn/api/image/wecon-vb.png", 
         plc: "https://tudonghoatruongquan.com/wp-content/uploads/2021/01/LX3V.jpg",
-        hmi: "https://p.globalsources.com/IMAGES/PDT/BIG/591/B1188351591.jpg",
-        servo: "https://sc04.alicdn.com/kf/H685785002a204364964553255a587974E.jpg",
-        switch: "https://mccb.com.vn/wp-content/uploads/2021/01/mccb-ls.jpg",
-        repair: "https://cdn-icons-png.flaticon.com/512/4233/4233830.png"
+        hmi: "https://wecon.vn/wp-content/uploads/2020/06/PI3070i-7-inch.jpg",
+        repair: "https://cdn-icons-png.flaticon.com/512/4233/4233830.png",
+        fallback: "https://via.placeholder.com/300x300?text=WECON+SERIES"
     };
 
-    // Hàm xử lý ảnh lỗi
-    function handleImgError(img) {
-        img.onerror = null;
-        img.src = 'https://via.placeholder.com/300x300?text=S%E1%BA%A3n+Ph%E1%BA%A9m+WECON';
+    // Hàm kiểm tra và sửa ảnh nếu lỗi link
+    function fixImage(img) {
+        img.onerror = null; // Tránh lặp vô hạn
+        img.src = IMAGES.fallback;
     }
 
     function loadHome() {
         content.innerHTML = `
             <div class="page-header">
                 <h1>AT-MAINT KỸ THUẬT & VẬT TƯ</h1>
-                <p>Đại lý ủy quyền WECON - Giải pháp tự động hóa uy tín</p>
+                <p>Đại lý ủy quyền WECON - Uy tín, Chất lượng</p>
             </div>
             <div class="container">
-                <h2 class="section-title">Danh Mục Chính</h2>
+                <h2 class="section-title">Sản Phẩm Chính</h2>
                 <div class="quick-grid">
                     <div class="quick-card" onclick="loadInverters()">
-                        <div class="img-wrapper"><img src="${IMAGES.inverter}" onerror="handleImgError(this)"></div>
+                        <div class="img-placeholder"><img src="${IMAGES.inverter}" onerror="fixImage(this)"></div>
                         <h3>BIẾN TẦN WECON</h3>
-                        <p>Điều khiển động cơ linh hoạt</p>
                     </div>
                     <div class="quick-card" onclick="loadPLC()">
-                        <div class="img-wrapper"><img src="${IMAGES.plc}" onerror="handleImgError(this)"></div>
+                        <div class="img-placeholder"><img src="${IMAGES.plc}" onerror="fixImage(this)"></div>
                         <h3>BỘ ĐIỀU KHIỂN PLC</h3>
-                        <p>Trí tuệ hệ thống tự động</p>
                     </div>
                     <div class="quick-card" onclick="loadHMI()">
-                        <div class="img-wrapper"><img src="${IMAGES.hmi}" onerror="handleImgError(this)"></div>
+                        <div class="img-placeholder"><img src="${IMAGES.hmi}" onerror="fixImage(this)"></div>
                         <h3>MÀN HÌNH HMI</h3>
-                        <p>Giao diện điều khiển cảm ứng</p>
                     </div>
                     <div class="quick-card" onclick="loadServices()">
-                        <div class="img-wrapper"><img src="${IMAGES.repair}" onerror="handleImgError(this)"></div>
-                        <h3>SỬA CHỮA & BẢO TRÌ</h3>
-                        <p>Hỗ trợ kỹ thuật 24/7</p>
+                        <div class="img-placeholder"><img src="${IMAGES.repair}" onerror="fixImage(this)"></div>
+                        <h3>DỊCH VỤ KỸ THUẬT</h3>
                     </div>
                 </div>
             </div>
         `;
-        window.scrollTo(0,0);
     }
 
     function loadInverters() {
@@ -151,20 +133,19 @@
             <div class="page-header"><h1>BIẾN TẦN WECON</h1></div>
             <div class="container">
                 <div class="product-row">
-                    <div class="img-box"><img src="${IMAGES.inverter}" onerror="handleImgError(this)"></div>
+                    <div class="img-large"><img src="${IMAGES.inverter}" onerror="fixImage(this)"></div>
                     <div class="info-box">
-                        <h2>WECON VB Series (Tải nặng)</h2>
-                        <table class="specs">
-                            <tr><td><b>Dải công suất:</b></td><td>0.75kW - 630kW</td></tr>
-                            <tr><td><b>Chế độ:</b></td><td>Vector Control, V/F Control</td></tr>
-                            <tr><td><b>Ưu điểm:</b></td><td>Chống nhiễu tốt, bền bỉ, dễ cài đặt.</td></tr>
-                        </table>
-                        <a href="tel:0355915000" class="btn-call">GỌI BÁO GIÁ NGAY</a>
+                        <h2>WECON VB Series</h2>
+                        <p>Dòng biến tần tải nặng, ổn định cao, bảo hành 18 tháng.</p>
+                        <ul>
+                            <li>Công suất: 0.75kW - 630kW</li>
+                            <li>Moment khởi động lớn, chống nhiễu cực tốt.</li>
+                        </ul>
+                        <a href="tel:0355915000" class="btn-contact">LIÊN HỆ BÁO GIÁ</a>
                     </div>
                 </div>
             </div>
         `;
-        window.scrollTo(0,0);
     }
 
     function loadPLC() {
@@ -172,92 +153,18 @@
             <div class="page-header"><h1>BỘ ĐIỀU KHIỂN PLC</h1></div>
             <div class="container">
                 <div class="product-row">
-                    <div class="img-box"><img src="${IMAGES.plc}" onerror="handleImgError(this)"></div>
+                    <div class="img-large"><img src="${IMAGES.plc}" onerror="fixImage(this)"></div>
                     <div class="info-box">
                         <h2>PLC LX3V / LX5V</h2>
-                        <table class="specs">
-                            <tr><td><b>Tính năng:</b></td><td>Xử lý tốc độ cao, đa cổng kết nối.</td></tr>
-                            <tr><td><b>Bảo hành:</b></td><td>18 tháng chính hãng.</td></tr>
-                        </table>
-                        <a href="tel:0355915000" class="btn-call">TƯ VẤN KỸ THUẬT</a>
+                        <p>Tương thích hoàn toàn, lập trình dễ dàng.</p>
+                        <a href="tel:0355915000" class="btn-contact">TƯ VẤN KỸ THUẬT</a>
                     </div>
                 </div>
             </div>
         `;
-        window.scrollTo(0,0);
     }
 
-    function loadHMI() {
-        content.innerHTML = `
-            <div class="page-header"><h1>MÀN HÌNH HMI</h1></div>
-            <div class="container">
-                <div class="product-row">
-                    <div class="img-box"><img src="${IMAGES.hmi}" onerror="handleImgError(this)"></div>
-                    <div class="info-box">
-                        <h2>Smart HMI PI Series</h2>
-                        <table class="specs">
-                            <tr><td><b>Kích thước:</b></td><td>4.3", 7", 10.1", 15"</td></tr>
-                            <tr><td><b>Kết nối:</b></td><td>Wifi, Ethernet, Cloud giám sát từ xa.</td></tr>
-                        </table>
-                        <a href="tel:0355915000" class="btn-call">XEM BẢNG GIÁ</a>
-                    </div>
-                </div>
-            </div>
-        `;
-        window.scrollTo(0,0);
-    }
-
-    function loadServo() {
-        content.innerHTML = `
-            <div class="page-header"><h1>HỆ THỐNG SERVO</h1></div>
-            <div class="container">
-                <div class="product-row">
-                    <div class="img-box"><img src="${IMAGES.servo}" onerror="handleImgError(this)"></div>
-                    <div class="info-box">
-                        <h2>Servo WECON VD2 Series</h2>
-                        <p>Giải pháp điều khiển vị trí chính xác tuyệt đối.</p>
-                        <a href="tel:0355915000" class="btn-call">LIÊN HỆ ĐẶT HÀNG</a>
-                    </div>
-                </div>
-            </div>
-        `;
-        window.scrollTo(0,0);
-    }
-
-    function loadSwitchgear() {
-        content.innerHTML = `
-            <div class="page-header"><h1>THIẾT BỊ ĐÓNG CẮT</h1></div>
-            <div class="container">
-                <div class="product-row">
-                    <div class="img-box"><img src="${IMAGES.switch}" onerror="handleImgError(this)"></div>
-                    <div class="info-box">
-                        <h2>MCCB - MCB - Contactor</h2>
-                        <p>Cung cấp vật tư LS, Schneider, Chint chính hãng.</p>
-                        <a href="tel:0355915000" class="btn-call">NHẬN CHIẾT KHẤU TỐT</a>
-                    </div>
-                </div>
-            </div>
-        `;
-        window.scrollTo(0,0);
-    }
-
-    function loadServices() {
-        content.innerHTML = `
-            <div class="page-header" style="background:var(--orange)"><h1>DỊCH VỤ KỸ THUẬT</h1></div>
-            <div class="container">
-                <div class="product-row">
-                    <div class="img-box"><img src="${IMAGES.repair}" onerror="handleImgError(this)"></div>
-                    <div class="info-box">
-                        <h2>Sửa chữa & Cải tiến máy</h2>
-                        <p>✅ Sửa Biến tần, PLC, HMI tận nơi.<br>✅ Lắp đặt tủ điện điều khiển máy tự động.<br>✅ Bảo trì định kỳ nhà máy.</p>
-                        <a href="tel:0355915000" class="btn-call" style="background:#d35400">ĐẶT LỊCH KHẢO SÁT</a>
-                    </div>
-                </div>
-            </div>
-        `;
-        window.scrollTo(0,0);
-    }
-
+    // Khởi tạo trang chủ
     loadHome();
 </script>
 </body>
